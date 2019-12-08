@@ -25,4 +25,16 @@ public class Pokemon {
 		this.type = Objects.requireNonNull(type);
 		this.type2 = Objects.requireNonNull(type2);
 	}  ;
+	@Override 
+	public boolean equals(Object o ) {
+		if(!(o instanceof Pokemon)) {
+			return false; 
+		}
+		Pokemon p  = (Pokemon) o;
+		return number==p.number && name.equals(p.name) && path.equals(p.path) && height==p.height && weight==p.weight && type.equals(p.type) && type2.equals(p.type2);
+		}
+	@Override
+	public int hashCode() {
+		return Objects.hash(number, name, path,height,weight,type,type2);
+		}
 }
