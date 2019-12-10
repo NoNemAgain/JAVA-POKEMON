@@ -21,58 +21,58 @@ public enum Type {
 	fighting ;
 	
 	public static Type getType(String str) {
-		if(str == "normal") {
+		if(str.equals("normal")) {
 			return Type.normal;
 		}
-		if(str == "grass") {
+		if(str.equals("grass")) {
 			return Type.grass;
 		}
-		if(str == "poison") {
+		if(str.equals("poison")) {
 			return Type.poison;
 		}
-		if(str == "fire") {
+		if(str.equals("fire")) {
 			return Type.fire;
 		}
-		if(str == "flying") {
+		if(str.equals("flying")) {
 			return Type.flying;
 		}
-		if(str == "water") {
+		if(str.equals("water")) {
 			return Type.water;
 		}
-		if(str == "bug") {
+		if(str.equals("bug")) {
 			return Type.bug;
 		}
-		if(str == "electric") {
+		if(str.equals("electric")) {
 			return Type.electric;
 		}
-		if(str == "ground") {
+		if(str.equals("ground")) {
 			return Type.ground;
 		}
-		if(str == "fairy") {
+		if(str.equals("fairy")) {
 			return Type.fairy;
 		}
-		if(str == "psychic") {
+		if(str.equals("psychic")) {
 			return Type.psychic;
 		}
-		if(str == "rock") {
+		if(str.equals("rock")) {
 			return Type.rock;
 		}
-		if(str == "steel") {
+		if(str.equals("steel")) {
 			return Type.steel;
 		}
-		if(str == "ice") {
+		if(str.equals("ice")) {
 			return Type.ice;
 		}
-		if(str == "ghost") {
+		if(str.equals("ghost")) {
 			return Type.ghost;
 		}
-		if(str == "dragon") {
+		if(str.equals("dragon")) {
 			return Type.dragon;
 		}
-		if(str == "dark") {
+		if(str.equals("dark")) {
 			return Type.dark;
 		}
-		if(str == "fighting") {
+		if(str.equals("fighting")) {
 			return Type.fighting;
 		}
 		else {
