@@ -1,5 +1,7 @@
 package fr.upem.dut.info.pokemonproject;
 
+import java.util.Objects;
+
 public class PokemonFight extends Pokemon{
         private static int id = 0;
         private float exp ;
@@ -25,6 +27,18 @@ public class PokemonFight extends Pokemon{
         this.speed=speed;
         this.capacities=capacities;
     }
+    @Override 
+	public boolean equals(Object o ) {
+		if(!(o instanceof PokemonFight)) {
+			return false; 
+		}
+		PokemonFight p  = (PokemonFight) o;
+		return super.equals(p)&&capacities.equals(p.capacities);
+		}
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(),capacities);
+		} 
    public boolean isdead() {
 	   if (hp==0){
 		   return true ;

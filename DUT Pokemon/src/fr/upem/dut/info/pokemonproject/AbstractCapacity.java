@@ -25,6 +25,9 @@ public abstract class AbstractCapacity implements Capacity {
 	public AbstractCapacity(String name, int power, int precision, int limit, Type type) {
 		this(name,power,precision,limit,type,null);
 	}
+	public void bobo(PokemonFight p) {
+		
+	}
 	
 	
 	
