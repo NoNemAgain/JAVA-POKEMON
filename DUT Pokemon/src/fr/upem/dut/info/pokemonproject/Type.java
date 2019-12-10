@@ -19,4 +19,15 @@ public enum Type {
 	dragon, 
 	dark ,
 	fighting ;
+	
+	static Type getType(String str) {
+		if(str == "normal") {
+			return Type.normal;
+		}
+		else {
+			return Type.bug;
+		}
+			
+		
+	}
 }

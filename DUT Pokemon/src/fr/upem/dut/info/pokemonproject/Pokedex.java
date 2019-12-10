@@ -22,7 +22,7 @@ public class Pokedex {
 			String[] line;
 			while ((line = reader.readLine().split(",")) != null) {
 				if(i !=0) {
-					pokedex.put(line[0], new Pokemon(Integer.parseInt(line[0]), line[1], line[2], Integer.parseInt(line[3]), Integer.parseInt(line[4]), Type.line[5]))
+					pokedex.put(Integer.parseInt(line[0]), new Pokemon(Integer.parseInt(line[0]), line[1], line[2], Integer.parseInt(line[3]), Integer.parseInt(line[4]),  Type.getType((line[5]))));
 				}
 				i++;
 			}
