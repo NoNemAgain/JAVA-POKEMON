@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class Pokedex {
 	private HashMap<Integer,Pokemon> pokedex;
 	private static final String fileName = "src/fr/upem/dut/info/source/pokedex.csv";
-	private final int version ;
+	private final int version;
 	public Pokedex () throws IOException {
 		Path file = Paths.get(fileName);
 		Charset charset = StandardCharsets.UTF_8;
@@ -22,7 +22,7 @@ public class Pokedex {
 			String[] line;
 			while ((line = reader.readLine().split(",")) != null) {
 				if(i !=0) {
-					pokedex.put(Integer.parseInt(line[0]), new Pokemon(Integer.parseInt(line[0]), line[1], line[2], Integer.parseInt(line[3]), Integer.parseInt(line[4]),  Type.getType((line[5]))));
+					pokedex.put(Integer.parseInt(line[0]), new Pokemon(Integer.parseInt(line[0]), line[1], line[2], Integer.parseInt(line[3]), Integer.parseInt(line[4]),  Type.getType((line[5])), Type.getType((line[6]))));
 				}
 				i++;
 			}
