@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Player {
-	private PokemonFight[] team = new PokemonFight[6];
+	private final String name ;
+	private PokemonFight[] team = new PokemonFight[5];
 	
-	public Player(PokemonFight... team) {
+	public Player(String name,PokemonFight... team) {
+		this.name=name;
 		this.team=team;
 	}
 	void deadPokemon() {
-		for(int i = 1; i <= 6; i++) {
+		for(int i = 0; i <= 5; i++) {
 			if (team[i].isdead()) {
 				team[i]=null;
 				System.out.println(team[i].dead());
