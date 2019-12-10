@@ -17,7 +17,7 @@ public class Pokedex {
 		FileReader fr = new FileReader(fileName);
         BufferedReader br = new BufferedReader(fr);
 	}
-	afaf
+
 	
 	
 }
