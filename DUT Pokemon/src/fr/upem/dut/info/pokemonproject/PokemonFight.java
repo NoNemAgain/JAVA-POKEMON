@@ -60,7 +60,7 @@ public class PokemonFight extends Pokemon{
 	   
 	   speed+=malus;
    }
-   public void getBonus(int bonus) {
+   public void getBonus(int bonus, Stat statName) {
 	   speed+=bonus;
    }
 

@@ -28,7 +28,7 @@ public class CapacityStatus extends AbstractCapacity{
     	if (malus()) {
     		p.getMalus(this.stat,this.statName);
     	}
-    	p.getBonus(this.stat);
+    	p.getBonus(this.stat,this.statName);
     	
     }
     public void damage(PokemonFight p) {
