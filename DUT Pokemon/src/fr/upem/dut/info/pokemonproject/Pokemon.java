@@ -39,4 +39,13 @@ public class Pokemon {
 	public int hashCode() {
 		return Objects.hash(number, name, path,height,weight,type,type2);
 		}
+	@Override
+	public String toString() {
+		return "Pokemon [number=" + number + ", name=" + name + ", path=" + path + ", height=" + height + ", weight="
+				+ weight + ", type=" + type + ", type2=" + type2 + "]";
+	}
+	public String dead() {
+		return name+" est mort ";
+	}
+	
 }
