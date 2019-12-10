@@ -8,5 +8,8 @@ public class CapacityPhysic extends AbstractCapacity{
     public CapacityPhysic(String name, int power, int precision,int limit, Type type) {
         this(name,power,precision,limit, type, null);
     }
+    public void damage(PokemonFight p) {
+    	super.damage(p);
+    }
 }
 

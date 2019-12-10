@@ -2,10 +2,10 @@ package fr.upem.dut.info.pokemonproject;
 
 public class CapacityStatus extends AbstractCapacity{
 	private final int stat ;
-	private  int round ;
+	private int round ;
     public CapacityStatus(String name, int power, int precision, int limit, Type type, Type type2,int stat,int round ) {
         super(name, power, precision,limit, type, type2);
-    	if (stat<0||round<0) {
+    	if (round<0) {
     		throw new IllegalArgumentException();
     	}
         this.stat =stat;
@@ -14,7 +14,22 @@ public class CapacityStatus extends AbstractCapacity{
     public CapacityStatus(String name, int power, int precision,int limit, Type type,int stat,int round) {
         this(name,power,precision,limit, type, null,stat,round);
     }
-    
+    public boolean malus() {
+    	if (stat<0) {
+    		return true;
+    	}
+    	return false;
+    }
+    public void status(PokemonFight p) {
+    	if (malus()) {
+    		p.getMalus(this.stat);
+    	}
+    	p.getBonus(this.stat);
+    	
+    }
+    public void damage(PokemonFight p) {
+    	super.damage(p);
+    }
 
 
 }
