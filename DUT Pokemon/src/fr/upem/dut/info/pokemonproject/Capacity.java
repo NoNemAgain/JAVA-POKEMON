@@ -1,5 +1,5 @@
 package fr.upem.dut.info.pokemonproject;
 
-public class Capacity {
+public interface Capacity {
 
 }

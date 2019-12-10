@@ -1,10 +1,10 @@
 package fr.upem.dut.info.pokemonproject;
 
 public class PokemonFight extends Pokemon{
-		private Capacity capacity1;
-		private Capacity capacity2;
-		private Capacity capacity3;
-		private Capacity capacity4;
+		private final Capacity capacity1;
+		private final Capacity capacity2;
+		private final Capacity capacity3;
+		private final Capacity capacity4;
 		private static int id = 0;
 		private float exp ;
 		private int pv ;
