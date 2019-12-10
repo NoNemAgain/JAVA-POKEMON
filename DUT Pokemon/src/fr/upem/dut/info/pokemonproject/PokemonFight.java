@@ -55,8 +55,9 @@ public class PokemonFight extends Pokemon{
    public void getDamaged(int damage) {
 	   hp-=damage;
    }
-   public void getMalus(int malus) {
+   public void getMalus(int malus,Stat statName) {
 	   //Un exemple, on peut altérer d'autre stat
+	   
 	   speed+=malus;
    }
    public void getBonus(int bonus) {
