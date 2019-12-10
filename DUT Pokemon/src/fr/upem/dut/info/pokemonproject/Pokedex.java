@@ -30,5 +30,5 @@ public class Pokedex {
 		this.version=0;
 	}
 
-	
+    
 }
