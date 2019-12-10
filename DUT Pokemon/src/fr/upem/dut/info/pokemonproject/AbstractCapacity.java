@@ -8,11 +8,10 @@ public abstract class AbstractCapacity implements Capacity {
 	private final int precision ;
 	private int limit;
 	private final Type type ;
-	private final Type type2;
 	
 	
-	public AbstractCapacity(String name, int power, int precision,int limit, Type type,Type type2) {
-		if (power<0|| precision<0||limit<0) {
+	public AbstractCapacity(String name, int power, int precision,int limit, Type type) {
+		if (power<15 &&power>300|| precision<0 && precision>100||limit<0) {
 			throw new IllegalArgumentException();
 		}
 		this.name = Objects.requireNonNull(name);
@@ -20,11 +19,9 @@ public abstract class AbstractCapacity implements Capacity {
 		this.precision = precision;
 		this.limit=limit;
 		this.type = Objects.requireNonNull(type);
-		this.type2 = type2;
+
 	}
-	public AbstractCapacity(String name, int power, int precision, int limit, Type type) {
-		this(name,power,precision,limit,type,null);
-	}
+
 	public void damage(PokemonFight p) {
 		float random= (float) (Math.random() * ( 100 - 0 ));
 		if (precision> random) {

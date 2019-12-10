@@ -1,5 +1,6 @@
 package fr.upem.dut.info.pokemonproject;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class PokemonFight extends Pokemon{
@@ -12,6 +13,7 @@ public class PokemonFight extends Pokemon{
         private int defenseSpe;
         private int speed;
         private final Capacity[] capacities;
+        private ArrayList<CapacityStatus> effect ;
     public PokemonFight(int number, String name, String path, int height, int weight,Type type,Type type2,int exp,int hp,int attack,int attackSpe,int defense,int defenseSpe,int speed,Capacity... capacities) throws IllegalAccessException {
         super(number, name, path, height, weight, type);
         if (exp<0||hp<0||attack<0||attackSpe<0||defense<0||defenseSpe<0||speed<0 || capacities[0] == null || capacities[4] != null) {
@@ -26,6 +28,7 @@ public class PokemonFight extends Pokemon{
         this.defenseSpe=defenseSpe;
         this.speed=speed;
         this.capacities=capacities;
+        this.effect= new ArrayList<CapacityStatus>();
     }
     @Override 
 	public boolean equals(Object o ) {
@@ -55,13 +58,33 @@ public class PokemonFight extends Pokemon{
    public void getDamaged(int damage) {
 	   hp-=damage;
    }
-   public void getMalus(int malus,Stat statName) {
-	   //Un exemple, on peut altérer d'autre stat
-	   
-	   speed+=malus;
+   public void getStat(int stat,Stat statName,int round) {
+		   if (Stat.isAttack(statName)) {
+			   attack+= stat;
+		   }
+		   if (Stat.isDefense(statName)) {
+			   defense+= stat;
+		   }
+		   if (Stat.isAttackSpe(statName)) {
+			   attackSpe+= stat;
+		   }
+		   if (Stat.isDefenseSpe(statName)) {
+			   defenseSpe+= stat;
+		   }
+		   if (Stat.isSpeed(statName)) {
+			   speed+= stat;
+		   }
+		  
    }
-   public void getBonus(int bonus) {
-	   speed+=bonus;
+
+   public boolean dissapear(int round) {
+	   if (round==0) {
+		   return true;
+	   }
+	   return false;
    }
+   
+   
+  
 
 }
