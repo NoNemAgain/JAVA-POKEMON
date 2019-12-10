@@ -10,7 +10,7 @@ public class Pokemon {
 	private final int weight ;
 	private final Type type;
 	private final Type type2;
-	private static int id = 0;
+	
 	public Pokemon(int number, String name, String path, int height, int weight, Type type) {
 		this(number,name,path,height,weight,type,null);
 	}
@@ -25,7 +25,7 @@ public class Pokemon {
 		this.weight = weight;
 		this.type = Objects.requireNonNull(type);
 		this.type2 = Objects.requireNonNull(type2);
-		id++;
+		
 	}  ;
 	@Override 
 	public boolean equals(Object o ) {
