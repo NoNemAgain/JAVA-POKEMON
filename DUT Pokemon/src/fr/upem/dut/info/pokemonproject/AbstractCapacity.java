@@ -12,7 +12,7 @@ public abstract class AbstractCapacity implements Capacity {
 	
 	
 	public AbstractCapacity(String name, int power, int precision,int limit, Type type,Type type2) {
-		if (power<0|| precision<0||limit<0) {
+		if (power<15 &&power>300|| precision<0 && precision>100||limit<0) {
 			throw new IllegalArgumentException();
 		}
 		this.name = Objects.requireNonNull(name);
