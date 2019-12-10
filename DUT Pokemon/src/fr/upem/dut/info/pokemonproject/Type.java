@@ -20,7 +20,7 @@ public enum Type {
 	dark ,
 	fighting ;
 	
-	static Type getType(String str) {
+	static Type getType(String str) {//
 		if(str == "normal") {
 			return Type.normal;
 		}
