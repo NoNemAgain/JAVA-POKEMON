@@ -10,7 +10,7 @@ public abstract class AbstractCapacity implements Capacity {
 	private final Type type2;
 	private int limit;
 	
-	public AbstractCapacity(String name, int power, int precision, Type type,Type type2,int limit) {
+	public AbstractCapacity(String name, int power, int precision,int limit, Type type,Type type2) {
 		if (power<0|| precision<0||limit<0) {
 			throw new IllegalArgumentException();
 		}
@@ -21,8 +21,8 @@ public abstract class AbstractCapacity implements Capacity {
 		this.type2 = Objects.requireNonNull(type2);
 		this.limit=limit;
 	}
-	public AbstractCapacity(String name, int power, int precision, Type type,Type type2,int limit) {
-		super(name,power,precision,type,null,limit);
+	public AbstractCapacity(String name, int power, int precision, Type type,int limit) {
+		this.(name,power,precision,type,null,limit);
 	}
 	
 	
