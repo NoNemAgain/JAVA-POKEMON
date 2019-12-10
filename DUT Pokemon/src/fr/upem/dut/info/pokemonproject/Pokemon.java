@@ -24,7 +24,7 @@ public class Pokemon {
 		this.height = height;
 		this.weight = weight;
 		this.type = Objects.requireNonNull(type);
-		this.type2 = Objects.requireNonNull(type2);
+		this.type2 = type2;
 		
 	}  ;
 	@Override 
