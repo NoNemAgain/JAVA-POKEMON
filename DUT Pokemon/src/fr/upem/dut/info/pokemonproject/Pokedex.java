@@ -14,8 +14,7 @@ public class Pokedex {
 		this.version=0;
 	}
 	public void init() throws FileNotFoundException {
-		FileReader fr = new FileReader(fileName);
-        BufferedReader br = new BufferedReader(fr);
+		
 	}
 
 	
