@@ -6,8 +6,8 @@ public class CapacityStatus extends AbstractCapacity{
 	private final int stat ;
 	private int round ;
 	private final Stat statName ;
-    public CapacityStatus(String name, int power, int precision, int limit, Type type,int stat,int round ,Stat statName) {
-        super(name, power, precision,limit, type);
+    public CapacityStatus(String name, int precision, int limit, Type type,int stat,int round ,Stat statName) {
+        super(name, 0, precision,limit, type);
     	if (round<0) {
     		throw new IllegalArgumentException();
     	}
@@ -25,6 +25,12 @@ public class CapacityStatus extends AbstractCapacity{
     public void damage(PokemonFight p) {
     	super.damage(p);
     	status(p,round);
+    }
+    public Type getType() {
+  		return super.getType();
+  	}
+    public boolean canChooseCapacity(PokemonFight p) {
+    	return super.canChooseCapacity(p);
     }
 
 

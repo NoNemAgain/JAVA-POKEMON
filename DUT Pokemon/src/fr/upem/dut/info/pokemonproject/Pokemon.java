@@ -47,5 +47,8 @@ public class Pokemon {
 	public String dead() {
 		return name+" est mort ";
 	}
+	 public Type getType() {
+		   return type;
+	   }
 	
 }

@@ -11,13 +11,16 @@ public class Player {
 		this.name=name;
 		this.team=team;
 	}
-	void deadPokemon() {
+	public void deadPokemon() {
 		for(int i = 0; i <= 5; i++) {
 			if (team[i].isdead()) {
 				team[i]=null;
 				System.out.println(team[i].dead());
 			}
 		}
+	}
+	public void action () {
+		
 	}
 }
 

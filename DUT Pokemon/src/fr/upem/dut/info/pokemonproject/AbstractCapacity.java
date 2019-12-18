@@ -29,6 +29,18 @@ public abstract class AbstractCapacity implements Capacity {
 		}
 		
 	}
+	public Type getType() {
+		return type;
+	}
+	public boolean canChooseCapacity(PokemonFight p) {
+		if (type.equals(p.getType())){
+			return true;
+		}
+		if (type.equals(Type.normal)){
+			return true;
+		}
+		return false;
+	}
 	
 	
 	
