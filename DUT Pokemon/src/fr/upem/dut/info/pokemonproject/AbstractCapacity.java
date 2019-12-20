@@ -47,7 +47,7 @@ public abstract class AbstractCapacity implements Capacity {
 		}
 		return false;
 	}
-	
+	//
 	
 	
 
