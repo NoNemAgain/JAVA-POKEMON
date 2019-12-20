@@ -65,7 +65,7 @@ public class PokemonFight extends Pokemon{
 	   return super.dead();
    }
    public void getDamaged(int damage) {
-	   hp-=damage;
+	   hp-=damage;//
    }
    public void getStat(int stat,Stat statName,int round) {
 		   if (Stat.isAttack(statName)) {
