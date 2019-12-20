@@ -13,7 +13,7 @@ public class PokemonFight extends Pokemon{
         private int defenseSpe;
         private int speed;
         private final Capacity[] capacities ;
-        private ArrayList<CapacityStatus> effect ;
+        
     public PokemonFight(int number, String name, String path, int height, int weight,Type type,Type type2,int exp,int hp,int attack,int attackSpe,int defense,int defenseSpe,int speed,Capacity... capacities) throws IllegalAccessException {
         super(number, name, path, height, weight, type);
         if (exp<0||hp<0||attack<0||attackSpe<0||defense<0||defenseSpe<0||speed<0 || capacities[0] == null || capacities[4] != null ) {
@@ -33,7 +33,7 @@ public class PokemonFight extends Pokemon{
         this.defenseSpe=defenseSpe;
         this.speed=speed;
         this.capacities=capacities;
-        this.effect= new ArrayList<CapacityStatus>();
+     ;
        
     }
     @Override 

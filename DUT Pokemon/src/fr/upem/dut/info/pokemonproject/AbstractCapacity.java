@@ -3,22 +3,28 @@ package fr.upem.dut.info.pokemonproject;
 import java.util.Objects;
 
 public abstract class AbstractCapacity implements Capacity {
+	private final int id;
 	private final String name ; 
-	private final int power ;
-	private final int precision ;
-	private int limit;
 	private final Type type ;
+	private final int power ;
+	private int pp;
+	private final int precision ;
+	private final String capacityType;
 	
 	
-	public AbstractCapacity(String name, int power, int precision,int limit, Type type) {
-		if (power<15 &&power>300|| precision<0 && precision>100||limit<0) {
+	
+	
+	public AbstractCapacity(int id ,String name, Type type, int power,int pp,int precision,String capacityType) {
+		if (pp<0 ||power<15 &&power>300|| precision<0 && precision>100||pp<0 || (capacityType.equals("physical")&&capacityType.equals("special"))) {
 			throw new IllegalArgumentException();
 		}
+		this.id = id;
 		this.name = Objects.requireNonNull(name);
+		this.type = Objects.requireNonNull(type);
 		this.power = power;
 		this.precision = precision;
-		this.limit=limit;
-		this.type = Objects.requireNonNull(type);
+		this.pp=pp;
+		this.capacityType=Objects.requireNonNull(capacityType);
 
 	}
 
