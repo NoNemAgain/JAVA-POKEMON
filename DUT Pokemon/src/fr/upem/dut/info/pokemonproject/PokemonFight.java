@@ -85,13 +85,13 @@ public class PokemonFight extends Pokemon{
 		   }
 		  
    }
-
+   /*
    public boolean dissapear(int round) {
 	   if (round==0) {
 		   return true;
 	   }
 	   return false;
-   }
+   }*/
    
    
   

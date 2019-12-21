@@ -55,7 +55,10 @@ public abstract class AbstractCapacity implements Capacity {
 		return false;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Capacity ID : "+id+", Capcity name : "+name + ", CapacityType : "+capacityType+", Type : "+type;
+	}
 
 }
  

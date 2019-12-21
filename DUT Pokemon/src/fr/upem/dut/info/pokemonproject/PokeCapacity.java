@@ -11,34 +11,29 @@ import java.util.HashMap;
 import java.util.Objects;
 
 public class PokeCapacity {
-	private HashMap<String,Pokemon> pokedex;
-	private static final String fileName = "src/fr/upem/dut/info/pokemonproject/source/move.csv";
-	private final int version;
+	private HashMap<String, CapacityDamage> capacities;
+	private static final String fileName = "src/fr/upem/dut/info/pokemonproject/source/moves.csv";
 	public PokeCapacity  () throws IOException {
 		Path file = Paths.get(fileName);
 		Charset charset = StandardCharsets.UTF_8;
-		HashMap<String,Pokemon> pokedex = new HashMap<String,Pokemon>();
+		HashMap<String, CapacityDamage> capacities = new HashMap<String,CapacityDamage>();
 		int i = 0;
 		try (BufferedReader reader = Files.newBufferedReader(file, charset)){
 			String line1;
 			while ((line1 = reader.readLine()) != null) {
 				String[] line = line1.split(",");
 				if(i !=0) {
-					if (line.length == 7) {
-						pokedex.put(line[0], Objects.requireNonNull(new CapacityDamage(Integer.parseInt(line[0]), line[1], line[2], Integer.parseInt(line[3]), Integer.parseInt(line[4]),  Type.getType((line[5])), Type.getType((line[6])))));
-					}
-					else {
-						pokedex.put(Integer.parseInt(line[0]), Objects.requireNonNull(new Pokemon(Integer.parseInt(line[0]), line[1], line[2], Integer.parseInt(line[3]), Integer.parseInt(line[4]),  Type.getType((line[5])))));
-					}
+					if(line[3].equals("")) {line[3] = "0";}
+					if(line[5].equals("")) {line[5] = "0";}
+					capacities.put(line[1], Objects.requireNonNull(new CapacityDamage(Integer.parseInt(line[0]), line[1], Type.getType((line[2])), Integer.parseInt(line[3]), Integer.parseInt(line[4]), Integer.parseInt(line[5]), line[6])));
 				}
 				i++;
 			}
 		}
-		this.pokedex = pokedex;
-		this.version=0;
+		this.capacities = capacities;
 	}
-	public HashMap<Integer, Pokemon> getPokedex() {
-		return pokedex;
+	public HashMap<String, CapacityDamage> getCapacities() {
+		return capacities;
 	}
 
     

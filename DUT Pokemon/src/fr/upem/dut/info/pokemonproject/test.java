@@ -11,6 +11,10 @@ public class test {
 		for( int i=0; i <= hp.size(); i++ ) {
 			System.out.println(hp.get(i));
 		}
+		
+		PokeCapacity capacities = new PokeCapacity();
+		HashMap<String, CapacityDamage> a = capacities.getCapacities();
+		System.out.println(a.get("leer"));
 	}
 
 }//
