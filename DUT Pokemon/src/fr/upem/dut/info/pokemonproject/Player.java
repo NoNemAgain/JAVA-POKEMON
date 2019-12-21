@@ -1,6 +1,7 @@
 package fr.upem.dut.info.pokemonproject;
 
 import java.awt.event.KeyEvent;
+import java.util.Scanner;
 
 import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
@@ -55,27 +56,41 @@ public class Player {
 			if(team[5]==null) {break;}
 			switchPokemon(5);
 			break;
+		}
 	}
-	}
-	public void action (KeyEvent event,Pokedex pokedex, PokeCapacity pokeCapacity) {
+	public void action(KeyEvent event,Pokedex pokedex, PokeCapacity pokeCapacity) {
 		switch (event.getKeyCode()) {
 		case KeyEvent.VK_P: //voir pokedex
 			pokedex.toString();
 		case KeyEvent.VK_C: //voir pokeCapacity
 			
-		case KeyEvent.VK_1: //utiliser capacité 1
+		case KeyEvent.VK_1: //utiliser capacite 1
 			
-		case KeyEvent.VK_2: //utiliser capacité 2
+		case KeyEvent.VK_2: //utiliser capacite 2
 			
-		case KeyEvent.VK_3: //utiliser capacité 3
+		case KeyEvent.VK_3: //utiliser capacite 3
 		
-		case KeyEvent.VK_4: //utiliser capacité 4
+		case KeyEvent.VK_4: //utiliser capacite 4
 			
 		case KeyEvent.VK_R: // fuir
 			
-		case KeyEvent.VK_S: // changer de pokémon
+		case KeyEvent.VK_S: // changer de pokemon
 	}
 		System.out.println(team[0]);
+	}
+	public void pickPokemon(Pokedex pokedex) {
+		int count = 0;
+		System.out.println("Si vous tapez des caractères autres qu'un nombre vous passerez au pokemon suivant\n");
+		int numPoke;
+		while(count<6) {
+			System.out.println("Veuillez choisir votre pokemon numero "+count+1);
+			System.out.println("\nEcrivez le numero du pokemon\n");
+			Scanner input = new Scanner(System.in);
+			numPoke = input.nextInt();
+			PokemonFight pokemon =  (PokemonFight) pokedex.getPokedex().get(numPoke);
+			team[count] = pokemon.createPokemon();
+			count++;
+		}
 	}
 	public boolean lose (int compteurDeath) {
 		if (compteurDeath !=5) {
