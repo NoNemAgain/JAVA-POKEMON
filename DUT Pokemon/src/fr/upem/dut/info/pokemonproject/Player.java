@@ -24,11 +24,15 @@ public class Player {
 		activePokemon.isdead();
 		numberPokemon +=1;
 		compteurDeath+=1;
-		this.activePokemon=team[numberPokemon];
+		switchPokemon(numberPokemon);
+		
 		
 	}
-	public void switchPokemon() {
-		;;;
+	public void switchPokemon(int numberPokemon) {
+		this.activePokemon=team[numberPokemon];
+	}
+	public void choosePokemon() {
+		
 	}
 	public void action (KeyEvent event,Pokedex pokedex, PokeCapacity pokeCapacity) {
 		switch (event.getKeyCode()) {
