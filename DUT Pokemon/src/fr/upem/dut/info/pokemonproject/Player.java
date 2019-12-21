@@ -20,7 +20,7 @@ public class Player {
 		}
 	}
 	public void action () {
-		
+		System.out.println(team[0]);
 	}
 }
 
