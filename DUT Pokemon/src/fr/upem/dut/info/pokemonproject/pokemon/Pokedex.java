@@ -11,12 +11,21 @@ import java.util.HashMap;
 import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;
+import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 
 public class Pokedex {
 	private HashMap<Integer,Pokemon> pokedex;
 	private static final String fileName = "src/fr/upem/dut/info/pokemonproject/source/pokedex.csv";
 	private final int version;
 	public Pokedex () throws IOException {
+		
+		this.pokedex = create();
+		this.version=0;
+	}
+	public HashMap<Integer, Pokemon> getPokedex() {
+		return pokedex;
+	}
+	public HashMap<Integer,Pokemon> create() throws IOException{
 		Path file = Paths.get(fileName);
 		Charset charset = StandardCharsets.UTF_8;
 		HashMap<Integer,Pokemon> pokedex = new HashMap<Integer,Pokemon>();
@@ -26,22 +35,22 @@ public class Pokedex {
 			while ((line1 = reader.readLine()) != null) {
 				String[] line = line1.split(",");
 				if(i !=0) {
-					if (line.length == 7) {
-						pokedex.put(Integer.parseInt(line[0]), Objects.requireNonNull(new Pokemon(Integer.parseInt(line[0]), line[1], line[2], Integer.parseInt(line[3]), Integer.parseInt(line[4]),  Type.getType((line[5])), Type.getType((line[6])))));
-					}
-					else {
-						pokedex.put(Integer.parseInt(line[0]), Objects.requireNonNull(new Pokemon(Integer.parseInt(line[0]), line[1], line[2], Integer.parseInt(line[3]), Integer.parseInt(line[4]),  Type.getType((line[5])))));
-					}
+					add(line,pokedex);
 				}
 				i++;
 			}
 		}
-		this.pokedex = pokedex;
-		this.version=0;
-	}
-	public HashMap<Integer, Pokemon> getPokedex() {
 		return pokedex;
 	}
+	public void add(String[] line,HashMap<Integer,Pokemon> pokedex) {
+		if (line.length == 7) {
+			pokedex.put(Integer.parseInt(line[0]), Objects.requireNonNull(new Pokemon(Integer.parseInt(line[0]), line[1], line[2], Integer.parseInt(line[3]), Integer.parseInt(line[4]),  Type.getType((line[5])), Type.getType((line[6])))));
+		}
+		else {
+			pokedex.put(Integer.parseInt(line[0]), Objects.requireNonNull(new Pokemon(Integer.parseInt(line[0]), line[1], line[2], Integer.parseInt(line[3]), Integer.parseInt(line[4]),  Type.getType((line[5])))));
+		}
+	}
+	
 
 	@Override
 	public String toString() {
