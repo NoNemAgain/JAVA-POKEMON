@@ -32,7 +32,7 @@ public class Fight {
 		else {
 			player2.action(event,pokedex,pokeCapacity);
 		}
-		round+=1;
+		round+=1;;;
 		
 	}
 	public void sauvegarder() throws IOException

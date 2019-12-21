@@ -24,7 +24,7 @@ public class Player {
 		
 	}
 	public void switchPokemon() {
-		
+		;;;
 	}
 	public void action (KeyEvent event,Pokedex pokedex, PokeCapacity pokeCapacity) {
 		switch (event.getKeyCode()) {
