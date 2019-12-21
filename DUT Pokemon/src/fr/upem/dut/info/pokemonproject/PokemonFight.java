@@ -67,6 +67,7 @@ public class PokemonFight extends Pokemon{
    public void getDamaged(int damage) {
 	   hp-=damage;//
    }
+   /*
    public void getStat(int stat,Stat statName,int round) {
 		   if (Stat.isAttack(statName)) {
 			   attack+= stat;
@@ -84,7 +85,7 @@ public class PokemonFight extends Pokemon{
 			   speed+= stat;
 		   }
 		  
-   }
+   }*/
    /*
    public boolean dissapear(int round) {
 	   if (round==0) {
