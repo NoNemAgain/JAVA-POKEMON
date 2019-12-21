@@ -29,7 +29,7 @@ public class Player {
 	public void switchPokemon(int numberPokemon) {
 		activePokemon=team[numberPokemon];
 	}
-	public void choosePokemon(KeyEvent event) {
+	public void changePokemon(KeyEvent event) {
 		switch (event.getKeyCode()) {
 		case KeyEvent.VK_1: //choisir le pokemon 1
 			if(team[0]==null) {break;}
