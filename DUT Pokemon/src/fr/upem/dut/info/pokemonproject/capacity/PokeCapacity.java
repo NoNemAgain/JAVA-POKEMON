@@ -11,36 +11,23 @@ import java.util.HashMap;
 import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;
+import fr.upem.dut.info.pokemonproject.pokemon.AbstractLoad;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
-public class PokeCapacity {
-	private HashMap<String, CapacityDamage> capacities;
+public class PokeCapacity extends AbstractLoad{
+	HashMap<String, CapacityDamage> capacities = new HashMap<String,CapacityDamage>();
 	private static final String fileName = "src/fr/upem/dut/info/pokemonproject/source/moves.csv";
 	public PokeCapacity  () throws IOException {
 		
-		this.capacities = create();
+		create(this.fileName);
 	}
 	public HashMap<String, CapacityDamage> getCapacities() {
 		return capacities;
 	}
-	public HashMap<String, CapacityDamage> create() throws IOException{
-		Path file = Paths.get(fileName);
-		Charset charset = StandardCharsets.UTF_8;
-		HashMap<String, CapacityDamage> capacities = new HashMap<String,CapacityDamage>();
-		int i = 0;
-		try (BufferedReader reader = Files.newBufferedReader(file, charset)){
-			String line1;
-			while ((line1 = reader.readLine()) != null) {
-				String[] line = line1.split(",");
-				if(i !=0) {
-					add(line,capacities);
-				}
-				i++;
-			}
-		}
-		return capacities;
+	public void create(String fileName) throws IOException{
+		super.create(fileName);
 	}
-	public void add(String[] line,HashMap<String, CapacityDamage> capacities) {
+	public void add(String[] line) {
 		if(line[3].equals("")) {line[3] = "0";}
 		if(line[5].equals("")) {line[5] = "0";}
 		capacities.put(line[1], Objects.requireNonNull(new CapacityDamage(Integer.parseInt(line[0]), line[1], Type.getType((line[2])), Integer.parseInt(line[3]), Integer.parseInt(line[4]), Integer.parseInt(line[5]), line[6])));
