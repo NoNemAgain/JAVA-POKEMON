@@ -1,6 +1,7 @@
 package fr.upem.dut.info.pokemonproject.pokemon;
 
 import java.util.Objects;
+import java.util.Random;
 
 import fr.upem.dut.info.pokemonproject.Type;
 
@@ -49,11 +50,20 @@ public class Pokemon {
 	public String dead() {
 		return name+" est mort ";
 	}
-	 public Type getType() {
-		   return type;
-	   }
-	 public Type getType2() {
-		   return type2;
-	   }
+	public Type getType() {
+		return type;
+	}
+	public Type getType2() {
+		return type2;
+	}
+	private int random(int borneInf, int borneSup) {
+	   Random random = new Random();
+	   int nb;
+	   nb = borneInf+random.nextInt(borneSup-borneInf);
+	   return nb;
+	}
+	public PokemonFight createPokemon() {
+		return new PokemonFight(number, name, path, height, weight, type, type2, 0, random(100,300), random(30,180), random(30,180), random(10, 200), random(10, 200), random(0,180));
+	}
 	
 }

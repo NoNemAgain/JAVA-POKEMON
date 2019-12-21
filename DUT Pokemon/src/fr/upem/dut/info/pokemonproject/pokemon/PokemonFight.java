@@ -16,10 +16,10 @@ public class PokemonFight extends Pokemon{
         private int speed;
         private final Capacity[] capacities ;
         
-    public PokemonFight(int number, String name, String path, int height, int weight,Type type,Type type2,int exp,int hp,int attack,int attackSpe,int defense,int defenseSpe,int speed,Capacity... capacities) throws IllegalAccessException {
+    public PokemonFight(int number, String name, String path, int height, int weight,Type type,Type type2,int exp,int hp,int attack,int attackSpe,int defense,int defenseSpe,int speed,Capacity... capacities)  {
         super(number, name, path, height, weight, type);
         if (exp<0||hp<0||attack<0||attackSpe<0||defense<0||defenseSpe<0||speed<0 || capacities[0] == null || capacities[4] != null ) {
-            throw new IllegalAccessException();
+            throw new IllegalArgumentException();
         }
         for ( Capacity c:capacities) {
         	if (!c.canChooseCapacity(this)) {
@@ -74,7 +74,14 @@ public class PokemonFight extends Pokemon{
 	   hp-=damage;//
 	   System.out.println(name+" a perdu "+damage+" pt de vies !\n");
    }
-
+	public void setCapacities(Capacity cap) {
+		for(int i=0;i<4;i++) {
+			if(capacities[i]==null) {
+				capacities[i] = cap;
+				break;
+			}
+		}
+	}
    /*
    public void getStat(int stat,Stat statName,int round) {
 		   if (Stat.isAttack(statName)) {
@@ -101,8 +108,4 @@ public class PokemonFight extends Pokemon{
 	   }
 	   return false;
    }*/
-   
-   
-  
-
 }
