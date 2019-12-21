@@ -4,6 +4,10 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;
+import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
+import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
+
 public class Player {
 	private final String name ;
 	private PokemonFight[] team = new PokemonFight[5];

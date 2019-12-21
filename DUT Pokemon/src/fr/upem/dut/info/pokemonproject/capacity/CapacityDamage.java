@@ -1,4 +1,7 @@
-package fr.upem.dut.info.pokemonproject;
+package fr.upem.dut.info.pokemonproject.capacity;
+
+import fr.upem.dut.info.pokemonproject.Type;
+import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class CapacityDamage extends AbstractCapacity{
 

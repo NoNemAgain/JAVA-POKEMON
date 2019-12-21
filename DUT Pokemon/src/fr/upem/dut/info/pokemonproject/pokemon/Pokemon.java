@@ -1,6 +1,8 @@
-package fr.upem.dut.info.pokemonproject;
+package fr.upem.dut.info.pokemonproject.pokemon;
 
 import java.util.Objects;
+
+import fr.upem.dut.info.pokemonproject.Type;
 
 public class Pokemon {
 	private final int number;

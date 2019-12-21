@@ -1,6 +1,9 @@
-package fr.upem.dut.info.pokemonproject;
+package fr.upem.dut.info.pokemonproject.capacity;
 
 import java.util.Objects;
+
+import fr.upem.dut.info.pokemonproject.Type;
+import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public abstract class AbstractCapacity implements Capacity {
 	private final int id;

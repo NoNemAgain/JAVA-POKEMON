@@ -1,7 +1,10 @@
-package fr.upem.dut.info.pokemonproject;
+package fr.upem.dut.info.pokemonproject.pokemon;
 
 import java.util.ArrayList;
 import java.util.Objects;
+
+import fr.upem.dut.info.pokemonproject.Type;
+import fr.upem.dut.info.pokemonproject.capacity.Capacity;
 
 public class PokemonFight extends Pokemon{
         private static int id = 0;

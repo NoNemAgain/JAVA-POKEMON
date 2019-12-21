@@ -3,6 +3,10 @@ package fr.upem.dut.info.pokemonproject;
 import java.io.IOException;
 import java.util.HashMap;
 
+import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
+import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;
+import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
+
 public class test {
 
 	public static void main(String[] args) throws IOException {

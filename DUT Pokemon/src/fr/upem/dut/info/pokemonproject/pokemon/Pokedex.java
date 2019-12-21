@@ -1,4 +1,4 @@
-package fr.upem.dut.info.pokemonproject;
+package fr.upem.dut.info.pokemonproject.pokemon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,6 +9,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Objects;
+
+import fr.upem.dut.info.pokemonproject.Type;
 
 public class Pokedex {
 	private HashMap<Integer,Pokemon> pokedex;

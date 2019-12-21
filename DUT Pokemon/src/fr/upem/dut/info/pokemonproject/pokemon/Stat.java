@@ -1,4 +1,4 @@
-package fr.upem.dut.info.pokemonproject;
+package fr.upem.dut.info.pokemonproject.pokemon;
 
 public enum Stat {
 	attack,
