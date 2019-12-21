@@ -1,5 +1,6 @@
 package fr.upem.dut.info.pokemonproject;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -19,7 +20,8 @@ public class Player {
 			}
 		}
 	}
-	public void action () {
+	public void action (KeyEvent event) {
+		
 		System.out.println(team[0]);
 	}
 }
