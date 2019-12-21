@@ -18,6 +18,11 @@ public class CapacityDamage extends AbstractCapacity{
     public boolean canChooseCapacity(PokemonFight p) {
     	return super.canChooseCapacity(p);
     }
+    @Override
+	public String toString() {
+    	return super.toString();
+    }
+  
     
 }
 

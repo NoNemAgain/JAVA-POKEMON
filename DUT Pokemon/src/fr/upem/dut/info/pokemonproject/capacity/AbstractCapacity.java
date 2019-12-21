@@ -46,6 +46,9 @@ public abstract class AbstractCapacity implements Capacity {
 		if (type.equals(p.getType())){
 			return true;
 		}
+		if (type.equals(p.getType2())){
+			return true;
+		}
 		if (type.equals(Type.normal)){
 			return true;
 		}

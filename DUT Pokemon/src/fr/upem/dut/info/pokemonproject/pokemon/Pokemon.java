@@ -52,5 +52,8 @@ public class Pokemon {
 	 public Type getType() {
 		   return type;
 	   }
+	 public Type getType2() {
+		   return type2;
+	   }
 	
 }

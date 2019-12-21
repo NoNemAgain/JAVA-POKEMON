@@ -60,6 +60,9 @@ public class PokemonFight extends Pokemon{
    public Type getType() {
 	   return super.getType();
    }
+   public Type getType2() {
+	   return super.getType();
+   }
    public String toString() {
 	  return super.toString();
    }
