@@ -7,10 +7,7 @@ public class test {
 
 	public static void main(String[] args) throws IOException {
 		Pokedex poke = new Pokedex();
-		HashMap<Integer, Pokemon> hp = poke.getPokedex();
-		for( int i=0; i <= hp.size(); i++ ) {
-			System.out.println(hp.get(i));
-		}
+		System.out.println(poke);
 		
 		PokeCapacity capacities = new PokeCapacity();
 		HashMap<String, CapacityDamage> a = capacities.getCapacities();

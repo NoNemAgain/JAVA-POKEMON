@@ -41,5 +41,13 @@ public class Pokedex {
 		return pokedex;
 	}
 
-    
+	@Override
+	public String toString() {
+		StringBuilder str = new StringBuilder();
+		for( int i=1; i <= pokedex.size(); i++ ) {
+			str.append(pokedex.get(i).toString());
+			str.append("\n");
+		}
+		return str.toString();
+	}
 }
