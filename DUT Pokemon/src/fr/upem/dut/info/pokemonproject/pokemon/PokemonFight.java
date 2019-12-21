@@ -1,6 +1,5 @@
 package fr.upem.dut.info.pokemonproject.pokemon;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;
