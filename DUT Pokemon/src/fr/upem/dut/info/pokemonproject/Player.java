@@ -27,10 +27,35 @@ public class Player {
 		
 	}
 	public void switchPokemon(int numberPokemon) {
-		this.activePokemon=team[numberPokemon];
+		activePokemon=team[numberPokemon];
 	}
-	public void choosePokemon() {
-		
+	public void choosePokemon(KeyEvent event) {
+		switch (event.getKeyCode()) {
+		case KeyEvent.VK_1: //choisir le pokemon 1
+			if(team[0]==null) {break;}
+			switchPokemon(0);
+			break;
+		case KeyEvent.VK_2: //choisir le pokemon 2
+			if(team[1]==null) {break;}
+			switchPokemon(1);
+			break;
+		case KeyEvent.VK_3: //choisir le pokemon 3
+			if(team[2]==null) {break;}
+			switchPokemon(2);
+			break;
+		case KeyEvent.VK_4: //choisir le pokemon 4
+			if(team[3]==null) {break;}
+			switchPokemon(3);
+			break;
+		case KeyEvent.VK_5: //choisir le pokemon 5
+			if(team[4]==null) {break;}
+			switchPokemon(4);
+			break;
+		case KeyEvent.VK_6: //choisir le pokemon 6
+			if(team[5]==null) {break;}
+			switchPokemon(5);
+			break;
+	}
 	}
 	public void action (KeyEvent event,Pokedex pokedex, PokeCapacity pokeCapacity) {
 		switch (event.getKeyCode()) {
