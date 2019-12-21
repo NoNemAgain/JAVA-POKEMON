@@ -1,8 +1,6 @@
 package fr.upem.dut.info.pokemonproject;
 
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
