@@ -43,7 +43,7 @@ public class PokemonFight extends Pokemon{
 		}
 		PokemonFight p  = (PokemonFight) o;
 		return super.equals(p)&&capacities.equals(p.capacities);
-		}
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(super.hashCode(),capacities);
