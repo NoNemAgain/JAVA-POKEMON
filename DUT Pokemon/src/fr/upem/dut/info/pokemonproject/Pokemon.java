@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Pokemon {
 	private final int number;
-	private final String name ;
+	protected final String name ;
 	private final String path ;
 	private final int height ;
 	private final int weight ;

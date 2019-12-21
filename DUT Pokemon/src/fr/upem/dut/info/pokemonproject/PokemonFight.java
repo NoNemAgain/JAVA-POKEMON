@@ -43,13 +43,14 @@ public class PokemonFight extends Pokemon{
 		}
 		PokemonFight p  = (PokemonFight) o;
 		return super.equals(p)&&capacities.equals(p.capacities);
-		}
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(super.hashCode(),capacities);
 		} 
    public boolean isdead() {
 	   if (hp==0){
+		   System.out.println(dead());
 		   return true ;
 	   }
 	   return false; 
@@ -66,7 +67,10 @@ public class PokemonFight extends Pokemon{
    }
    public void getDamaged(int damage) {
 	   hp-=damage;//
+	   System.out.println(name+" a perdu "+damage+" pt de vies !\n");
    }
+
+   /*
    public void getStat(int stat,Stat statName,int round) {
 		   if (Stat.isAttack(statName)) {
 			   attack+= stat;
@@ -84,7 +88,7 @@ public class PokemonFight extends Pokemon{
 			   speed+= stat;
 		   }
 		  
-   }
+   }*/
    /*
    public boolean dissapear(int round) {
 	   if (round==0) {

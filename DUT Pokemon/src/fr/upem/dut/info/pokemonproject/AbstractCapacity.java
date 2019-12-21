@@ -59,6 +59,19 @@ public abstract class AbstractCapacity implements Capacity {
 	public String toString() {
 		return "Capacity ID : "+id+", Capcity name : "+name + ", CapacityType : "+capacityType+", Type : "+type;
 	}
+	
+    @Override 
+	public boolean equals(Object o ) {
+		if(!(o instanceof AbstractCapacity)) {
+			return false; 
+		}
+		AbstractCapacity p  = (AbstractCapacity) o;
+		return id == p.id && name.equals(p.name) && type.equals(p.type) && power == p.power && pp == p.pp && precision == p.precision && capacityType.equals(capacityType);
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(id,name,type,power,pp,precision,capacityType);
+	}
 
 }
  
