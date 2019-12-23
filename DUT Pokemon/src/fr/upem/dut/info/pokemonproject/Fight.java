@@ -1,6 +1,5 @@
 package fr.upem.dut.info.pokemonproject;
 
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -26,7 +25,7 @@ public class Fight {
 		this.player2=Objects.requireNonNull(player2);
 		
 	}
-	public void tour(KeyEvent event) {
+	public void tour(String event) {
 		if (round %2==0) {
 			player1.action(event,pokedex,pokeCapacity);
 		}

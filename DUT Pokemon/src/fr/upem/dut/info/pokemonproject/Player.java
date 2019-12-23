@@ -16,7 +16,9 @@ public class Player {
 	
 	public Player(String name,PokemonFight... team) {
 		this.name=name;
-		this.activePokemon=team[numberPokemon];
+		if(numberPokemon != 0) {
+			this.activePokemon=team[numberPokemon];
+		}
 		this.team=team;
 	}
 	public void deadPokemon() {
@@ -30,55 +32,75 @@ public class Player {
 	public void switchPokemon(int numberPokemon) {
 		activePokemon=team[numberPokemon];
 	}
-	public void changePokemon(KeyEvent event) {
-		switch (event.getKeyCode()) {
-		case KeyEvent.VK_1: //choisir le pokemon 1
+	public void changePokemon(String event) {
+		switch (event) {
+		case "1": //choisir le pokemon 1
 			if(team[0]==null) {break;}
 			switchPokemon(0);
 			break;
-		case KeyEvent.VK_2: //choisir le pokemon 2
+		case "2": //choisir le pokemon 2
 			if(team[1]==null) {break;}
 			switchPokemon(1);
 			break;
-		case KeyEvent.VK_3: //choisir le pokemon 3
+		case "3": //choisir le pokemon 3
 			if(team[2]==null) {break;}
 			switchPokemon(2);
 			break;
-		case KeyEvent.VK_4: //choisir le pokemon 4
+		case "4": //choisir le pokemon 4
 			if(team[3]==null) {break;}
 			switchPokemon(3);
 			break;
-		case KeyEvent.VK_5: //choisir le pokemon 5
+		case "5": //choisir le pokemon 5
 			if(team[4]==null) {break;}
 			switchPokemon(4);
 			break;
-		case KeyEvent.VK_6: //choisir le pokemon 6
+		case "6": //choisir le pokemon 6
 			if(team[5]==null) {break;}
 			switchPokemon(5);
 			break;
 		}
 	}
-	public void action(KeyEvent event,Pokedex pokedex, PokeCapacity pokeCapacity) {
-		switch (event.getKeyCode()) {
-		case KeyEvent.VK_P: //voir pokedex
-			pokedex.toString();
-		case KeyEvent.VK_C: //voir pokeCapacity
+	public void action(String event,Pokedex pokedex, PokeCapacity pokeCapacity) {
+		switch (event) {
+		case "p": //voir pokedex
+			System.out.println("Voici le pokedex : \n");
+			System.out.println(pokedex.toString());
+			break;
+		case "c": //voir pokeCapacity
 			
-		case KeyEvent.VK_1: //utiliser capacite 1
+		case "1": //utiliser capacite 1
 			
-		case KeyEvent.VK_2: //utiliser capacite 2
+		case "2": //utiliser capacite 2
 			
-		case KeyEvent.VK_3: //utiliser capacite 3
+		case "3": //utiliser capacite 3
 		
-		case KeyEvent.VK_4: //utiliser capacite 4
+		case "4": //utiliser capacite 4
 			
-		case KeyEvent.VK_R: // fuir
+		case "r": // fuir
 			
-		case KeyEvent.VK_S: // changer de pokemon
-			
+		case "s": // changer de pokemon
+			System.out.println("===============================================================\n");
+			System.out.println("Entrez un nombre pour choisir le pokemon que vous souhaitez :\n");
+			String input;
+			Scanner scanIn = new Scanner(System.in);
+			input = scanIn.nextLine();
+			scanIn.close();        
+			changePokemon(input);
+		default:
+			System.out.println("Touche inconnue veuillez réessayer !\n");
 			
 	}
-		System.out.println(team[0]);
+		StringBuilder menu = new StringBuilder();
+		menu.append("Bienvenue dans le menu :\n");
+		menu.append("Touche p ===> voir le pokedex\n");
+		menu.append("Touche c ===> voir les capacités\n");
+		menu.append("Touche 1 ===> utiliser la capacité 1\n");
+		menu.append("Touche 2 ===> utiliser la capacité 2\n");
+		menu.append("Touche 3 ===> utiliser la capacité 3\n");
+		menu.append("Touche 4 ===> utiliser la capacité 4\n");
+		menu.append("Touche r ===> fuir\n");
+		menu.append("Touche s ===> changer de pokemon\n");
+		System.out.println(menu.toString());
 	}
 	public void pickPokemon(Pokedex pokedex) {
 		int count = 0;
@@ -89,6 +111,7 @@ public class Player {
 			System.out.println("\nEcrivez le numero du pokemon\n");
 			Scanner input = new Scanner(System.in);
 			numPoke = input.nextInt();
+			input.close();
 			PokemonFight pokemon =  (PokemonFight) pokedex.getPokedex().get(numPoke);
 			team[count] = pokemon.createPokemon();
 			count++;
