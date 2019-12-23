@@ -38,7 +38,7 @@ public TypesMultiplicators () throws IOException {
 		StringBuilder str = new StringBuilder();
 		for (Types t:typesMultiplicators.keySet()) {
 			str.append(typesMultiplicators.get(t).toString());
-			str.append("\n");
+			str.append("\n");;
 		}
 		return str.toString();
 	}

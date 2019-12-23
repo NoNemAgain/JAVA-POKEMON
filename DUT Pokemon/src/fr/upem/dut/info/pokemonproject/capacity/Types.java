@@ -11,7 +11,7 @@ public class Types {
 		types.add(type2);
 	}
 	public Types(Type type1) {
-		types.add(type1);
+		types.add(type1);;
 		
 	}
 }

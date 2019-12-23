@@ -39,7 +39,7 @@ public class TypeMultiplicator {
 		this.poison = poison;
 		this.psychic = psychic;
 		this.rock = rock;
-		this.ground = ground;
+		this.ground = ground;;
 		this.ghost = ghost;
 		this.dark = dark;
 		this.flying = flying;

@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;
-import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 
 public class Pokedex extends AbstractLoad{
 	HashMap<Integer,Pokemon> pokedex = new HashMap<Integer,Pokemon>();

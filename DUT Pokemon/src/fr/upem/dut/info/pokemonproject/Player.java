@@ -67,6 +67,10 @@ public class Player {
 			System.out.println(pokedex.toString());
 			break;
 		case "c": //voir pokeCapacity
+		
+		case "pick": //pick a new pokemon from pokedex
+			pickPokemon(pokedex);
+			break;
 			
 		case "1": //utiliser capacite 1
 			
@@ -112,7 +116,7 @@ public class Player {
 			Scanner input = new Scanner(System.in);
 			numPoke = input.nextInt();
 			input.close();
-			PokemonFight pokemon =  (PokemonFight) pokedex.getPokedex().get(numPoke);
+			PokemonFight pokemon =  pokedex.getPokedex().get(numPoke).createPokemon();
 			team[count] = pokemon.createPokemon();
 			count++;
 		}
