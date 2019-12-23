@@ -67,6 +67,10 @@ public class Player {
 			System.out.println(pokedex.toString());
 			break;
 		case "c": //voir pokeCapacity
+		
+		case "pick": //pick a new pokemon from pokedex
+			pickPokemon(pokedex);
+			break;
 			
 		case "1": //utiliser capacite 1
 			
