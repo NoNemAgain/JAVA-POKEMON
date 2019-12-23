@@ -132,7 +132,7 @@ public class Player {
 			}
 		}
 		return teams;
-	}//
+	}
 	public CapacityDamage[] pickCapacitiy(PokemonFight pokemon,PokeCapacity pokeCapacity) {
 		int count = 0;
 		CapacityDamage[] capacities = new CapacityDamage[4];
@@ -161,7 +161,6 @@ public class Player {
 		}
 		System.out.println("Vous avez perdu "+ name);
 		return true;
-		
 	}
 }
 
