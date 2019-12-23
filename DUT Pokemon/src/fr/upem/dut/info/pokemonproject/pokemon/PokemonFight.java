@@ -8,7 +8,7 @@ import fr.upem.dut.info.pokemonproject.capacity.Capacity;
 public class PokemonFight extends Pokemon{
         private static int id = 0;
         private float exp ;
-        private int hp ;
+        private float hp ;
         private int attack;
         private int attackSpe;
         private int defense;

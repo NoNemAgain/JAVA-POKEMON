@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;
+import fr.upem.dut.info.pokemonproject.capacity.TypesMultiplicators;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
 
 
@@ -12,9 +13,10 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		Pokedex pokedex = new Pokedex();
+		TypesMultiplicators tm =new TypesMultiplicators();
 		PokeCapacity pokeCapacity = new PokeCapacity();
 		Player p1 = new Player("Albert");
-	    
+		
 	    String s = null;
         try{
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
