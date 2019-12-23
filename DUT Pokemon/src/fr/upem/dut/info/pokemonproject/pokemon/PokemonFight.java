@@ -68,7 +68,7 @@ public class PokemonFight extends Pokemon{
    public String dead() {
 	   return super.dead();
    }
-   public void getDamaged(int damage) {
+   public void getDamaged(float damage) {
 	   hp-=damage;//
 	   System.out.println(name+" a perdu "+damage+" pt de vies !\n");
    }
