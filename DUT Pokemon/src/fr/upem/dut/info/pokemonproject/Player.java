@@ -111,16 +111,18 @@ public class Player {
 		int count = 0;
 		System.out.println("Si vous tapez des caractères autres qu'un nombre vous passerez au pokemon suivant\n");
 		int numPoke;
+		Scanner input = null;
 		while(count<6) {
-			System.out.println("Veuillez choisir votre pokemon numero "+count+1);
+			System.out.println("Veuillez choisir votre pokemon numero "+(count+1));
 			System.out.println("\nEcrivez le numero du pokemon\n");
-			Scanner input = new Scanner(System.in);
+			input = new Scanner(System.in);
 			numPoke = input.nextInt();
-			input.close();
+			System.out.println(numPoke);
 			PokemonFight pokemon =  pokedex.getPokedex().get(numPoke).createPokemon();
 			team[count] = pokemon.createPokemon();
 			count++;
 		}
+		input.close();
 	}
 	public boolean lose (int compteurDeath) {
 		if (compteurDeath !=5) {

@@ -35,8 +35,6 @@ public class PokemonFight extends Pokemon{
         this.defenseSpe=defenseSpe;
         this.speed=speed;
         this.capacities=capacities;
-     ;
-       
     }
     @Override 
 	public boolean equals(Object o ) {

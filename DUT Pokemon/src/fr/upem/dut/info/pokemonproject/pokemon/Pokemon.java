@@ -36,7 +36,7 @@ public class Pokemon {
 		this.type = Objects.requireNonNull(type);
 		this.type2 = type2;
 		
-	}  ;
+	}
 	@Override 
 	public boolean equals(Object o ) {
 		if(!(o instanceof Pokemon)) {
@@ -65,7 +65,7 @@ public class Pokemon {
 	}
 	
 	public PokemonFight createPokemon() {
-		return new PokemonFight(number, name, path, height, weight, type, type2, 0, random(100,300), random(30,180), random(30,180), random(10, 200), random(10, 200), random(0,180));
+		return new PokemonFight(number, name, path, height, weight, type, type2, 0, Pokemon.random(100,300), Pokemon.random(30,180), Pokemon.random(30,180), Pokemon.random(10, 200), Pokemon.random(10, 200), Pokemon.random(0,180));
 	}
 	
 }
