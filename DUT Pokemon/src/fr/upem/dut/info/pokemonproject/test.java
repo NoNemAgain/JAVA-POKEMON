@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;
+import fr.upem.dut.info.pokemonproject.capacity.TypesMultiplicators;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
 
 public class test {
@@ -16,6 +17,9 @@ public class test {
 		PokeCapacity capacities = new PokeCapacity();
 		HashMap<String, CapacityDamage> a = capacities.getCapacities();
 		System.out.println(a.get("leer"));
+		
+		TypesMultiplicators tm =new TypesMultiplicators();
+		System.out.println(tm);
 	}
 
 }//

@@ -14,6 +14,13 @@ public class Pokemon {
 	private final Type type;
 	private final Type type2;
 	
+	public static int random(int borneInf, int borneSup) {
+		   Random random = new Random();
+		   int nb;
+		   nb = borneInf+random.nextInt(borneSup-borneInf);
+		   return nb;
+		}
+	
 	public Pokemon(int number, String name, String path, int height, int weight, Type type) {
 		this(number,name,path,height,weight,type,null);
 	}
@@ -56,12 +63,7 @@ public class Pokemon {
 	public Type getType2() {
 		return type2;
 	}
-	private int random(int borneInf, int borneSup) {
-	   Random random = new Random();
-	   int nb;
-	   nb = borneInf+random.nextInt(borneSup-borneInf);
-	   return nb;
-	}
+	
 	public PokemonFight createPokemon() {
 		return new PokemonFight(number, name, path, height, weight, type, type2, 0, random(100,300), random(30,180), random(30,180), random(10, 200), random(10, 200), random(0,180));
 	}

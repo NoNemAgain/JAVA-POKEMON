@@ -12,36 +12,22 @@ import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;
 
-public class Pokedex {
-	private HashMap<Integer,Pokemon> pokedex;
+public class Pokedex extends AbstractLoad{
+	HashMap<Integer,Pokemon> pokedex = new HashMap<Integer,Pokemon>();
 	private static final String fileName = "src/fr/upem/dut/info/pokemonproject/source/pokedex.csv";
 	private final int version;
 	public Pokedex () throws IOException {
 		
-		this.pokedex = create();
+		create(this.fileName);
 		this.version=0;
 	}
 	public HashMap<Integer, Pokemon> getPokedex() {
 		return pokedex;
 	}
-	public HashMap<Integer,Pokemon> create() throws IOException{
-		Path file = Paths.get(fileName);
-		Charset charset = StandardCharsets.UTF_8;
-		HashMap<Integer,Pokemon> pokedex = new HashMap<Integer,Pokemon>();
-		int i = 0;
-		try (BufferedReader reader = Files.newBufferedReader(file, charset)){
-			String line1;
-			while ((line1 = reader.readLine()) != null) {
-				String[] line = line1.split(",");
-				if(i !=0) {
-					add(line,pokedex);
-				}
-				i++;
-			}
-		}
-		return pokedex;
+	public void create(String fileName) throws IOException{
+		super.create(fileName);
 	}
-	public void add(String[] line,HashMap<Integer,Pokemon> pokedex) {
+	public void add(String[] line) {
 		if (line.length == 7) {
 			pokedex.put(Integer.parseInt(line[0]), Objects.requireNonNull(new Pokemon(Integer.parseInt(line[0]), line[1], line[2], Integer.parseInt(line[3]), Integer.parseInt(line[4]),  Type.getType((line[5])), Type.getType((line[6])))));
 		}
