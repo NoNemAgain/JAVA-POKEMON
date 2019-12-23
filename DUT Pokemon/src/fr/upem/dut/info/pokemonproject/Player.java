@@ -75,6 +75,8 @@ public class Player {
 		case KeyEvent.VK_R: // fuir
 			
 		case KeyEvent.VK_S: // changer de pokemon
+			
+			
 	}
 		System.out.println(team[0]);
 	}
