@@ -9,8 +9,8 @@ public class CapacityDamage extends AbstractCapacity{
         super(id,name, type,pp, power, precision,capacityType);
     }
 
-    public void damage(PokemonFight p) {
-    	super.damage(p);
+    public void damage(PokemonFight p,TypesMultiplicators tm) {
+    	super.damage(p,tm);
     }
     public Type getType() {
   		return super.getType();

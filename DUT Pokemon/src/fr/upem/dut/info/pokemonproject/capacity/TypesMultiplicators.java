@@ -44,12 +44,12 @@ public TypesMultiplicators () throws IOException {
 	}
 		
 	
-	public float weakness(PokemonFight pf, CapacityDamage cd) {
+	public float weakness(PokemonFight pf, AbstractCapacity abstractCapacity) {
 		float multiplicator = 0 ;
 		for (Types t:typesMultiplicators.keySet()) {
 			if (t.sameType(pf)) {
 				
-				multiplicator =typesMultiplicators.get(t).multiplicatorTypes(cd.getType());
+				multiplicator =typesMultiplicators.get(t).multiplicatorTypes(abstractCapacity.getType());
 				break;
 				
 			};

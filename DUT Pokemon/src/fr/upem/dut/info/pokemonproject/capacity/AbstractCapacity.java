@@ -33,11 +33,11 @@ public abstract class AbstractCapacity implements Capacity {
 	}
 	
 
-	public void damage(PokemonFight p) {
+	public void damage(PokemonFight pf,TypesMultiplicators tm) {
 		pp=-1;
 		float random= Pokemon.random(0, 100);
 		if (precision> random) {
-			p.getDamaged(power);
+			pf.getDamaged(power*tm.weakness(pf, this));
 		}
 		
 	}
