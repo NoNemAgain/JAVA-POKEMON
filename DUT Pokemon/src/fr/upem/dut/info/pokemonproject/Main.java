@@ -22,6 +22,7 @@ public class Main {
     		menu.append("Bienvenue dans le menu :\n");
     		menu.append("Touche p ===> voir le pokedex\n");
     		menu.append("Touche c ===> voir les capacités\n");
+    		menu.append("Touche pick ===> pour prendre un nouveau pokemon\n");
     		menu.append("Touche 1 ===> utiliser la capacité 1\n");
     		menu.append("Touche 2 ===> utiliser la capacité 2\n");
     		menu.append("Touche 3 ===> utiliser la capacité 3\n");

@@ -116,7 +116,7 @@ public class Player {
 			Scanner input = new Scanner(System.in);
 			numPoke = input.nextInt();
 			input.close();
-			PokemonFight pokemon =  (PokemonFight) pokedex.getPokedex().get(numPoke);
+			PokemonFight pokemon =  pokedex.getPokedex().get(numPoke).createPokemon();
 			team[count] = pokemon.createPokemon();
 			count++;
 		}
