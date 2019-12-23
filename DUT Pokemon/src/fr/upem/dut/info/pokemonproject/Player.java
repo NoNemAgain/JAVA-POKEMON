@@ -1,33 +1,37 @@
 package fr.upem.dut.info.pokemonproject;
 
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.Scanner;
 
 import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
+import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class Player {
 	private final String name ;
-	private PokemonFight[] team = new PokemonFight[5];
+	private PokemonFight[] team;
 	private PokemonFight activePokemon ;
-	int compteurDeath=0 ;
-	int numberPokemon =0;
+	private int compteurDeath = 0;
+	private int numberPokemon = 0;
+	private Pokedex pokedex = new Pokedex();
 	
-	public Player(String name,PokemonFight... team) {
+	public Player(String name,PokemonFight... team) throws IOException {
 		this.name=name;
 		if(numberPokemon != 0) {
 			this.activePokemon=team[numberPokemon];
 		}
-		this.team=team;
+		else {
+			this.activePokemon = null;
+		}
+		this.team=pickPokemon(pokedex);
 	}
 	public void deadPokemon() {
 		activePokemon.isdead();
 		numberPokemon +=1;
 		compteurDeath+=1;
 		switchPokemon(numberPokemon);
-		
-		
 	}
 	public void switchPokemon(int numberPokemon) {
 		activePokemon=team[numberPokemon];
@@ -93,7 +97,7 @@ public class Player {
 		default:
 			System.out.println("Touche inconnue veuillez réessayer !\n");
 			
-	}
+		}
 		StringBuilder menu = new StringBuilder();
 		menu.append("Bienvenue dans le menu :\n");
 		menu.append("Touche p ===> voir le pokedex\n");
@@ -107,8 +111,9 @@ public class Player {
 		menu.append("Touche s ===> changer de pokemon\n");
 		System.out.println(menu.toString());
 	}
-	public void pickPokemon(Pokedex pokedex) {
+	public PokemonFight[] pickPokemon(Pokedex pokedex) {
 		int count = 0;
+		PokemonFight[] teams = new PokemonFight[6];
 		System.out.println("Si vous tapez des caractères autres qu'un nombre vous passerez au pokemon suivant\n");
 		int numPoke;
 		Scanner input = null;
@@ -117,17 +122,18 @@ public class Player {
 			System.out.println("\nEcrivez le numero du pokemon\n");
 			input = new Scanner(System.in);
 			numPoke = input.nextInt();
-			System.out.println(numPoke);
-			PokemonFight pokemon =  pokedex.getPokedex().get(numPoke).createPokemon();
-			team[count] = pokemon.createPokemon();
+			Pokemon poke = pokedex.getPokedex().get(numPoke);
+			PokemonFight pokemon =  poke.createPokemon();
+			System.out.println(pokemon);
+			teams[count] = pokemon;
 			count++;
 		}
-		input.close();
+		
+		return teams;
 	}
 	public boolean lose (int compteurDeath) {
 		if (compteurDeath !=5) {
-			return false ;
-			
+			return false;
 		}
 		System.out.println("Vous avez perdu "+ name);
 		return true;

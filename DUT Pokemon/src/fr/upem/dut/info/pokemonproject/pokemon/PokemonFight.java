@@ -14,11 +14,11 @@ public class PokemonFight extends Pokemon{
         private int defense;
         private int defenseSpe;
         private int speed;
-        private final Capacity[] capacities ;
+        private Capacity[] capacities ;
         
     public PokemonFight(int number, String name, String path, int height, int weight,Type type,Type type2,int exp,int hp,int attack,int attackSpe,int defense,int defenseSpe,int speed,Capacity... capacities)  {
         super(number, name, path, height, weight, type);
-        if (exp<0||hp<0||attack<0||attackSpe<0||defense<0||defenseSpe<0||speed<0 || capacities[0] == null || capacities[4] != null ) {
+        if (exp<0||hp<0||attack<0||attackSpe<0||defense<0||defenseSpe<0||speed<0 ) {
             throw new IllegalArgumentException();
         }
         for ( Capacity c:capacities) {
