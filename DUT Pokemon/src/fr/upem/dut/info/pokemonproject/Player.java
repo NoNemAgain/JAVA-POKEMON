@@ -68,7 +68,7 @@ public class Player {
 			break;
 		case "c": //voir pokeCapacity
 		
-		case "pick": //pick a new pokemon from pokedex
+		case "pick": //pick a new pokemon from pokedex 
 			pickPokemon(pokedex);
 			break;
 			
