@@ -4,6 +4,8 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.Scanner;
 
+import fr.upem.dut.info.pokemonproject.capacity.Capacity;
+import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
@@ -16,6 +18,7 @@ public class Player {
 	private int compteurDeath = 0;
 	private int numberPokemon = 0;
 	private Pokedex pokedex = new Pokedex();
+	private PokeCapacity pokeCapacity = new PokeCapacity();
 	
 	public Player(String name,PokemonFight... team) throws IOException {
 		this.name=name;
@@ -25,7 +28,7 @@ public class Player {
 		else {
 			this.activePokemon = null;
 		}
-		this.team=pickPokemon(pokedex);
+		this.team=pickPokemon(pokedex, pokeCapacity);
 	}
 	public void deadPokemon() {
 		activePokemon.isdead();
@@ -71,10 +74,6 @@ public class Player {
 			System.out.println(pokedex.toString());
 			break;
 		case "c": //voir pokeCapacity
-		
-		case "pick": //pick a new pokemon from pokedex 
-			pickPokemon(pokedex);
-			break;
 			
 		case "1": //utiliser capacite 1
 			
@@ -102,7 +101,6 @@ public class Player {
 		menu.append("Bienvenue dans le menu :\n");
 		menu.append("Touche p ===> voir le pokedex\n");
 		menu.append("Touche c ===> voir les capacités\n");
-		menu.append("Touche pick ===> pour prendre un nouveau pokemon\n");
 		menu.append("Touche 1 ===> utiliser la capacité 1\n");
 		menu.append("Touche 2 ===> utiliser la capacité 2\n");
 		menu.append("Touche 3 ===> utiliser la capacité 3\n");
@@ -111,7 +109,7 @@ public class Player {
 		menu.append("Touche s ===> changer de pokemon\n");
 		System.out.println(menu.toString());
 	}
-	public PokemonFight[] pickPokemon(Pokedex pokedex) {
+	public PokemonFight[] pickPokemon(Pokedex pokedex,PokeCapacity pokeCapacity) {
 		int count = 0;
 		PokemonFight[] teams = new PokemonFight[6];
 		System.out.println("Si vous tapez des caractères autres qu'un nombre vous passerez au pokemon suivant\n");
@@ -121,15 +119,41 @@ public class Player {
 			System.out.println("Veuillez choisir votre pokemon numero "+(count+1));
 			System.out.println("\nEcrivez le numero du pokemon\n");
 			input = new Scanner(System.in);
+			if(!input.hasNextInt() && input.next().equals("quit")) { break;}
 			numPoke = input.nextInt();
-			Pokemon poke = pokedex.getPokedex().get(numPoke);
-			PokemonFight pokemon =  poke.createPokemon();
-			System.out.println(pokemon);
-			teams[count] = pokemon;
-			count++;
+			if(numPoke<0 || numPoke>807) { }
+			else {
+				Pokemon poke = pokedex.getPokedex().get(numPoke);
+				PokemonFight pokemon =  poke.createPokemon();
+				pokemon.setCapacities(pickCapacitiy(pokemon,pokeCapacity));
+				System.out.println(pokemon);
+				teams[count] = pokemon;
+				count++;
+			}
 		}
-		
 		return teams;
+	}
+	public CapacityDamage[] pickCapacitiy(PokemonFight pokemon,PokeCapacity pokeCapacity) {
+		int count = 0;
+		CapacityDamage[] capacities = new CapacityDamage[4];
+		System.out.println("Si vous tapez des caractères autres qu'un nombre vous passerez a la capacité suivante\n");
+		String nameCapa = null;
+		Scanner input = null;
+		while(count<4 || nameCapa.equals("quit")) {
+			System.out.println("Veuillez choisir votre capacité numero "+(count+1));
+			System.out.println("\nEcrivez le nom de la capacité\n");
+			input = new Scanner(System.in);
+			nameCapa = input.next();
+			if(nameCapa.equals("quit")) { break; }
+			if(pokeCapacity.getCapacities().containsKey(nameCapa)) {
+				Capacity poke = pokeCapacity.getCapacities().get(nameCapa);
+				if(poke.canChooseCapacity(pokemon)) {
+					capacities[count] = (CapacityDamage) poke;
+					count++;
+				}
+			}
+		}
+		return capacities;
 	}
 	public boolean lose (int compteurDeath) {
 		if (compteurDeath !=5) {

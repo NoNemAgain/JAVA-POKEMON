@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.capacity.Capacity;
+import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 
 public class PokemonFight extends Pokemon{
         private static int id = 0;
@@ -72,13 +73,8 @@ public class PokemonFight extends Pokemon{
 	   hp-=damage;//
 	   System.out.println(name+" a perdu "+damage+" pt de vies !\n");
    }
-	public void setCapacities(Capacity cap) {
-		for(int i=0;i<4;i++) {
-			if(capacities[i]==null) {
-				capacities[i] = cap;
-				break;
-			}
-		}
+	public void setCapacities(CapacityDamage[] capacityDamages) {
+		capacities = capacityDamages;
 	}
    /*
    public void getStat(int stat,Stat statName,int round) {
