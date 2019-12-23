@@ -3,6 +3,7 @@ package fr.upem.dut.info.pokemonproject.capacity;
 import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;
+import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public abstract class AbstractCapacity implements Capacity {
@@ -33,7 +34,8 @@ public abstract class AbstractCapacity implements Capacity {
 	
 
 	public void damage(PokemonFight p) {
-		float random= (float) (Math.random() * ( 100 - 0 ));
+		pp=-1;
+		float random= Pokemon.random(0, 100);
 		if (precision> random) {
 			p.getDamaged(power);
 		}
