@@ -1,9 +1,7 @@
 package fr.upem.dut.info.pokemonproject;
 
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.Scanner;
-
 import fr.upem.dut.info.pokemonproject.capacity.Capacity;
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;

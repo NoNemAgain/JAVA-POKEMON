@@ -32,7 +32,7 @@ public class Fight {
 		else {
 			player2.action(event,pokedex,pokeCapacity);
 		}
-		round+=1;;;
+		round+=1;
 		
 	}
 	public void sauvegarder() throws IOException
@@ -42,7 +42,7 @@ public class Fight {
 				ObjectOutputStream out = new ObjectOutputStream(back)){
 			out.writeObject(player1);
 			out.writeObject(player2);
-			out.writeObject(round);// sauvergarde}ddazd
+			out.writeObject(round);// sauvergarde}
 		}
     }
 	public void charger() throws IOException, ClassNotFoundException 
