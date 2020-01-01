@@ -80,6 +80,10 @@ public abstract class AbstractCapacity implements Capacity {
 	public int hashCode() {
 		return Objects.hash(id,name,type,power,pp,precision,capacityType);
 	}
+	
+	public String getName() {
+		return name;
+	}
 
 }
  

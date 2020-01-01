@@ -76,6 +76,14 @@ public class PokemonFight extends Pokemon{
 	public void setCapacities(CapacityDamage[] capacityDamages) {
 		capacities = capacityDamages;
 	}
+	
+	public Capacity getCapacity(int number) {
+		return capacities[number-1];
+	}
+	public void attack(PokemonFight pokemonOPP, CapacityDamage capa) {
+		System.out.println(name +" attaque "+ pokemonOPP.name + " avec " + capa.getName());
+		capa.damage(pokemonOPP, ???);//Je sais pas comment on fait pour remplir la fonction
+	}
    /*
    public void getStat(int stat,Stat statName,int round) {
 		   if (Stat.isAttack(statName)) {

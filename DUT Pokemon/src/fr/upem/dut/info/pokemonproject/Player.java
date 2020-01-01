@@ -66,6 +66,16 @@ public class Player {
 		}
 	}
 	public void action(String event,Pokedex pokedex, PokeCapacity pokeCapacity) {
+		StringBuilder menu = new StringBuilder();
+		menu.append("Bienvenue dans le menu :\n");
+		menu.append("Touche p ===> voir le pokedex\n");
+		menu.append("Touche c ===> voir les capacités\n");
+		menu.append("Touche 1 ===> utiliser la capacité 1\n");
+		menu.append("Touche 2 ===> utiliser la capacité 2\n");
+		menu.append("Touche 3 ===> utiliser la capacité 3\n");
+		menu.append("Touche 4 ===> utiliser la capacité 4\n");
+		menu.append("Touche r ===> fuir\n");
+		menu.append("Touche s ===> changer de pokemon\n");
 		switch (event) {
 		case "p": //voir pokedex
 			System.out.println("Voici le pokedex : \n");
@@ -74,7 +84,7 @@ public class Player {
 		case "c": //voir pokeCapacity
 			
 		case "1": //utiliser capacite 1
-			
+			activePokemon.attack(oppenent.getActivePokeme(), activePokemon.getCapacity(1));//Méthode pas faite
 		case "2": //utiliser capacite 2
 			
 		case "3": //utiliser capacite 3
@@ -95,16 +105,6 @@ public class Player {
 			System.out.println("Touche inconnue veuillez réessayer !\n");
 			
 		}
-		StringBuilder menu = new StringBuilder();
-		menu.append("Bienvenue dans le menu :\n");
-		menu.append("Touche p ===> voir le pokedex\n");
-		menu.append("Touche c ===> voir les capacités\n");
-		menu.append("Touche 1 ===> utiliser la capacité 1\n");
-		menu.append("Touche 2 ===> utiliser la capacité 2\n");
-		menu.append("Touche 3 ===> utiliser la capacité 3\n");
-		menu.append("Touche 4 ===> utiliser la capacité 4\n");
-		menu.append("Touche r ===> fuir\n");
-		menu.append("Touche s ===> changer de pokemon\n");
 		System.out.println(menu.toString());
 	}
 	public PokemonFight[] pickPokemon(Pokedex pokedex,PokeCapacity pokeCapacity) {

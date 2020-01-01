@@ -7,5 +7,6 @@ public interface Capacity {
 	Type getType();
 	void damage(PokemonFight p,TypesMultiplicators tm);
 	boolean canChooseCapacity(PokemonFight p);
+	String getName();
 	
 }

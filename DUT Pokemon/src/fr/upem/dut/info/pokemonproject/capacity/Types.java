@@ -1,10 +1,6 @@
 package fr.upem.dut.info.pokemonproject.capacity;
 
-import java.util.ArrayList;
-import java.util.Objects;
-
 import fr.upem.dut.info.pokemonproject.Type;
-import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class Types {
