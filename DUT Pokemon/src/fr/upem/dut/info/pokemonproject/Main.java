@@ -16,7 +16,8 @@ public class Main {
 		TypesMultiplicators tm =new TypesMultiplicators();
 		PokeCapacity pokeCapacity = new PokeCapacity();
 		Player p1 = new Player("Albert");
-		
+		Player p2 = new Player("Jean");
+		Fight f1 = new Fight(p1, p2, pokedex, pokeCapacity);
 	    String s = null;
         try{
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
@@ -33,7 +34,7 @@ public class Main {
     		System.out.println(menu.toString());
             while ((s!=null && s.equalsIgnoreCase("quit")) == false ||  s.equalsIgnoreCase("quit")==false) {
             	s = bufferRead.readLine();
-            	p1.action(s, pokedex, pokeCapacity);
+            	f1.tour(s);
             }
 
             System.out.println("Le jeu est terminé !");
