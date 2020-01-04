@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
-import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;
-import fr.upem.dut.info.pokemonproject.capacity.TypesMultiplicators;
-import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
+import fr.upem.dut.info.pokemonproject.loader.PokeCapacity;
+import fr.upem.dut.info.pokemonproject.loader.Pokedex;
+import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
 
 public class test {
 

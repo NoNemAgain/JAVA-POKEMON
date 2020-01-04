@@ -10,9 +10,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
 
-import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;
-import fr.upem.dut.info.pokemonproject.capacity.TypesMultiplicators;
-import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
+import fr.upem.dut.info.pokemonproject.loader.PokeCapacity;
+import fr.upem.dut.info.pokemonproject.loader.Pokedex;
+import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
 
 public class Fight {
 	private Player player1;

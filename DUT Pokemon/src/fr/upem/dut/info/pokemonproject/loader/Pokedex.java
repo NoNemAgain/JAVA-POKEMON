@@ -1,4 +1,4 @@
-package fr.upem.dut.info.pokemonproject.pokemon;
+package fr.upem.dut.info.pokemonproject.loader;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;
+import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 
 public class Pokedex extends AbstractLoad implements Serializable{
 	HashMap<Integer,Pokemon> pokedex = new HashMap<Integer,Pokemon>();

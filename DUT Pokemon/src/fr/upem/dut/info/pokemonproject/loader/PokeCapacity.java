@@ -1,4 +1,4 @@
-package fr.upem.dut.info.pokemonproject.capacity;
+package fr.upem.dut.info.pokemonproject.loader;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;
-import fr.upem.dut.info.pokemonproject.pokemon.AbstractLoad;
+import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class PokeCapacity extends AbstractLoad implements Serializable{

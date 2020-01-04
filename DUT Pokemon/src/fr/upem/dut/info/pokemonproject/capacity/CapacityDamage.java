@@ -3,6 +3,7 @@ package fr.upem.dut.info.pokemonproject.capacity;
 import java.io.Serializable;
 
 import fr.upem.dut.info.pokemonproject.Type;
+import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 

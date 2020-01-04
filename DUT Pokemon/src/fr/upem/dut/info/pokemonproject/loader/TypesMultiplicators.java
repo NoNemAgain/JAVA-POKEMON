@@ -1,11 +1,13 @@
-package fr.upem.dut.info.pokemonproject.capacity;
+package fr.upem.dut.info.pokemonproject.loader;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;
-import fr.upem.dut.info.pokemonproject.pokemon.AbstractLoad;
+import fr.upem.dut.info.pokemonproject.capacity.AbstractCapacity;
+import fr.upem.dut.info.pokemonproject.capacity.TypeMultiplicator;
+import fr.upem.dut.info.pokemonproject.capacity.Types;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class TypesMultiplicators extends AbstractLoad{

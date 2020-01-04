@@ -1,4 +1,4 @@
-package fr.upem.dut.info.pokemonproject.pokemon;
+package fr.upem.dut.info.pokemonproject.loader;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -5,9 +5,9 @@ import java.io.Serializable;
 import java.util.Scanner;
 import fr.upem.dut.info.pokemonproject.capacity.Capacity;
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
-import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;
-import fr.upem.dut.info.pokemonproject.capacity.TypesMultiplicators;
-import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
+import fr.upem.dut.info.pokemonproject.loader.PokeCapacity;
+import fr.upem.dut.info.pokemonproject.loader.Pokedex;
+import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 

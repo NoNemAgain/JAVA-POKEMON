@@ -6,7 +6,7 @@ import java.util.Objects;
 import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.capacity.Capacity;
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
-import fr.upem.dut.info.pokemonproject.capacity.TypesMultiplicators;
+import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
 
 public class PokemonFight extends Pokemon{
         private static int id = 0;
