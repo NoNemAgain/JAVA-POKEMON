@@ -21,7 +21,7 @@ public class Fight {
 	private PokeCapacity pokeCapacity;
 	private TypesMultiplicators tm;
 	public int round =0; 
-	Path path =Paths.get("backup");
+	Path path =Paths.get("src/fr/upem/dut/info/pokemonproject/source/backup");
 	public Fight (Player player1, Player player2,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm) {
 		this.player1=Objects.requireNonNull(player1);
 		this.player2=Objects.requireNonNull(player2);
