@@ -1,11 +1,16 @@
 package fr.upem.dut.info.pokemonproject.capacity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
-public abstract class AbstractCapacity implements Capacity {
+public abstract class AbstractCapacity implements Capacity,Serializable  {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6362766374528595134L;
 	private final int id;
 	protected final String name ; 
 	protected final Type type ;
@@ -26,7 +31,6 @@ public abstract class AbstractCapacity implements Capacity {
 		this.precision = precision;
 		this.pp=pp;
 		this.capacityType=Objects.requireNonNull(capacityType);
-
 	}
 	
 	public Type getType() {

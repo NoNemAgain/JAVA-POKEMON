@@ -51,7 +51,6 @@ public class Fight {
 			out.writeObject(player1);
 			out.writeObject(player2);
 			out.writeObject(round);// sauvergarde}
-			out.flush();
 		}
     }
 	public void charger() throws IOException, ClassNotFoundException {

@@ -43,8 +43,9 @@ public class Main {
 			System.out.println(menu.toString());
 		    while ((s!=null && s.equalsIgnoreCase("jouer")) == false ||  s.equalsIgnoreCase("jouer")==false) {
 		    	s = bufferRead.readLine();
-		    	if(s == "charg") {
+		    	if(s.equals("charg")) {
 		    		f1.charger();
+		    		System.out.println("chargement avec succès !");
 		    	}
 		    }
 		}
