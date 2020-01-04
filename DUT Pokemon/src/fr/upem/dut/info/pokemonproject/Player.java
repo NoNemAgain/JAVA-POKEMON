@@ -12,6 +12,10 @@ import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class Player implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7223569687102081698L;
 	private final String name ;
 	private PokemonFight[] team;
 	private PokemonFight activePokemon ;

@@ -72,7 +72,6 @@ public class Main {
             	s = bufferRead.readLine();
             	f1.tour(s);
             }
-
             System.out.println("Le jeu est terminé !");
         }
         catch(IOException e)
@@ -80,7 +79,5 @@ public class Main {
             e.printStackTrace();
         }
 
-		
 	}
-
 }

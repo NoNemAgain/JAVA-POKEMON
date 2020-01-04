@@ -1,15 +1,17 @@
 package fr.upem.dut.info.pokemonproject.pokemon;
 
-import java.io.Serializable;
 import java.util.Objects;
-
 import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.capacity.Capacity;
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
 
 public class PokemonFight extends Pokemon{
-        private static int id = 0;
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 6129822248125061027L;
+		private static int id = 0;
         private float exp ;
         private float hp ;
         private int attack;

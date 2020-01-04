@@ -7,6 +7,10 @@ import java.util.Random;
 import fr.upem.dut.info.pokemonproject.Type;
 
 public class Pokemon implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3347003819739762398L;
 	private final int number;
 	protected final String name ;
 	private final String path ;

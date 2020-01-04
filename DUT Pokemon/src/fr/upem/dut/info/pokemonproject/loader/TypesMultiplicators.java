@@ -15,7 +15,7 @@ public class TypesMultiplicators extends AbstractLoad{
 	private static final String fileName = "src/fr/upem/dut/info/pokemonproject/source/grid_types.csv";
 public TypesMultiplicators () throws IOException {
 		
-		create(this.fileName);
+		create(TypesMultiplicators.fileName);
 	}
 	public HashMap<Types, TypeMultiplicator> getTypesMultiplicators() {
 		return typesMultiplicators;

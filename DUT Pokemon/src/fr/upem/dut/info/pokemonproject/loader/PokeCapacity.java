@@ -3,11 +3,6 @@ package fr.upem.dut.info.pokemonproject.loader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Serializable;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -16,11 +11,15 @@ import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class PokeCapacity extends AbstractLoad implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3032856954583949261L;
 	HashMap<String, CapacityDamage> capacities = new HashMap<String,CapacityDamage>();
 	private static final String fileName = "src/fr/upem/dut/info/pokemonproject/source/moves.csv";
 	public PokeCapacity  () throws IOException {
 		
-		create(this.fileName);
+		create(PokeCapacity.fileName);
 	}
 	public HashMap<String, CapacityDamage> getCapacities() {
 		return capacities;

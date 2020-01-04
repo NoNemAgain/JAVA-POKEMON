@@ -8,8 +8,11 @@ import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class CapacityDamage extends AbstractCapacity implements Serializable{
-
-    public CapacityDamage(int id ,String name, Type type, int power,int pp,int precision,String capacityType) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2588938312825312785L;
+	public CapacityDamage(int id ,String name, Type type, int power,int pp,int precision,String capacityType) {
         super(id,name, type,pp, power, precision,capacityType);
     }
 
@@ -33,7 +36,5 @@ public class CapacityDamage extends AbstractCapacity implements Serializable{
 	public String toString() {
     	return super.toString();
     }
-  
-    
 }
 

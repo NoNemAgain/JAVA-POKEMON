@@ -1,13 +1,7 @@
 package fr.upem.dut.info.pokemonproject.loader;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Serializable;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -15,12 +9,16 @@ import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 
 public class Pokedex extends AbstractLoad implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4972182653140422867L;
 	HashMap<Integer,Pokemon> pokedex = new HashMap<Integer,Pokemon>();
 	private static final String fileName = "src/fr/upem/dut/info/pokemonproject/source/pokedex.csv";
 	private final int version;
 	public Pokedex () throws IOException {
 		
-		create(this.fileName);
+		create(Pokedex.fileName);
 		this.version=0;
 	}
 	public HashMap<Integer, Pokemon> getPokedex() {
