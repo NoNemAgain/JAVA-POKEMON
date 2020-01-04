@@ -1,13 +1,10 @@
 package fr.upem.dut.info.pokemonproject.loader;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
-
 import fr.upem.dut.info.pokemonproject.Type;
-import fr.upem.dut.info.pokemonproject.capacity.Capacity;
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 

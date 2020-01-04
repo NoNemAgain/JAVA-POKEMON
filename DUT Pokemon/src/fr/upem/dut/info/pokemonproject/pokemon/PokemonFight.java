@@ -100,8 +100,10 @@ public class PokemonFight extends Pokemon{
 	public String getCapacities() {
 		StringBuilder str = new StringBuilder();
 		for(Capacity capa: capacities) {
-			str.append(capa);
-			str.append(" | ");
+			if(capa != null) {
+				str.append(capa);
+				str.append(" | ");
+			}
 		}
 		return str.toString();
 	}

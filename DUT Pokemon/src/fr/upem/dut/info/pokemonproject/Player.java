@@ -33,7 +33,7 @@ public class Player implements Serializable{
 		else {
 			this.activePokemon = null;
 		}
-		if (team ==null) {
+		if (team.length ==0) {
 			this.team=pickPokemon(pokedex, pokeCapacity);
 		}
 		else {
@@ -223,9 +223,11 @@ public class Player implements Serializable{
 		}
 	}
 	public void teamString() {
-		System.out.println("Equip de "+name+" : \n");
+		System.out.println("Equipe de "+name+" : \n");
 		for(int i=0;i<team.length;i++) {
-			System.out.println("("+(i+1)+") "+team[i].getName()+" HP : "+team[i].getHp()+" || Capacités : "+ team[i].getCapacities());
+			if(team[i] != null) {
+				System.out.println("("+(i+1)+") "+team[i].getName()+" HP : "+team[i].getHp()+" || Capacités : "+ team[i].getCapacities());
+			}
 		}
 		System.out.println("\n");
 	}

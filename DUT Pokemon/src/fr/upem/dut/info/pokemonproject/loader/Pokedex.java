@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
-
 import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 
@@ -17,7 +16,6 @@ public class Pokedex extends AbstractLoad implements Serializable{
 	private static final String fileName = "src/fr/upem/dut/info/pokemonproject/source/pokedex.csv";
 	private final int version;
 	public Pokedex () throws IOException {
-		
 		create(Pokedex.fileName);
 		this.version=0;
 	}
@@ -35,8 +33,6 @@ public class Pokedex extends AbstractLoad implements Serializable{
 			pokedex.put(Integer.parseInt(line[0]), Objects.requireNonNull(new Pokemon(Integer.parseInt(line[0]), line[1], line[2], Integer.parseInt(line[3]), Integer.parseInt(line[4]),  Type.getType((line[5])))));
 		}
 	}
-	
-
 	@Override
 	public String toString() {
 		StringBuilder str = new StringBuilder();
