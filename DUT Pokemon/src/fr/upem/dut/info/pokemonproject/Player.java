@@ -28,47 +28,63 @@ public class Player {
 		else {
 			this.activePokemon = null;
 		}
-		this.team=pickPokemon(pokedex, pokeCapacity);
+		if (team ==null) {
+			this.team=pickPokemon(pokedex, pokeCapacity);
+		}
+		else {
+			this.team=team;
+		}
 	}
 	public void deadPokemon() {
 		numberPokemon +=1;
 		compteurDeath+=1;
 		switchPokemon(numberPokemon);
 	}
-	public void switchPokemon(int numberPokemon) {
+	public void switchPokemon(int numberPokemon) {	
 		activePokemon=team[numberPokemon%5];
 		System.out.println(activePokemon+" arrive sur le terrain !");
 	}
 	public void changePokemon(char input) {
-		switch (input) {
+		team.toString();
+		int numberPokemonIfWrong= numberPokemon;
+		switch (input) {	
 		case '1': //choisir le pokemon 1
-			if(team[0]==null) {break;}
-			switchPokemon(0);
+			numberPokemon= 0;
+			System.out.println(0);
 			break;
 		case '2': //choisir le pokemon 2
-			if(team[1]==null) {break;}
-			switchPokemon(1);
+			numberPokemon= 1;
+			System.out.println(1);
 			break;
 		case '3': //choisir le pokemon 3
-			if(team[2]==null) {break;}
-			switchPokemon(2);
+			numberPokemon= 2;
+			System.out.println(2);
 			break;
 		case '4': //choisir le pokemon 4
-			if(team[3]==null) {break;}
-			switchPokemon(3);
+			numberPokemon= 3;
+			System.out.println(3);
 			break;
 		case '5': //choisir le pokemon 5
-			if(team[4]==null) {break;}
-			switchPokemon(4);
+			numberPokemon= 4;
+			System.out.println(4);
 			break;
 		case '6': //choisir le pokemon 6
-			if(team[5]==null) {break;}
-			switchPokemon(5);
+			numberPokemon= 5;
+			System.out.println();
 			break;
 		default:
 			System.out.println("euh c'est pas bon là");
 			break;
 		}
+		if(team[numberPokemon]!=null) {
+			switchPokemon(numberPokemon);
+			System.out.println(activePokemon+" arrive sur le terrain !");
+		}
+		else {	
+			numberPokemon=numberPokemonIfWrong;
+			System.out.println(team[numberPokemon]+" arrive dadzsur le terrain !");
+		}
+
 	}
 	public void action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent) {
 		StringBuilder menu = new StringBuilder();
@@ -184,6 +200,11 @@ public class Player {
 				team[i]=null;
 				deadPokemon();
 			}
+		}
+	}
+	public void teamString() {
+		for(int i=0;i<team.length;i++) {
+			team[i].toString();
 		}
 	}
 }
