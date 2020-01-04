@@ -45,7 +45,6 @@ public TypesMultiplicators () throws IOException {
 	public float weakness(PokemonFight pf, AbstractCapacity abstractCapacity) {
 		float multiplicator = 0.0F ;
 		for (Types t:typesMultiplicators.keySet()) {
-			System.out.println(t);
 			if (t.sameType(pf)) {
 				multiplicator =typesMultiplicators.get(t).multiplicatorTypes(abstractCapacity.getType());
 				break;

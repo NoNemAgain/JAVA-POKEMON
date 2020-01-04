@@ -21,9 +21,9 @@ public class Player {
 	
 	public Player(String name,PokemonFight... team) throws IOException {
 		this.name=name;
-		this.numberPokemon = team.length;
-		if(numberPokemon != 0) {
-			this.activePokemon=team[numberPokemon-1];
+		
+		if(team.length != 0) {
+			this.activePokemon=team[numberPokemon];
 		}
 		else {
 			this.activePokemon = null;
@@ -38,14 +38,18 @@ public class Player {
 	public void deadPokemon() {
 		numberPokemon +=1;
 		compteurDeath+=1;
-		switchPokemon(numberPokemon);
+		if(!(lose())) {
+			switchPokemon(numberPokemon);
+		}
+		
 	}
 	public void switchPokemon(int numberPokemon) {	
+		System.out.println(numberPokemon);
 		activePokemon=team[numberPokemon%5];
 		System.out.println(activePokemon+" arrive sur le terrain !");
 	}
 	public void changePokemon(char input) {
-		team.toString();
+		
 		int numberPokemonIfWrong= numberPokemon;
 		switch (input) {	
 		case '1': //choisir le pokemon 1
@@ -78,11 +82,11 @@ public class Player {
 		}
 		if(team[numberPokemon]!=null) {
 			switchPokemon(numberPokemon);
-			System.out.println(activePokemon+" arrive sur le terrain !");
+			
 		}
 		else {	
 			numberPokemon=numberPokemonIfWrong;
-			System.out.println(team[numberPokemon]+" arrive dadzsur le terrain !");
+		
 		}
 
 	}
@@ -121,10 +125,13 @@ public class Player {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(4), tm);}
 			break;
 		case "r": // fuir
-			
+			compteurDeath =team.length;
+			lose();
+			break;
 		case "s": // changer de pokemon
 			System.out.println("===============================================================\n");
 			System.out.println("Entrez un nombre pour choisir le pokemon que vous souhaitez :\n");
+			teamString();
 			char input;
 			Scanner scanIn = new Scanner(System.in);
 			input = scanIn.nextLine().charAt(0);
@@ -183,8 +190,8 @@ public class Player {
 		}
 		return capacities;
 	}
-	public boolean lose (int compteurDeath) {
-		if (compteurDeath !=5) {
+	public boolean lose () {
+		if (compteurDeath !=team.length) {
 			return false;
 		}
 		System.out.println("Vous avez perdu "+ name);
@@ -204,7 +211,8 @@ public class Player {
 	}
 	public void teamString() {
 		for(int i=0;i<team.length;i++) {
-			team[i].toString();
+			
+		System.out.println(team[i].getName() +" position "+ (i+1));
 		}
 	}
 }

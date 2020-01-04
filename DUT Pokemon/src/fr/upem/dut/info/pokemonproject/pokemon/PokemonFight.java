@@ -90,6 +90,10 @@ public class PokemonFight extends Pokemon{
 	public float getHp() {
 		return hp;
 	}
+	public String getName() {
+		return super.getName();
+	}
+	
    /*
    public void getStat(int stat,Stat statName,int round) {
 		   if (Stat.isAttack(statName)) {

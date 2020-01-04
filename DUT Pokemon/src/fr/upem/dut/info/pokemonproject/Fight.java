@@ -28,14 +28,20 @@ public class Fight {
 		this.tm = tm;
 	}
 	public void tour(String event) {
-		if (round %2==0) {
+		if (round %2==0&&(!(end()))) {
 			player1.action(event,pokedex,pokeCapacity,tm, player2);
 		}
-		else {
+		if (round %2!=0&& (!end())){
 			player2.action(event,pokedex,pokeCapacity,tm, player1);
 		}
 		round+=1;
 		
+	}
+	public boolean end() {
+		if (player1.lose()||player2.lose()) {
+			return true;
+		}
+		return false;
 	}
 	public void sauvegarder() throws IOException
     {
