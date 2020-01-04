@@ -28,7 +28,9 @@ public class Main {
 		poke1.setCapacities(capacityDamages);
 		poke2.setCapacities(capacityDamages);
 		poke3.setCapacities(capacityDamages);
-		poke4.setCapacities(capacityDamages);*/
+		poke4.setCapacities(capacityDamages);
+		Player p1 = new Player("Albert",poke1,poke2);
+		Player p2 = new Player("Jean",poke3,poke4);*/
 		Player p1 = new Player("Albert");
 		Player p2 = new Player("Jean");
 		Fight f1 = new Fight(p1, p2, pokedex, pokeCapacity,tm);
