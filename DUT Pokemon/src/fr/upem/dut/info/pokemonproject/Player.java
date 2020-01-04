@@ -87,7 +87,6 @@ public class Player implements Serializable{
 		}
 		else {	
 			numberPokemon=numberPokemonIfWrong;
-		
 		}
 	}
 	public void action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1) throws IOException {
