@@ -26,6 +26,8 @@ public class Fight {
 		this.player1=Objects.requireNonNull(player1);
 		this.player2=Objects.requireNonNull(player2);
 		this.tm = tm;
+		this.pokedex = pokedex;
+		this.pokeCapacity = pokeCapacity;
 	}
 	public void tour(String event) throws IOException {
 		if (round %2==0&&(!(end()))) {

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;
+import fr.upem.dut.info.pokemonproject.capacity.Capacity;
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
@@ -35,8 +36,8 @@ public class PokeCapacity extends AbstractLoad implements Serializable{
 	@Override
 	public String toString() {
 		StringBuilder str = new StringBuilder();
-		for( int i=1; i <= capacities.size(); i++ ) {	
-			str.append(capacities.get(i).toString());
+		for(String capaName: capacities.keySet()) {	
+			str.append(capacities.get(capaName));
 			str.append("\n");
 		}
 		return str.toString();
@@ -44,10 +45,10 @@ public class PokeCapacity extends AbstractLoad implements Serializable{
 
 	public String toStringCanChoosePokemon(PokemonFight pf) {
 		StringBuilder str = new StringBuilder();
-		for( int i=1; i <= capacities.size(); i++ ) {
-			if (capacities.get(i).canChooseCapacity(pf)) {
-			str.append(capacities.get(i).toString());
-			str.append("\n");
+		for(String capaName: capacities.keySet()) {	
+			if (capacities.get(capaName).canChooseCapacity(pf)) {
+				str.append(capacities.get(capaName));
+				str.append("\n");
 			}
 		}
 		return str.toString();

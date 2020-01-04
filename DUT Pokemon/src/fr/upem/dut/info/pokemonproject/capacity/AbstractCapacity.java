@@ -7,12 +7,12 @@ import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public abstract class AbstractCapacity implements Capacity {
 	private final int id;
-	private final String name ; 
-	private final Type type ;
+	protected final String name ; 
+	protected final Type type ;
 	protected final int power ;
 	protected int pp;
 	protected final int precision ;
-	private final String capacityType;
+	protected final String capacityType;
 
 	
 	public AbstractCapacity(int id ,String name, Type type, int power,int pp,int precision,String capacityType) {

@@ -8,18 +8,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public abstract class AbstractLoad {
-	
+abstract class AbstractLoad {
 	private static final String fileName = "src/fr/upem/dut/info/pokemonproject/source/";
 	private final int version;
 	public AbstractLoad () throws IOException {
 		this.version=0;
 	}
-	
-	public void create(String fileName) throws IOException{
+	protected void create(String fileName) throws IOException{
 		Path file = Paths.get(fileName);
 		Charset charset = StandardCharsets.UTF_8;
-	
 		int i = 0;
 		try (BufferedReader reader = Files.newBufferedReader(file, charset)){
 			String line1;
@@ -33,9 +30,7 @@ public abstract class AbstractLoad {
 		}
 	
 	}
-	public void add(String[] line) {
-		
-	}
+	abstract void add(String[] line);
 	
 
 	

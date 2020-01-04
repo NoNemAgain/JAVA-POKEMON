@@ -95,9 +95,10 @@ public class Player implements Serializable{
 	}
 	public void action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1) throws IOException {
 		StringBuilder menu = new StringBuilder();
-		menu.append("Bienvenue dans le menu :\n");
+		menu.append("Bienvenue dans le menu "+name+":\n");
 		menu.append("Touche p ===> voir le pokedex\n");
 		menu.append("Touche c ===> voir les capacités\n");
+		menu.append("Touche t ===> pour voir votre équipe\n");
 		menu.append("Touche 1 ===> utiliser la capacité 1\n");
 		menu.append("Touche 2 ===> utiliser la capacité 2\n");
 		menu.append("Touche 3 ===> utiliser la capacité 3\n");
@@ -108,10 +109,15 @@ public class Player implements Serializable{
 		switch (event) {
 		case "p": //voir pokedex
 			System.out.println("Voici le pokedex : \n");
-			System.out.println(pokedex.toString());
+			System.out.println(pokedex);
 			break;
 		case "c": //voir pokeCapacity
-			
+			System.out.println("Voici l'ensemble des capacites : \n");
+			System.out.println(pokeCapacity);
+			break;
+		case "t":
+			teamString();
+			break;
 		case "1": //utiliser capacite 1
 			if(activePokemon.getCapacity(1)!=null) {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);}
@@ -217,10 +223,11 @@ public class Player implements Serializable{
 		}
 	}
 	public void teamString() {
+		System.out.println("Equip de "+name+" : \n");
 		for(int i=0;i<team.length;i++) {
-			
-		System.out.println(team[i].getName() +" position "+ (i+1));
+			System.out.println("("+(i+1)+") "+team[i].getName()+" HP : "+team[i].getHp()+" || Capacités : "+ team[i].getCapacities());
 		}
+		System.out.println("\n");
 	}
 	public void sauvegarder(Fight f1) throws IOException {
 		f1.sauvegarder();

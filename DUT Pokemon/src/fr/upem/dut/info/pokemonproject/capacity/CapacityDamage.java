@@ -34,7 +34,7 @@ public class CapacityDamage extends AbstractCapacity implements Serializable{
     }
     @Override
 	public String toString() {
-    	return super.toString();
+    	return name + " capacité "+capacityType+" de type : "+type +" avec "+power+" de puissance";
     }
 }
 

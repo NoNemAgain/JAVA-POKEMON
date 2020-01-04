@@ -7,5 +7,4 @@ public interface Capacity {
 	Type getType();
 	boolean canChooseCapacity(PokemonFight p);
 	String getName();
-	
 }

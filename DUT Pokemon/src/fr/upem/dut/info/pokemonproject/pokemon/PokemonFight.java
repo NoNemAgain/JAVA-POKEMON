@@ -97,6 +97,15 @@ public class PokemonFight extends Pokemon{
 		return super.getName();
 	}
 	
+	public String getCapacities() {
+		StringBuilder str = new StringBuilder();
+		for(Capacity capa: capacities) {
+			str.append(capa);
+			str.append(" | ");
+		}
+		return str.toString();
+	}
+	
    /*
    public void getStat(int stat,Stat statName,int round) {
 		   if (Stat.isAttack(statName)) {

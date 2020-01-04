@@ -57,9 +57,10 @@ public class Main {
         try{
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
     		StringBuilder menu = new StringBuilder();
-    		menu.append("Bienvenue dans le menu :\n");
+    		menu.append("Bienvenue dans le menu du joueur 1 :\n");
     		menu.append("Touche p ===> voir le pokedex\n");
     		menu.append("Touche c ===> voir les capacités\n");
+    		menu.append("Touche t ===> pour voir votre équipe\n");
     		menu.append("Touche 1 ===> utiliser la capacité 1\n");
     		menu.append("Touche 2 ===> utiliser la capacité 2\n");
     		menu.append("Touche 3 ===> utiliser la capacité 3\n");
