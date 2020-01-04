@@ -2,6 +2,7 @@ package fr.upem.dut.info.pokemonproject.capacity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -14,7 +15,7 @@ import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.pokemon.AbstractLoad;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
-public class PokeCapacity extends AbstractLoad{
+public class PokeCapacity extends AbstractLoad implements Serializable{
 	HashMap<String, CapacityDamage> capacities = new HashMap<String,CapacityDamage>();
 	private static final String fileName = "src/fr/upem/dut/info/pokemonproject/source/moves.csv";
 	public PokeCapacity  () throws IOException {

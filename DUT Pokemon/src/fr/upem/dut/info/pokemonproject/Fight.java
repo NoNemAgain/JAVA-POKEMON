@@ -27,15 +27,14 @@ public class Fight {
 		this.player2=Objects.requireNonNull(player2);
 		this.tm = tm;
 	}
-	public void tour(String event) {
+	public void tour(String event) throws IOException {
 		if (round %2==0&&(!(end()))) {
-			player1.action(event,pokedex,pokeCapacity,tm, player2);
+			player1.action(event,pokedex,pokeCapacity,tm, player2,this);
 		}
 		if (round %2!=0&& (!end())){
-			player2.action(event,pokedex,pokeCapacity,tm, player1);
+			player2.action(event,pokedex,pokeCapacity,tm, player1,this);
 		}
 		round+=1;
-		
 	}
 	public boolean end() {
 		if (player1.lose()||player2.lose()) {
@@ -43,18 +42,18 @@ public class Fight {
 		}
 		return false;
 	}
-	public void sauvegarder() throws IOException
-    {
+	public void sauvegarder() throws IOException{
+		System.out.println("dzapùflzkpfl");
         // Crée un fichier texte
 		try (OutputStream back = Files.newOutputStream(path);
 				ObjectOutputStream out = new ObjectOutputStream(back)){
 			out.writeObject(player1);
 			out.writeObject(player2);
-			out.writeObject(round);// sauvergarde}
+			out.writeObject(round);// sauve	rgarde}
+			out.flush();
 		}
     }
-	public void charger() throws IOException, ClassNotFoundException 
-	{
+	public void charger() throws IOException, ClassNotFoundException {
 		try( InputStream back = Files.newInputStream(path);
 				ObjectInputStream in = new ObjectInputStream(back)){
 			player1 = (Player) in.readObject(); 

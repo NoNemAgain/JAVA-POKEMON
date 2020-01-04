@@ -2,6 +2,7 @@ package fr.upem.dut.info.pokemonproject.pokemon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -12,7 +13,7 @@ import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;
 
-public class Pokedex extends AbstractLoad{
+public class Pokedex extends AbstractLoad implements Serializable{
 	HashMap<Integer,Pokemon> pokedex = new HashMap<Integer,Pokemon>();
 	private static final String fileName = "src/fr/upem/dut/info/pokemonproject/source/pokedex.csv";
 	private final int version;

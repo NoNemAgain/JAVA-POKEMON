@@ -1,10 +1,12 @@
 package fr.upem.dut.info.pokemonproject.capacity;
 
+import java.io.Serializable;
+
 import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
-public class CapacityDamage extends AbstractCapacity{
+public class CapacityDamage extends AbstractCapacity implements Serializable{
 
     public CapacityDamage(int id ,String name, Type type, int power,int pp,int precision,String capacityType) {
         super(id,name, type,pp, power, precision,capacityType);

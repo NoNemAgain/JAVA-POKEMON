@@ -1,5 +1,6 @@
 package fr.upem.dut.info.pokemonproject.pokemon;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;

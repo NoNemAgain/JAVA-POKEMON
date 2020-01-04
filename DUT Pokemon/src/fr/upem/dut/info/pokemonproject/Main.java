@@ -13,7 +13,7 @@ import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		Pokedex pokedex = new Pokedex();
 		TypesMultiplicators tm =new TypesMultiplicators();
 		PokeCapacity pokeCapacity = new PokeCapacity();
@@ -33,6 +33,27 @@ public class Main {
 		Player p2 = new Player("Jean",poke3,poke4);
 		Fight f1 = new Fight(p1, p2, pokedex, pokeCapacity,tm);
 	    String s = "";
+	
+		try{
+		    BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+			StringBuilder menu = new StringBuilder();
+			menu.append("Bienvenue dans le menu :\n");
+			menu.append("Touche charg ===> pour charger\n");
+			menu.append("Touche jouer ===> pour jouer\n");
+			System.out.println(menu.toString());
+		    while ((s!=null && s.equalsIgnoreCase("jouer")) == false ||  s.equalsIgnoreCase("jouer")==false) {
+		    	s = bufferRead.readLine();
+		    	if(s == "charg") {
+		    		f1.charger();
+		    	}
+		    }
+		}
+		catch(IOException e)
+		{
+		    e.printStackTrace();
+		}
+	    
+	    
         try{
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
     		StringBuilder menu = new StringBuilder();
@@ -45,6 +66,7 @@ public class Main {
     		menu.append("Touche 4 ===> utiliser la capacité 4\n");
     		menu.append("Touche r ===> fuir\n");
     		menu.append("Touche s ===> changer de pokemon\n");
+    		menu.append("Touche sauv ===> pour sauvegarder\n");
     		System.out.println(menu.toString());
             while ((s!=null && s.equalsIgnoreCase("quit")) == false ||  s.equalsIgnoreCase("quit")==false) {
             	s = bufferRead.readLine();

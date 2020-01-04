@@ -1,6 +1,7 @@
 package fr.upem.dut.info.pokemonproject;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Scanner;
 import fr.upem.dut.info.pokemonproject.capacity.Capacity;
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
@@ -10,7 +11,7 @@ import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
-public class Player {
+public class Player implements Serializable{
 	private final String name ;
 	private PokemonFight[] team;
 	private PokemonFight activePokemon ;
@@ -88,9 +89,8 @@ public class Player {
 			numberPokemon=numberPokemonIfWrong;
 		
 		}
-
 	}
-	public void action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent) {
+	public void action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1) throws IOException {
 		StringBuilder menu = new StringBuilder();
 		menu.append("Bienvenue dans le menu :\n");
 		menu.append("Touche p ===> voir le pokedex\n");
@@ -101,6 +101,7 @@ public class Player {
 		menu.append("Touche 4 ===> utiliser la capacité 4\n");
 		menu.append("Touche r ===> fuir\n");
 		menu.append("Touche s ===> changer de pokemon\n");
+		menu.append("Touche sauv ===> pour sauvegarder\n");
 		switch (event) {
 		case "p": //voir pokedex
 			System.out.println("Voici le pokedex : \n");
@@ -136,6 +137,9 @@ public class Player {
 			Scanner scanIn = new Scanner(System.in);
 			input = scanIn.nextLine().charAt(0);
 			changePokemon(input);
+			break;
+		case "sauv":
+			sauvegarder(f1);
 			break;
 		default:
 			System.out.println("Touche inconnue veuillez réessayer !\n");
@@ -214,5 +218,8 @@ public class Player {
 			
 		System.out.println(team[i].getName() +" position "+ (i+1));
 		}
+	}
+	public void sauvegarder(Fight f1) throws IOException {
+		f1.sauvegarder();
 	}
 }

@@ -1,11 +1,12 @@
 package fr.upem.dut.info.pokemonproject.pokemon;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.Random;
 
 import fr.upem.dut.info.pokemonproject.Type;
 
-public class Pokemon {
+public class Pokemon implements Serializable{
 	private final int number;
 	protected final String name ;
 	private final String path ;
