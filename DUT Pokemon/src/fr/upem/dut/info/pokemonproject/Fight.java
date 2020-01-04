@@ -29,7 +29,6 @@ public class Fight {
 	}
 	public void tour(String event) {
 		if (round %2==0) {
-			System.out.println(tm);
 			player1.action(event,pokedex,pokeCapacity,tm, player2);
 		}
 		else {

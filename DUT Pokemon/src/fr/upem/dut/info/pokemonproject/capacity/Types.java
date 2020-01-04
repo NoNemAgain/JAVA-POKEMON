@@ -15,6 +15,8 @@ public class Types {
 		
 	}
 	public boolean sameType(PokemonFight pf) {
+		System.out.println("blabla" +type1);
+		System.out.println("blabladdzd"+type2);
 		if (type1.equals(pf.getType())&&type2.equals(pf.getType2())){
 			return true ;
 		}
