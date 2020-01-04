@@ -5,6 +5,7 @@ import java.util.Objects;
 import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.capacity.Capacity;
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
+import fr.upem.dut.info.pokemonproject.capacity.TypesMultiplicators;
 
 public class PokemonFight extends Pokemon{
         private static int id = 0;
@@ -80,9 +81,9 @@ public class PokemonFight extends Pokemon{
 	public Capacity getCapacity(int number) {
 		return capacities[number-1];
 	}
-	public void attack(PokemonFight pokemonOPP, CapacityDamage capa) {
+	public void attack(PokemonFight pokemonOPP, CapacityDamage capa,TypesMultiplicators tm) {
 		System.out.println(name +" attaque "+ pokemonOPP.name + " avec " + capa.getName());
-		capa.damage(pokemonOPP, ???);//Je sais pas comment on fait pour remplir la fonction
+		capa.damage(pokemonOPP, tm);//Je sais pas comment on fait pour remplir la fonction
 	}
    /*
    public void getStat(int stat,Stat statName,int round) {
