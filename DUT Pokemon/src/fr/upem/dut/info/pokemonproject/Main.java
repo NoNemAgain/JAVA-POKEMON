@@ -4,9 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;
 import fr.upem.dut.info.pokemonproject.capacity.TypesMultiplicators;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
+import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 
 public class Main {
@@ -15,10 +17,22 @@ public class Main {
 		Pokedex pokedex = new Pokedex();
 		TypesMultiplicators tm =new TypesMultiplicators();
 		PokeCapacity pokeCapacity = new PokeCapacity();
-		Player p1 = new Player("Albert");
-		Player p2 = new Player("Jean");
-		Fight f1 = new Fight(p1, p2, pokedex, pokeCapacity);
-	    String s = null;
+		CapacityDamage cut  = pokeCapacity.getCapacities().get("cut");
+		CapacityDamage pound  = pokeCapacity.getCapacities().get("pound");
+		CapacityDamage doubleSlap  = pokeCapacity.getCapacities().get("double-slap");
+		CapacityDamage[] capacityDamages = {cut,pound,doubleSlap};
+		PokemonFight poke1 = pokedex.getPokedex().get(1).createPokemon();
+		PokemonFight poke2 = pokedex.getPokedex().get(2).createPokemon();
+		PokemonFight poke3 = pokedex.getPokedex().get(3).createPokemon();
+		PokemonFight poke4 = pokedex.getPokedex().get(4).createPokemon();
+		poke1.setCapacities(capacityDamages);
+		poke2.setCapacities(capacityDamages);
+		poke3.setCapacities(capacityDamages);
+		poke4.setCapacities(capacityDamages);
+		Player p1 = new Player("Albert",poke1,poke2);
+		Player p2 = new Player("Jean",poke3,poke4);
+		Fight f1 = new Fight(p1, p2, pokedex, pokeCapacity,tm);
+	    String s = "";
         try{
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
     		StringBuilder menu = new StringBuilder();

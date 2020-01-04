@@ -5,6 +5,7 @@ import java.util.Scanner;
 import fr.upem.dut.info.pokemonproject.capacity.Capacity;
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;
+import fr.upem.dut.info.pokemonproject.capacity.TypesMultiplicators;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
@@ -20,8 +21,9 @@ public class Player {
 	
 	public Player(String name,PokemonFight... team) throws IOException {
 		this.name=name;
+		this.numberPokemon = team.length;
 		if(numberPokemon != 0) {
-			this.activePokemon=team[numberPokemon];
+			this.activePokemon=team[numberPokemon-1];
 		}
 		else {
 			this.activePokemon = null;
@@ -65,7 +67,8 @@ public class Player {
 			break;
 		}
 	}
-	public void action(String event,Pokedex pokedex, PokeCapacity pokeCapacity) {
+	public void action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent) {
+		System.out.println("dzakoqejgpoejkgboq");
 		StringBuilder menu = new StringBuilder();
 		menu.append("Bienvenue dans le menu :\n");
 		menu.append("Touche p ===> voir le pokedex\n");
@@ -84,7 +87,7 @@ public class Player {
 		case "c": //voir pokeCapacity
 			
 		case "1": //utiliser capacite 1
-			activePokemon.attack(oppenent.getActivePokeme(), activePokemon.getCapacity(1));//Méthode pas faite
+			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);
 		case "2": //utiliser capacite 2
 			
 		case "3": //utiliser capacite 3
@@ -159,5 +162,8 @@ public class Player {
 		}
 		System.out.println("Vous avez perdu "+ name);
 		return true;
+	}
+	public PokemonFight getActivePokemon() {
+		return activePokemon;
 	}
 }

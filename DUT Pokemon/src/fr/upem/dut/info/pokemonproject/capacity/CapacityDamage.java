@@ -1,6 +1,7 @@
 package fr.upem.dut.info.pokemonproject.capacity;
 
 import fr.upem.dut.info.pokemonproject.Type;
+import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class CapacityDamage extends AbstractCapacity{
@@ -9,9 +10,16 @@ public class CapacityDamage extends AbstractCapacity{
         super(id,name, type,pp, power, precision,capacityType);
     }
 
-    public void damage(PokemonFight p,TypesMultiplicators tm) {
-    	super.damage(p,tm);
-    }
+	public void damage(PokemonFight pf,TypesMultiplicators tm) {
+		pp=-1;		
+		float random= Pokemon.random(0, 100);
+		if (precision> random) {
+			System.out.println(this);
+			float d = power*tm.weakness(pf, this);
+			System.out.println(d);
+			pf.getDamaged(d);
+		}
+	}
     public Type getType() {
   		return super.getType();
   	}

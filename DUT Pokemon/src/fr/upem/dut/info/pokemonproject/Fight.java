@@ -11,6 +11,7 @@ import java.nio.file.Paths;
 import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.capacity.PokeCapacity;
+import fr.upem.dut.info.pokemonproject.capacity.TypesMultiplicators;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokedex;
 
 public class Fight {
@@ -18,19 +19,21 @@ public class Fight {
 	private Player player2;
 	private Pokedex pokedex;
 	private PokeCapacity pokeCapacity;
+	private TypesMultiplicators tm;
 	public int round =0; 
 	Path path =Paths.get("backup");
-	public Fight (Player player1, Player player2,Pokedex pokedex,PokeCapacity pokeCapacity) {
+	public Fight (Player player1, Player player2,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm) {
 		this.player1=Objects.requireNonNull(player1);
 		this.player2=Objects.requireNonNull(player2);
-		
+		this.tm = tm;
 	}
 	public void tour(String event) {
 		if (round %2==0) {
-			player1.action(event,pokedex,pokeCapacity);
+			System.out.println(tm);
+			player1.action(event,pokedex,pokeCapacity,tm, player2);
 		}
 		else {
-			player2.action(event,pokedex,pokeCapacity);
+			player2.action(event,pokedex,pokeCapacity,tm, player1);
 		}
 		round+=1;
 		

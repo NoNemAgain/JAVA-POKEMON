@@ -3,20 +3,17 @@ package fr.upem.dut.info.pokemonproject.capacity;
 import java.util.Objects;
 
 import fr.upem.dut.info.pokemonproject.Type;
-import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public abstract class AbstractCapacity implements Capacity {
 	private final int id;
 	private final String name ; 
 	private final Type type ;
-	private final int power ;
-	private int pp;
-	private final int precision ;
+	protected final int power ;
+	protected int pp;
+	protected final int precision ;
 	private final String capacityType;
-	
-	
-	
+
 	
 	public AbstractCapacity(int id ,String name, Type type, int power,int pp,int precision,String capacityType) {
 		if (pp<0 ||power<15 &&power>300|| precision<0 && precision>100||pp<0 || (capacityType.equals("statut")&&capacityType.equals("physical")&&capacityType.equals("special"))) {
@@ -32,15 +29,6 @@ public abstract class AbstractCapacity implements Capacity {
 
 	}
 	
-
-	public void damage(PokemonFight pf,TypesMultiplicators tm) {
-		pp=-1;
-		float random= Pokemon.random(0, 100);
-		if (precision> random) {
-			pf.getDamaged(power*tm.weakness(pf, this));
-		}
-		
-	}
 	public Type getType() {
 		return type;
 	}

@@ -16,9 +16,9 @@ public class PokemonFight extends Pokemon{
         private int defense;
         private int defenseSpe;
         private int speed;
-        private Capacity[] capacities ;
+        private CapacityDamage[] capacities ;
         
-    public PokemonFight(int number, String name, String path, int height, int weight,Type type,Type type2,int exp,int hp,int attack,int attackSpe,int defense,int defenseSpe,int speed,Capacity... capacities)  {
+    public PokemonFight(int number, String name, String path, int height, int weight,Type type,Type type2,int exp,int hp,int attack,int attackSpe,int defense,int defenseSpe,int speed,CapacityDamage... capacities)  {
         super(number, name, path, height, weight, type);
         if (exp<0||hp<0||attack<0||attackSpe<0||defense<0||defenseSpe<0||speed<0 ) {
             throw new IllegalArgumentException();
@@ -78,12 +78,17 @@ public class PokemonFight extends Pokemon{
 		capacities = capacityDamages;
 	}
 	
-	public Capacity getCapacity(int number) {
+	public CapacityDamage getCapacity(int number) {
 		return capacities[number-1];
 	}
 	public void attack(PokemonFight pokemonOPP, CapacityDamage capa,TypesMultiplicators tm) {
 		System.out.println(name +" attaque "+ pokemonOPP.name + " avec " + capa.getName());
+		System.out.println(pokemonOPP.getHp());
 		capa.damage(pokemonOPP, tm);//Je sais pas comment on fait pour remplir la fonction
+		System.out.println(pokemonOPP.getHp());
+	}
+	public float getHp() {
+		return hp;
 	}
    /*
    public void getStat(int stat,Stat statName,int round) {
