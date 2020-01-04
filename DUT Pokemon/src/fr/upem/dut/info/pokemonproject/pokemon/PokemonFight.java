@@ -50,8 +50,8 @@ public class PokemonFight extends Pokemon{
 	public int hashCode() {
 		return Objects.hash(super.hashCode(),capacities);
 		} 
-   public boolean isdead() {
-	   if (hp==0){
+   public boolean isDead() {
+	   if (hp<=0){
 		   System.out.println(dead());
 		   return true ;
 	   }
@@ -82,9 +82,9 @@ public class PokemonFight extends Pokemon{
 		return capacities[number-1];
 	}
 	public void attack(PokemonFight pokemonOPP, CapacityDamage capa,TypesMultiplicators tm) {
-		System.out.println(name +" attaque "+ pokemonOPP.name + " avec " + capa.getName());
 		System.out.println(pokemonOPP.getHp());
-		capa.damage(pokemonOPP, tm);//Je sais pas comment on fait pour remplir la fonction
+		System.out.println(name +" attaque "+ pokemonOPP.name + " avec " + capa.getName());
+		capa.damage(pokemonOPP, tm);
 		System.out.println(pokemonOPP.getHp());
 	}
 	public float getHp() {
