@@ -9,10 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 abstract class AbstractLoad {
-	private static final String fileName = "src/fr/upem/dut/info/pokemonproject/source/";
-	private final int version;
 	public AbstractLoad () throws IOException {
-		this.version=0;
 	}
 	protected void create(String fileName) throws IOException{
 		Path file = Paths.get(fileName);
