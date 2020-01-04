@@ -43,7 +43,6 @@ public class Fight {
 		return false;
 	}
 	public void sauvegarder() throws IOException{
-		System.out.println("dzapùflzkpfl");
         // Crée un fichier texte
 		try (OutputStream back = Files.newOutputStream(path);
 				ObjectOutputStream out = new ObjectOutputStream(back)){
