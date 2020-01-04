@@ -15,12 +15,18 @@ public class Types {
 		
 	}
 	public boolean sameType(PokemonFight pf) {
-		System.out.println("blabla" +type1);
-		System.out.println("blabladdzd"+type2);
+		if (type1.equals(pf.getType())&&type2==null) {
+			return true;
+		}
 		if (type1.equals(pf.getType())&&type2.equals(pf.getType2())){
 			return true ;
 		}
+	
 		return false;
+	}
+	@Override
+	public String toString() {
+		return "Types [type1=" + type1 + ", type2=" + type2 + "]";
 	}
 	
 	
