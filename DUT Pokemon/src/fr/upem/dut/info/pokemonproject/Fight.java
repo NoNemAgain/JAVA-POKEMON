@@ -48,7 +48,7 @@ public class Fight {
 				ObjectOutputStream out = new ObjectOutputStream(back)){
 			out.writeObject(player1);
 			out.writeObject(player2);
-			out.writeObject(round);// sauve	rgarde}
+			out.writeObject(round);// sauvergarde}
 			out.flush();
 		}
     }
