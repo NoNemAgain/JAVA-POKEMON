@@ -44,7 +44,9 @@ public class Player implements Serializable{
 		compteurDeath+=1;
 		if(!lose()) {
 			switchPokemon(numberPokemon);
+			lose();
 		}
+		lose();
 	}
 	public void switchPokemon(int numberPokemon) {	
 		if(team[numberPokemon%5] != null) {
@@ -138,11 +140,11 @@ public class Player implements Serializable{
 			break;
 		}
 		oppenent.deletePokemon();
-		printMenu();
+		printMenu(oppenent);
 	}
-	public void printMenu() {
+	public void printMenu(Player opp) {
 		StringBuilder menu = new StringBuilder();
-		menu.append("Bienvenue dans le menu "+name+":\n");
+		menu.append("Bienvenue dans le menu "+opp.getName()+":\n");
 		menu.append("Touche p ===> voir le pokedex\n");
 		menu.append("Touche c ===> voir les capacités\n");
 		menu.append("Touche t ===> pour voir votre équipe\n");
@@ -208,7 +210,6 @@ public class Player implements Serializable{
 		return capacities;
 	}
 	public boolean lose() {
-		System.out.println("dzkdazmpfgksem");
 		if (compteurDeath !=team.length || activePokemon != null) {
 			return false;
 		}
@@ -238,5 +239,8 @@ public class Player implements Serializable{
 	}
 	public void sauvegarder(Fight f1) throws IOException {
 		f1.sauvegarder();
+	}
+	public String getName() {
+		return name;
 	}
 }
