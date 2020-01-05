@@ -14,7 +14,7 @@ public class BotPlayer extends Player  {
 	 * 
 	 */
 	private static final long serialVersionUID = -4415794375927223422L;
-
+	private static int number =0 ;
 	public BotPlayer(String name,PokemonFight... team) throws IOException {
 		super(name, team);
 	}
@@ -64,6 +64,7 @@ public class BotPlayer extends Player  {
 		}
 		
 	}
+	
 		
 	
 }

@@ -75,6 +75,9 @@ public abstract class AbstractCapacity implements Capacity,Serializable  {
 	public String getName() {
 		return name;
 	}
+	public int getId() {
+		return id ;
+	}
 
 }
  

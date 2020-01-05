@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Objects;
 import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
+import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class PokeCapacity extends AbstractLoad implements Serializable{
@@ -49,5 +50,18 @@ public class PokeCapacity extends AbstractLoad implements Serializable{
 			}
 		}
 		return str.toString();
+	}
+	public CapacityDamage randomCapacityDamage() {
+		int random= Pokemon.random(1, 728);
+		CapacityDamage cd = null;
+		for(String capaName: capacities.keySet()) {
+			if (capacities.get(capaName).getId()==random) {
+				 cd = capacities.get(capaName);
+				break;
+				
+			}
+		}
+		return cd ;
+		
 	}
 }
