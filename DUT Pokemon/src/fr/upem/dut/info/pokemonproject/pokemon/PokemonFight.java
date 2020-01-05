@@ -73,8 +73,16 @@ public class PokemonFight extends Pokemon{
    public String dead() {
 	   return super.dead();
    }
-   public void getDamaged(float damage) {
-	   hp-=damage;
+   public void getDamaged(float damage,boolean physic) {
+	   if (physic ) {
+		   damage=(damage/(defense*50) )+2;
+		   hp-=damage;
+	   }
+	   else {
+		   damage=(damage/(defenseSpe*50) )+2;
+		   hp-=damage;
+	   }
+	  
 	   System.out.println(name+" a perdu "+damage+" pt de vies !\n");
    }
 	public void setCapacities(CapacityDamage[] capacityDamages) {
@@ -86,8 +94,19 @@ public class PokemonFight extends Pokemon{
 	}
 	public void attack(PokemonFight pokemonOPP, CapacityDamage capa,TypesMultiplicators tm) {
 		/** Attack the active pokemon of the oppenent with a capacity **/
+		boolean physic =true;
+		float mul =0;
+		if (capa.isPhysical()) {
+			mul =(float) ((exp*0.4+2)*attack) ;
+			physic =true;
+			
+		}
+		else {
+			mul =(float) ((exp*0.4+2)*attackSpe) ;
+			physic =false;
+		}
 		System.out.println(name +" attaque "+ pokemonOPP.name + " avec " + capa.getName());
-		capa.damage(pokemonOPP, tm);
+		capa.damage(pokemonOPP, tm, mul,physic);
 	}
 	public float getHp() {
 		return hp;

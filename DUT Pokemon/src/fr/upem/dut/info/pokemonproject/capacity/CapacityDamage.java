@@ -16,12 +16,12 @@ public class CapacityDamage extends AbstractCapacity implements Serializable{
         super(id,name, type,pp, power, precision,capacityType);
     }
 
-	public void damage(PokemonFight pf,TypesMultiplicators tm) {
+	public void damage(PokemonFight pf,TypesMultiplicators tm,float mul,boolean physic) {
 		pp=-1;		
 		float random= Pokemon.random(0, 100);
 		if (precision> random) {
-			float d = power*tm.weakness(pf, this);
-			pf.getDamaged(d);
+			float d =mul *power+2*tm.weakness(pf, this);
+			pf.getDamaged(d,physic);
 		}
 	}
     public Type getType() {
