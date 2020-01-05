@@ -88,7 +88,7 @@ public class PokemonFight extends Pokemon{
 		/** Attack the active pokemon of the oppenent with a capacity **/
 		float hpBefore = pokemonOPP.getHp();
 		System.out.println(name +" attaque "+ pokemonOPP.name + " avec " + capa.getName());
-		capa.damage(this,pokemonOPP, tm);
+		capa.damage(pokemonOPP, tm);
 	}
 	public float getHp() {
 		return hp;
