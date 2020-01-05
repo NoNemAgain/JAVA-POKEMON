@@ -20,9 +20,7 @@ public class CapacityDamage extends AbstractCapacity implements Serializable{
 		pp=-1;		
 		float random= Pokemon.random(0, 100);
 		if (precision> random) {
-			System.out.println(this);
 			float d = power*tm.weakness(pf, this);
-			System.out.println(d);
 			pf.getDamaged(d);
 		}
 	}

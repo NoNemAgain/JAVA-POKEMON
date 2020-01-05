@@ -208,7 +208,8 @@ public class Player implements Serializable{
 		return capacities;
 	}
 	public boolean lose() {
-		if (compteurDeath !=team.length) {
+		System.out.println("dzkdazmpfgksem");
+		if (compteurDeath !=team.length || activePokemon != null) {
 			return false;
 		}
 		System.out.println("Vous avez perdu "+ name);
