@@ -40,7 +40,7 @@ public class Player implements Serializable{
 		}
 	}
 	public void switchPokemon(int numberPokemon) {	
-		if(team[numberPokemon%5] != null) {
+		if((numberPokemon%5<=team.length-1) && team[numberPokemon%5] != null) {
 			activePokemon=team[numberPokemon%5];
 			System.out.println(activePokemon+" arrive sur le terrain !");
 		}
@@ -204,8 +204,10 @@ public class Player implements Serializable{
 		if (compteurDeath !=team.length || activePokemon != null) {
 			return false;
 		}
-		System.out.println("Vous avez perdu "+ name);
-		return true;
+		else {
+			System.out.println("Vous avez perdu "+ name);
+			return true;
+		}
 	}
 	public void deadPokemon() {
 		numberPokemon+=1;
