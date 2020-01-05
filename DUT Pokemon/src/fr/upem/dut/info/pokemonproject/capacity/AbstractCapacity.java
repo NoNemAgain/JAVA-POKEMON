@@ -35,6 +35,7 @@ public abstract class AbstractCapacity implements Capacity,Serializable  {
 	public Type getType() {
 		return type;
 	}
+	//Verify if capacity is the same type as the pokemon
 	public boolean canChooseCapacity(PokemonFight p) {
 		if (type.equals(p.getType())){
 			return true;

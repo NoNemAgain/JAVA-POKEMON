@@ -35,8 +35,9 @@ public class Fight {
 		setPlayer2(league.getActiveBp());
 		
 	}
-
+	
 	public void tour(String event) throws IOException {
+		//User interact with the program
 		if (round %2==0&&(!(end()))) {
 			player1.action(event,pokedex,pokeCapacity,tm, player2,this);
 		}
@@ -52,12 +53,12 @@ public class Fight {
 		return false;
 	}
 	public void sauvegarder() throws IOException{
-        // Crée un fichier texte
+		// Create a file
 		try (OutputStream back = Files.newOutputStream(path);
 				ObjectOutputStream out = new ObjectOutputStream(back)){
 			out.writeObject(player1);
 			out.writeObject(player2);
-			out.writeObject(round);// sauvergarde}
+			out.writeObject(round);// save}
 			if (league != null){
 				out.writeObject(league);
 			}
@@ -68,7 +69,7 @@ public class Fight {
 				ObjectInputStream in = new ObjectInputStream(back)){
 			player1 = (Player) in.readObject(); 
 			player2 = (Player) in.readObject();
-			round = (int) in.readObject(); // recuperation}
+			round = (int) in.readObject(); // load}
 			if ((League)in.readObject() != null) {
 				league =(League) in.readObject() ;
 			}
@@ -77,6 +78,7 @@ public class Fight {
 	public void setPlayer2(BotPlayer bp) {
 		player2=bp;
 	}
+	
 	public void switchBot() {
 		if(player2.lose()) {
 			league.switchActiveBp();

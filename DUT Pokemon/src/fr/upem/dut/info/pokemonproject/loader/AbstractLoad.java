@@ -11,6 +11,7 @@ import java.nio.file.Paths;
 abstract class AbstractLoad {
 	public AbstractLoad () throws IOException {
 	}
+	//load the file 
 	protected void create(String fileName) throws IOException{
 		Path file = Paths.get(fileName);
 		Charset charset = StandardCharsets.UTF_8;

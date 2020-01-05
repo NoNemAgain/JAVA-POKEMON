@@ -20,6 +20,7 @@ public enum Type {
 	dark ,
 	fighting ;
 	
+	// recognize the String 
 	public static Type getType(String str) {
 		if(str.equals("normal")) {
 			return Type.normal;
@@ -79,6 +80,7 @@ public enum Type {
 			return null;
 		}
 	}
+	
 	public static Type getRecognizeType(Type type) {
 		if(type.equals(normal)) {
 			return Type.normal;

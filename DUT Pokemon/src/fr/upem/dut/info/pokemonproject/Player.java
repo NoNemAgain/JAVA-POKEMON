@@ -51,22 +51,22 @@ public class Player implements Serializable{
 	public void changePokemon(char input) {
 		int numberPokemonIfWrong= numberPokemon;
 		switch (input) {	
-		case '1': //choisir le pokemon 1
+		case '1': //choose pokemon 1
 			numberPokemon= 0;
 			break;
-		case '2': //choisir le pokemon 2
+		case '2':  //choose pokemon 2
 			numberPokemon= 1;
 			break;
-		case '3': //choisir le pokemon 3
+		case '3':  //choose pokemon 3
 			numberPokemon= 2;
 			break;
-		case '4': //choisir le pokemon 4
+		case '4':  //choose pokemon 4
 			numberPokemon= 3;
 			break;
-		case '5': //choisir le pokemon 5
+		case '5':  //choose pokemon 5
 			numberPokemon= 4;
 			break;
-		case '6': //choisir le pokemon 6
+		case '6':  //choose pokemon 6
 			numberPokemon= 5;
 			break;
 		default:
@@ -155,6 +155,7 @@ public class Player implements Serializable{
 		System.out.println("Si vous tapez des caractères autres qu'un nombre vous passerez au pokemon suivant\n");
 		int numPoke;
 		Scanner input = null;
+		 //ask the user to pick pokemons
 		while(count<6) {
 			System.out.println("Veuillez choisir votre pokemon numero "+(count+1));
 			System.out.println("\nEcrivez le numero du pokemon\n");
