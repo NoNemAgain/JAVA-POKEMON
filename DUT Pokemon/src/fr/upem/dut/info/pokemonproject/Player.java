@@ -17,9 +17,9 @@ public class Player implements Serializable{
 	 */
 	private static final long serialVersionUID = 7223569687102081698L;
 	private final String name ;
-	private PokemonFight[] team;
-	private PokemonFight activePokemon ;
-	private int compteurDeath = 0;
+	protected PokemonFight[] team;
+	protected PokemonFight activePokemon ;
+	protected int compteurDeath = 0;
 	private int numberPokemon = 0;
 	private Pokedex pokedex = new Pokedex();
 	private PokeCapacity pokeCapacity = new PokeCapacity();
@@ -94,18 +94,7 @@ public class Player implements Serializable{
 		}
 	}
 	public void action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1) throws IOException {
-		StringBuilder menu = new StringBuilder();
-		menu.append("Bienvenue dans le menu "+name+":\n");
-		menu.append("Touche p ===> voir le pokedex\n");
-		menu.append("Touche c ===> voir les capacités\n");
-		menu.append("Touche t ===> pour voir votre équipe\n");
-		menu.append("Touche 1 ===> utiliser la capacité 1\n");
-		menu.append("Touche 2 ===> utiliser la capacité 2\n");
-		menu.append("Touche 3 ===> utiliser la capacité 3\n");
-		menu.append("Touche 4 ===> utiliser la capacité 4\n");
-		menu.append("Touche r ===> fuir\n");
-		menu.append("Touche s ===> changer de pokemon\n");
-		menu.append("Touche sauv ===> pour sauvegarder\n");
+
 		switch (event) {
 		case "p": //voir pokedex
 			System.out.println("Voici le pokedex : \n");
@@ -155,6 +144,21 @@ public class Player implements Serializable{
 			break;
 		}
 		oppenent.deletePokemon();
+		printMenu() ;
+	}
+	public void printMenu() {
+		StringBuilder menu = new StringBuilder();
+		menu.append("Bienvenue dans le menu "+name+":\n");
+		menu.append("Touche p ===> voir le pokedex\n");
+		menu.append("Touche c ===> voir les capacités\n");
+		menu.append("Touche t ===> pour voir votre équipe\n");
+		menu.append("Touche 1 ===> utiliser la capacité 1\n");
+		menu.append("Touche 2 ===> utiliser la capacité 2\n");
+		menu.append("Touche 3 ===> utiliser la capacité 3\n");
+		menu.append("Touche 4 ===> utiliser la capacité 4\n");
+		menu.append("Touche r ===> fuir\n");
+		menu.append("Touche s ===> changer de pokemon\n");
+		menu.append("Touche sauv ===> pour sauvegarder\n");
 		System.out.println(menu.toString());
 	}
 	public PokemonFight[] pickPokemon(Pokedex pokedex,PokeCapacity pokeCapacity) {
