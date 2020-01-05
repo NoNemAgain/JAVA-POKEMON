@@ -29,6 +29,8 @@ public class Main {
 		poke2.setCapacities(capacityDamages);
 		poke3.setCapacities(capacityDamages);
 		poke4.setCapacities(capacityDamages);
+		System.out.println(pokedex);
+		System.out.println(pokeCapacity);
 		Player p1 = new Player("Albert",poke1);
 		Player p2 = new Player("Jean",poke3);
 		/*Player p1 = new Player("Albert");
@@ -36,25 +38,7 @@ public class Main {
 		Fight f1 = new Fight(p1, p2, pokedex, pokeCapacity,tm);
 	    String s = "";
 	
-		try{
-		    BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
-			StringBuilder menu = new StringBuilder();
-			menu.append("Bienvenue dans le menu :\n");
-			menu.append("Touche charg ===> pour charger\n");
-			menu.append("Touche jouer ===> pour jouer\n");
-			System.out.println(menu.toString());
-		    while ((s!=null && s.equalsIgnoreCase("jouer")) == false ||  s.equalsIgnoreCase("jouer")==false) {
-		    	s = bufferRead.readLine();
-		    	if(s.equals("charg")) {
-		    		f1.charger();
-		    		System.out.println("chargement avec succès !");
-		    	}
-		    }
-		}
-		catch(IOException e)
-		{
-		    e.printStackTrace();
-		}
+
         try{
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
     		StringBuilder menu = new StringBuilder();
