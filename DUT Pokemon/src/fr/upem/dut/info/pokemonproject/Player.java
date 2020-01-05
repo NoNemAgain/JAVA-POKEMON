@@ -19,7 +19,7 @@ public class Player implements Serializable{
 	private final String name;
 	protected PokemonFight[] team;
 	protected PokemonFight activePokemon;
-	protected int compteurDeath = 1;
+	protected int compteurDeath = 0;
 	private int numberPokemon = 0;
 	private Pokedex pokedex = new Pokedex();
 	private PokeCapacity pokeCapacity = new PokeCapacity();
@@ -112,7 +112,7 @@ public class Player implements Serializable{
 			break;
 		case "r": //flee
 			compteurDeath = team.length;
-			lose();
+			
 			break;
 		case "s": //change pokemon
 			System.out.println("===============================================================\n");
@@ -132,6 +132,7 @@ public class Player implements Serializable{
 		}
 		oppenent.deletePokemon();
 		printMenu(oppenent);
+		lose();
 	}
 	public void printMenu(Player opp) {
 		StringBuilder menu = new StringBuilder();
@@ -201,12 +202,12 @@ public class Player implements Serializable{
 		return capacities;
 	}
 	public boolean lose() {
-		if (compteurDeath !=team.length || activePokemon != null) {
-			return false;
-		}
-		else {
+		if (compteurDeath ==team.length || activePokemon == null) {
 			System.out.println("Vous avez perdu "+ name);
 			return true;
+		}
+		else {
+			return false;
 		}
 	}
 	public void deadPokemon() {
