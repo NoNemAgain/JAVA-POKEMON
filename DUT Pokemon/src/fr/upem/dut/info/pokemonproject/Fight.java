@@ -83,4 +83,5 @@ public class Fight {
 			round= 0 ;
 		}
 	}
+	;
 }

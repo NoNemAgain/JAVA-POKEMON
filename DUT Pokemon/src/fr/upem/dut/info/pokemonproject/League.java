@@ -59,7 +59,7 @@ public class League {
 		
 	}
 	public BotPlayer generateBotPlayer(int number) throws IOException {
-		number+=1;
+		number+=1;;
 		
 		return new BotPlayer("dresseur " + number, generateTeam(number) );
 	}
