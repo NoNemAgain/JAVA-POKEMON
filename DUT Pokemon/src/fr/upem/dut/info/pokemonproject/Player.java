@@ -39,15 +39,6 @@ public class Player implements Serializable{
 			this.team=team;
 		}
 	}
-	public void deadPokemon() {
-		numberPokemon+=1;
-		compteurDeath+=1;
-		if(!lose()) {
-			switchPokemon(numberPokemon);
-			lose();
-		}
-		lose();
-	}
 	public void switchPokemon(int numberPokemon) {	
 		if(team[numberPokemon%5] != null) {
 			activePokemon=team[numberPokemon%5];
@@ -216,8 +207,12 @@ public class Player implements Serializable{
 		System.out.println("Vous avez perdu "+ name);
 		return true;
 	}
-	public PokemonFight getActivePokemon() {
-		return activePokemon;
+	public void deadPokemon() {
+		numberPokemon+=1;
+		compteurDeath+=1;
+		if(!lose()) {
+			switchPokemon(numberPokemon);
+		}
 	}
 	public void deletePokemon() {
 		int i;
@@ -239,6 +234,9 @@ public class Player implements Serializable{
 	}
 	public void sauvegarder(Fight f1) throws IOException {
 		f1.sauvegarder();
+	}
+	public PokemonFight getActivePokemon() {
+		return activePokemon;
 	}
 	public String getName() {
 		return name;
