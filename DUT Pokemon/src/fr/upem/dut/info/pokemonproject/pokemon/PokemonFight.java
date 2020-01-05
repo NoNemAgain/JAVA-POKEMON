@@ -12,8 +12,8 @@ public class PokemonFight extends Pokemon{
 		 */
 		private static final long serialVersionUID = 6129822248125061027L;
 		private static int id = 0;
-        private float exp ;
-        private float hp ;
+        private float exp;
+        private float hp;
         private int attack;
         private int attackSpe;
         private int defense;
@@ -88,8 +88,7 @@ public class PokemonFight extends Pokemon{
 		/** Attack the active pokemon of the oppenent with a capacity **/
 		float hpBefore = pokemonOPP.getHp();
 		System.out.println(name +" attaque "+ pokemonOPP.name + " avec " + capa.getName());
-		capa.damage(pokemonOPP, tm);
-
+		capa.damage(this,pokemonOPP, tm);
 	}
 	public float getHp() {
 		return hp;
@@ -107,6 +106,9 @@ public class PokemonFight extends Pokemon{
 			}
 		}
 		return str.toString();
+	}
+	public float getExp() {
+		return exp;
 	}
 	
    /*

@@ -37,8 +37,6 @@ public class Main {
 		Player p2 = new Player("Jean");*/
 		Fight f1 = new Fight(p1, p2, pokedex, pokeCapacity,tm);
 	    String s = "";
-	
-
         try{
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
     		StringBuilder menu = new StringBuilder();
