@@ -16,9 +16,9 @@ public class Player implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 7223569687102081698L;
-	private final String name ;
+	private final String name;
 	protected PokemonFight[] team;
-	protected PokemonFight activePokemon ;
+	protected PokemonFight activePokemon;
 	protected int compteurDeath = 0;
 	private int numberPokemon = 0;
 	private Pokedex pokedex = new Pokedex();
@@ -46,15 +46,14 @@ public class Player implements Serializable{
 		if(!(lose())) {
 			switchPokemon(numberPokemon);
 		}
-		
 	}
 	public void switchPokemon(int numberPokemon) {	
-		System.out.println(numberPokemon);
-		activePokemon=team[numberPokemon%5];
-		System.out.println(activePokemon+" arrive sur le terrain !");
+		if(team[numberPokemon%5] != null) {
+			activePokemon=team[numberPokemon%5];
+			System.out.println(activePokemon+" arrive sur le terrain !");
+		}
 	}
 	public void changePokemon(char input) {
-		
 		int numberPokemonIfWrong= numberPokemon;
 		switch (input) {	
 		case '1': //choisir le pokemon 1
@@ -94,7 +93,6 @@ public class Player implements Serializable{
 		}
 	}
 	public void action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1) throws IOException {
-
 		switch (event) {
 		case "p": //voir pokedex
 			System.out.println("Voici le pokedex : \n");
@@ -109,7 +107,8 @@ public class Player implements Serializable{
 			break;
 		case "1": //utiliser capacite 1
 			if(activePokemon.getCapacity(1)!=null) {
-			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);}
+			activePokemon.attack(
+					oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);}
 			break;
 		case "2": //utiliser capacite 2
 			if(activePokemon.getCapacity(2)!=null) {
@@ -180,6 +179,7 @@ public class Player implements Serializable{
 				pokemon.setCapacities(pickCapacitiy(pokemon,pokeCapacity));
 				System.out.println(pokemon);
 				teams[count] = pokemon;
+				if(count==0) {activePokemon = teams[count]; }
 				count++;
 			}
 		}
@@ -207,7 +207,7 @@ public class Player implements Serializable{
 		}
 		return capacities;
 	}
-	public boolean lose () {
+	public boolean lose() {
 		if (compteurDeath !=team.length) {
 			return false;
 		}

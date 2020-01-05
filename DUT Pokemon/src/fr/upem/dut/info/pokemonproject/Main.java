@@ -55,8 +55,6 @@ public class Main {
 		{
 		    e.printStackTrace();
 		}
-	    
-	    
         try{
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
     		StringBuilder menu = new StringBuilder();

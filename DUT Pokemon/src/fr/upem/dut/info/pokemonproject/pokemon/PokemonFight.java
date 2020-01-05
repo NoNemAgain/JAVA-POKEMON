@@ -74,7 +74,7 @@ public class PokemonFight extends Pokemon{
 	   return super.dead();
    }
    public void getDamaged(float damage) {
-	   hp-=damage;//
+	   hp-=damage;
 	   System.out.println(name+" a perdu "+damage+" pt de vies !\n");
    }
 	public void setCapacities(CapacityDamage[] capacityDamages) {
@@ -85,10 +85,11 @@ public class PokemonFight extends Pokemon{
 		return capacities[number-1];
 	}
 	public void attack(PokemonFight pokemonOPP, CapacityDamage capa,TypesMultiplicators tm) {
-		System.out.println(pokemonOPP.getHp());
+		/** Attack the active pokemon of the oppenent with a capacity **/
+		float hpBefore = pokemonOPP.getHp();
 		System.out.println(name +" attaque "+ pokemonOPP.name + " avec " + capa.getName());
 		capa.damage(pokemonOPP, tm);
-		System.out.println(pokemonOPP.getHp());
+
 	}
 	public float getHp() {
 		return hp;
