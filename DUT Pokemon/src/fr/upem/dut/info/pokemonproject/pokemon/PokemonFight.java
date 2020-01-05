@@ -29,7 +29,7 @@ public class PokemonFight extends Pokemon{
         for ( Capacity c:capacities) {
         	if (!c.canChooseCapacity(this)) {
         		throw new IllegalArgumentException();        	
-        		}
+        	}
         }
         id++;
         this.exp=exp;
@@ -86,7 +86,6 @@ public class PokemonFight extends Pokemon{
 	}
 	public void attack(PokemonFight pokemonOPP, CapacityDamage capa,TypesMultiplicators tm) {
 		/** Attack the active pokemon of the oppenent with a capacity **/
-		float hpBefore = pokemonOPP.getHp();
 		System.out.println(name +" attaque "+ pokemonOPP.name + " avec " + capa.getName());
 		capa.damage(pokemonOPP, tm);
 

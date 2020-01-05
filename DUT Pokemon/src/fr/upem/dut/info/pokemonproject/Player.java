@@ -19,14 +19,13 @@ public class Player implements Serializable{
 	private final String name;
 	protected PokemonFight[] team;
 	protected PokemonFight activePokemon;
-	protected int compteurDeath = 0;
+	protected int compteurDeath = 1;
 	private int numberPokemon = 0;
 	private Pokedex pokedex = new Pokedex();
 	private PokeCapacity pokeCapacity = new PokeCapacity();
 	
 	public Player(String name,PokemonFight... team) throws IOException {
 		this.name=name;
-		
 		if(team.length != 0) {
 			this.activePokemon=team[numberPokemon];
 		}
@@ -41,9 +40,9 @@ public class Player implements Serializable{
 		}
 	}
 	public void deadPokemon() {
-		numberPokemon +=1;
+		numberPokemon+=1;
 		compteurDeath+=1;
-		if(!(lose())) {
+		if(!lose()) {
 			switchPokemon(numberPokemon);
 		}
 	}
@@ -52,33 +51,30 @@ public class Player implements Serializable{
 			activePokemon=team[numberPokemon%5];
 			System.out.println(activePokemon+" arrive sur le terrain !");
 		}
+		else {
+			activePokemon=null;
+		}
 	}
 	public void changePokemon(char input) {
 		int numberPokemonIfWrong= numberPokemon;
 		switch (input) {	
 		case '1': //choisir le pokemon 1
 			numberPokemon= 0;
-			System.out.println(0);
 			break;
 		case '2': //choisir le pokemon 2
 			numberPokemon= 1;
-			System.out.println(1);
 			break;
 		case '3': //choisir le pokemon 3
 			numberPokemon= 2;
-			System.out.println(2);
 			break;
 		case '4': //choisir le pokemon 4
 			numberPokemon= 3;
-			System.out.println(3);
 			break;
 		case '5': //choisir le pokemon 5
 			numberPokemon= 4;
-			System.out.println(4);
 			break;
 		case '6': //choisir le pokemon 6
 			numberPokemon= 5;
-			System.out.println();
 			break;
 		default:
 			System.out.println("euh c'est pas bon là");
@@ -94,39 +90,38 @@ public class Player implements Serializable{
 	}
 	public void action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1) throws IOException {
 		switch (event) {
-		case "p": //voir pokedex
+		case "p": //show pokedex
 			System.out.println("Voici le pokedex : \n");
 			System.out.println(pokedex);
 			break;
-		case "c": //voir pokeCapacity
+		case "c": //show pokeCapacity
 			System.out.println("Voici l'ensemble des capacites : \n");
 			System.out.println(pokeCapacity);
 			break;
 		case "t":
 			teamString();
 			break;
-		case "1": //utiliser capacite 1
+		case "1": //use capacity 1
 			if(activePokemon.getCapacity(1)!=null) {
-			activePokemon.attack(
-					oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);}
+			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);}
 			break;
-		case "2": //utiliser capacite 2
+		case "2": //use capacity 2
 			if(activePokemon.getCapacity(2)!=null) {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(2), tm);}
 			break;
-		case "3": //utiliser capacite 3
+		case "3": //use capacity 3
 			if(activePokemon.getCapacity(3)!=null) {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(3), tm);}
 			break;
-		case "4": //utiliser capacite 4
+		case "4": //use capacity 4
 			if(activePokemon.getCapacity(4)!=null) {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(4), tm);}
 			break;
-		case "r": // fuir
-			compteurDeath =team.length;
+		case "r": //flee
+			compteurDeath = team.length;
 			lose();
 			break;
-		case "s": // changer de pokemon
+		case "s": //change pokemon
 			System.out.println("===============================================================\n");
 			System.out.println("Entrez un nombre pour choisir le pokemon que vous souhaitez :\n");
 			teamString();
@@ -143,7 +138,7 @@ public class Player implements Serializable{
 			break;
 		}
 		oppenent.deletePokemon();
-		printMenu() ;
+		printMenu();
 	}
 	public void printMenu() {
 		StringBuilder menu = new StringBuilder();
@@ -171,7 +166,12 @@ public class Player implements Serializable{
 			System.out.println("\nEcrivez le numero du pokemon\n");
 			input = new Scanner(System.in);
 			if(!input.hasNextInt() && input.next().equals("quit")) { break;}
-			numPoke = input.nextInt();
+			if(input.hasNextInt()) {
+				numPoke = input.nextInt();
+			}
+			else {
+				continue;
+			}
 			if(numPoke<0 || numPoke>807) { }
 			else {
 				Pokemon poke = pokedex.getPokedex().get(numPoke);
