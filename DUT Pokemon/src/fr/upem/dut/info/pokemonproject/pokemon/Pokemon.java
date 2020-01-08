@@ -72,7 +72,7 @@ public class Pokemon implements Serializable{
 	}
 	public PokemonFight createPokemon() {
 		/** Create a PokemonFight with random stats from a basic Pokemon **/
-		return new PokemonFight(number, name, path, height, weight, type, type2, 1, Pokemon.random(100,300), Pokemon.random(30,180), Pokemon.random(30,180), Pokemon.random(10, 200), Pokemon.random(10, 200), Pokemon.random(0,180));
+		return new PokemonFight(number, name, path, height, weight, type, type2, Pokemon.random(1,100), Pokemon.random(100,300), Pokemon.random(30,180), Pokemon.random(30,180), Pokemon.random(10, 200), Pokemon.random(10, 200), Pokemon.random(0,180));
 	}
 	
 }
