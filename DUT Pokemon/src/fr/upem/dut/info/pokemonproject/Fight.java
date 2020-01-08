@@ -85,4 +85,7 @@ public class Fight {
 			round= 0 ;
 		}
 	}
+	public void initialize () {
+		
+	}
 }
