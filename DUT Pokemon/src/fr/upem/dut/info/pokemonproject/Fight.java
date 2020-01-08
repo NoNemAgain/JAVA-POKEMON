@@ -59,9 +59,9 @@ public class Fight {
 			out.writeObject(player1);
 			out.writeObject(player2);
 			out.writeObject(round);// save}
-			if (league != null){
+			/*if (league != null){
 				out.writeObject(league);
-			}
+			}*/
 		}
     }
 	public void charger() throws IOException, ClassNotFoundException {
@@ -70,9 +70,9 @@ public class Fight {
 			player1 = (Player) in.readObject(); 
 			player2 = (Player) in.readObject();
 			round = (int) in.readObject(); // load}
-			if ((League)in.readObject() != null) {
+			/*if ((League)in.readObject() != null) {
 				league =(League) in.readObject() ;
-			}
+			}*/
 		}
 	}
 	public void setPlayer2(BotPlayer bp) {
@@ -85,5 +85,4 @@ public class Fight {
 			round= 0 ;
 		}
 	}
-	;
 }

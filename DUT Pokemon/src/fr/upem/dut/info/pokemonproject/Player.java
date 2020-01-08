@@ -70,10 +70,10 @@ public class Player implements Serializable{
 			numberPokemon= 5;
 			break;
 		default:
-			System.out.println("euh c'est pas bon là");
+			System.out.println("euh c'est pas bon la");
 			break;
 		}
-		if(team[numberPokemon]!=null) {
+		if(team.length-1 >=numberPokemon && team[numberPokemon]!=null) {
 			switchPokemon(numberPokemon);
 			
 		}
@@ -127,7 +127,7 @@ public class Player implements Serializable{
 			sauvegarder(f1);
 			break;
 		default:
-			System.out.println("Touche inconnue veuillez réessayer !\n");
+			System.out.println("Touche inconnue veuillez reessayer !\n");
 			break;
 		}
 		oppenent.deletePokemon();
@@ -138,12 +138,12 @@ public class Player implements Serializable{
 		StringBuilder menu = new StringBuilder();
 		menu.append("Bienvenue dans le menu "+opp.getName()+":\n");
 		menu.append("Touche p ===> voir le pokedex\n");
-		menu.append("Touche c ===> voir les capacités\n");
-		menu.append("Touche t ===> pour voir votre équipe\n");
-		menu.append("Touche 1 ===> utiliser la capacité 1\n");
-		menu.append("Touche 2 ===> utiliser la capacité 2\n");
-		menu.append("Touche 3 ===> utiliser la capacité 3\n");
-		menu.append("Touche 4 ===> utiliser la capacité 4\n");
+		menu.append("Touche c ===> voir les capacites\n");
+		menu.append("Touche t ===> pour voir votre equipe\n");
+		menu.append("Touche 1 ===> utiliser la capacite 1\n");
+		menu.append("Touche 2 ===> utiliser la capacite 2\n");
+		menu.append("Touche 3 ===> utiliser la capacite 3\n");
+		menu.append("Touche 4 ===> utiliser la capacite 4\n");
 		menu.append("Touche r ===> fuir\n");
 		menu.append("Touche s ===> changer de pokemon\n");
 		menu.append("Touche sauv ===> pour sauvegarder\n");
@@ -152,7 +152,7 @@ public class Player implements Serializable{
 	public PokemonFight[] pickPokemon(Pokedex pokedex,PokeCapacity pokeCapacity) {
 		int count = 0;
 		PokemonFight[] teams = new PokemonFight[6];
-		System.out.println("Si vous tapez des caractères autres qu'un nombre vous passerez au pokemon suivant\n");
+		System.out.println("Si vous tapez des caracteres autres qu'un nombre vous passerez au pokemon suivant\n");
 		int numPoke;
 		Scanner input = null;
 		 //ask the user to pick pokemons
@@ -183,12 +183,12 @@ public class Player implements Serializable{
 	public CapacityDamage[] pickCapacitiy(PokemonFight pokemon,PokeCapacity pokeCapacity) {
 		int count = 0;
 		CapacityDamage[] capacities = new CapacityDamage[4];
-		System.out.println("Si vous tapez des caractères autres qu'un nombre vous passerez a la capacité suivante\n");
+		System.out.println("Si vous tapez des caracteres autres qu'un nombre vous passerez a la capacite suivante\n");
 		String nameCapa = null;
 		Scanner input = null;
 		while(count<4 || nameCapa.equals("quit")) {
-			System.out.println("Veuillez choisir votre capacité numero "+(count+1));
-			System.out.println("\nEcrivez le nom de la capacité\n");
+			System.out.println("Veuillez choisir votre capacite numero "+(count+1));
+			System.out.println("\nEcrivez le nom de la capacite\n");
 			input = new Scanner(System.in);
 			nameCapa = input.next();
 			if(nameCapa.equals("quit")) { break; }
@@ -231,7 +231,7 @@ public class Player implements Serializable{
 		System.out.println("Equipe de "+name+" : \n");
 		for(int i=0;i<team.length;i++) {
 			if(team[i] != null) {
-				System.out.println("("+(i+1)+") "+team[i].getName()+" HP : "+team[i].getHp()+" || Capacités : "+ team[i].getCapacities());
+				System.out.println("("+(i+1)+") "+team[i].getName()+" HP : "+team[i].getHp()+" || Capacites : "+ team[i].getCapacities());
 			}
 		}
 		System.out.println("\n");
