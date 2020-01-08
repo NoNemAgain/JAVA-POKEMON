@@ -20,7 +20,7 @@ public abstract class AbstractCapacity implements Capacity,Serializable  {
 	protected final String capacityType;
 
 	public AbstractCapacity(int id ,String name, Type type, int power,int pp,int precision,String capacityType) {
-		if (pp<0 ||power<15 &&power>300|| precision<0 && precision>100||pp<0 || (capacityType.equals("statut")&&capacityType.equals("physical")&&capacityType.equals("special"))) {
+		if (pp<0 ||power<15 &&power>300 && power %5==0|| precision<0 && precision>100||pp<0 || (capacityType.equals("statut")&&capacityType.equals("physical")&&capacityType.equals("special"))) {
 			throw new IllegalArgumentException();
 		}
 		this.id = id;
@@ -49,12 +49,9 @@ public abstract class AbstractCapacity implements Capacity,Serializable  {
 		return false;
 	}
 	public boolean isPhysical() {
-		if (capacityType.equals("physical")){
-			return true;
-		}
-		return false;
+	return capacityType.equals("physical");
+			
 	}
-
 	@Override
 	public String toString() {
 		return "Capacity ID : "+id+", Capcity name : "+name + ", CapacityType : "+capacityType+", Type : "+type;

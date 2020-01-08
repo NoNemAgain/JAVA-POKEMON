@@ -17,7 +17,7 @@ public class Main {
 		Pokedex pokedex = new Pokedex();
 		TypesMultiplicators tm =new TypesMultiplicators();
 		PokeCapacity pokeCapacity = new PokeCapacity();
-		/*CapacityDamage cut  = pokeCapacity.getCapacities().get("cut");
+		CapacityDamage cut  = pokeCapacity.getCapacities().get("cut");
 		CapacityDamage pound  = pokeCapacity.getCapacities().get("pound");
 		CapacityDamage doubleSlap  = pokeCapacity.getCapacities().get("double-slap");
 		CapacityDamage[] capacityDamages = {cut,pound,doubleSlap};
@@ -32,9 +32,9 @@ public class Main {
 		System.out.println(pokedex);
 		System.out.println(pokeCapacity);
 		Player p1 = new Player("Albert",poke1,poke2);
-		Player p2 = new Player("Jean",poke3,poke4);*/
-		Player p1 = new Player("Albert");
-		Player p2 = new Player("Jean");
+		Player p2 = new Player("Jean",poke3,poke4);
+		/*Player p1 = new Player("Albert");
+		Player p2 = new Player("Jean");*/
 		Fight f1 = new Fight(p1, p2, pokedex, pokeCapacity,tm);
 	    String s = "";
 		try{
