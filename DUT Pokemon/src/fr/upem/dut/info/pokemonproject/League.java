@@ -5,7 +5,6 @@ import java.io.IOException;
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.loader.PokeCapacity;
 import fr.upem.dut.info.pokemonproject.loader.Pokedex;
-import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
 import fr.upem.dut.info.pokemonproject.player.BotPlayer;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
@@ -35,9 +34,9 @@ public class League {
 	public PokemonFight generatePokemonFight () {
 		int random= Pokemon.random(1, 807);
 		PokemonFight pf= pokedex.getPokedex().get(random).createPokemon();
-		int numberCapacity =0;
+		int numberCapacity = 0;
 		CapacityDamage cd;
-		CapacityDamage[] capacities = new CapacityDamage[4] ;
+		CapacityDamage[] capacities = new CapacityDamage[3];
 		while (numberCapacity<4) {
 			cd=pokeCapacity.randomCapacityDamage();
 			if (cd.canChooseCapacity(pf)){

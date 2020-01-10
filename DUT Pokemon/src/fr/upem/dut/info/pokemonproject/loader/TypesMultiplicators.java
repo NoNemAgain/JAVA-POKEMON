@@ -40,17 +40,11 @@ public TypesMultiplicators () throws IOException {
 		typesMultiplicators.keySet().stream().forEach(t-> str.append(typesMultiplicators.get(t).toString()+"\n"));
 		return str.toString();
 	}
-		
-	
 	public float weakness(PokemonFight pf, AbstractCapacity abstractCapacity) {
 		float  multiplicator = 0.0F ;
 		Predicate<Types> pre  = (t)-> t.sameType(pf);
 		Types t = typesMultiplicators.keySet().parallelStream().filter(pre).findFirst().get();
-		multiplicator = typesMultiplicators.get(t).multiplicatorTypes(abstractCapacity.getType()); 
+		multiplicator = typesMultiplicators.get(t).multiplicatorTypes(abstractCapacity.getType());
 		return multiplicator;
 	}
-
-	
 }
-
-
