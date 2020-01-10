@@ -50,7 +50,7 @@ public class Main {
 		    		 System.out.println("Veuillez entrer 'jouer'");
 		    		 break;
 		    	}
-		    	if(s.equals("init12")) {
+		    	if(s.equals("init2")) {
 		    		 f1=f1.initiliaseLigue1();
 		    		 System.out.println("Veuillez entrer 'jouer'");
 		    		 break;
