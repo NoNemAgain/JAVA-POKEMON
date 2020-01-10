@@ -19,8 +19,9 @@ public class BotPlayer extends Player  {
 		super(name, team);
 	}
 	@Override
-	public void action(String event, Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,
-		Player oppenent, Fight f1) throws IOException {
+	public int action(String event, Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,
+			Player oppenent, Fight f1,int round) throws IOException {
+		
 		switch (randomGenerateAction()) {
 		case "1": //utiliser capacite 1
 			if(activePokemon.getCapacity(1)!=null) {
@@ -44,6 +45,7 @@ public class BotPlayer extends Player  {
 			break;
 		}
 		oppenent.deletePokemon();
+		return round+=1;
 	}
 	
 	public String randomGenerateAction() {

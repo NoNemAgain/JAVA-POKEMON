@@ -81,19 +81,23 @@ public class Player implements Serializable{
 			numberPokemon=numberPokemonIfWrong;
 		}
 	}
-	public void action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1) throws IOException {
+	public int action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1,int round) throws IOException, ClassNotFoundException {
+		f1.printMenu(oppenent);
 		switch (event) {
 		case "p": //show pokedex
 			System.out.println("Voici le pokedex : \n");
 			System.out.println(pokedex);
-			break;
+			return round ;
 		case "c": //show pokeCapacity
 			System.out.println("Voici l'ensemble des capacites : \n");
 			System.out.println(pokeCapacity);
-			break;
+			return round ;
+		case "m": //show pokeCapacity
+			f1.printMenu(oppenent);
+			return round ;
 		case "t":
 			teamString();
-			break;
+			return round ;
 		case "1": //use capacity 1
 			if(activePokemon.getCapacity(1)!=null) {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);}
@@ -114,6 +118,10 @@ public class Player implements Serializable{
 			compteurDeath = team.length;
 			
 			break;
+		case "charg" :
+	    		f1.charger();
+	    		System.out.println("chargement avec succès !");
+	    	
 		case "s": //change pokemon
 			System.out.println("===============================================================\n");
 			System.out.println("Entrez un nombre pour choisir le pokemon que vous souhaitez :\n");
@@ -131,24 +139,11 @@ public class Player implements Serializable{
 			break;
 		}
 		oppenent.deletePokemon();
-		printMenu(oppenent);
+		
 		lose();
+		return round +=1;
 	}
-	public void printMenu(Player opp) {
-		StringBuilder menu = new StringBuilder();
-		menu.append("Bienvenue dans le menu "+opp.getName()+":\n");
-		menu.append("Touche p ===> voir le pokedex\n");
-		menu.append("Touche c ===> voir les capacites\n");
-		menu.append("Touche t ===> pour voir votre equipe\n");
-		menu.append("Touche 1 ===> utiliser la capacite 1\n");
-		menu.append("Touche 2 ===> utiliser la capacite 2\n");
-		menu.append("Touche 3 ===> utiliser la capacite 3\n");
-		menu.append("Touche 4 ===> utiliser la capacite 4\n");
-		menu.append("Touche r ===> fuir\n");
-		menu.append("Touche s ===> changer de pokemon\n");
-		menu.append("Touche sauv ===> pour sauvegarder\n");
-		System.out.println(menu.toString());
-	}
+	
 	public PokemonFight[] pickPokemon(Pokedex pokedex,PokeCapacity pokeCapacity) {
 		int count = 0;
 		PokemonFight[] teams = new PokemonFight[6];

@@ -10,9 +10,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
 
+import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.loader.PokeCapacity;
 import fr.upem.dut.info.pokemonproject.loader.Pokedex;
 import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
+import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class Fight {
 	private Player player1;
@@ -30,21 +32,28 @@ public class Fight {
 		this.pokedex = pokedex;
 		this.pokeCapacity = pokeCapacity;
 	}
+	public Fight() {
+		super();
+	}
 	public Fight (Player player1,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm,League league) {
 		super();
 		setPlayer2(league.getActiveBp());
 		
 	}
+	public Player getPlayer1() {
+		return player1;
+	}
 	
-	public void tour(String event) throws IOException {
+	
+	public void tour(String event) throws IOException, ClassNotFoundException {
 		//User interact with the program
 		if (round %2==0&&(!(end()))) {
-			player1.action(event,pokedex,pokeCapacity,tm, player2,this);
+			round=player1.action(event,pokedex,pokeCapacity,tm, player2,this,round);
 		}
 		if (round %2!=0&& (!end())){
-			player2.action(event,pokedex,pokeCapacity,tm, player1,this);
+			round=player2.action(event,pokedex,pokeCapacity,tm, player1,this,round);
 		}
-		round+=1;
+		
 	}
 	public boolean end() {
 		if (player1.lose()||player2.lose()) {
@@ -85,7 +94,54 @@ public class Fight {
 			round= 0 ;
 		}
 	}
-	public void initialize () {
-		
+	public void dataBase() throws IOException {
+		Pokedex pokedex =new Pokedex ();
+		PokeCapacity pokeCapacity =new PokeCapacity();
+		TypesMultiplicators tm =new TypesMultiplicators();
+	}
+	public Fight initialise2Players () throws IOException {
+		Pokedex pokedex =new Pokedex ();
+		PokeCapacity pokeCapacity =new PokeCapacity();
+		TypesMultiplicators tm =new TypesMultiplicators();
+		Player p1 = new Player("Albert");
+		Player p2 = new Player("Jean");
+		return new Fight(p1, p2, pokedex, pokeCapacity,tm);
+	}
+	public Fight initialise2PlayersWithPokemons () throws IOException {
+		Pokedex pokedex =new Pokedex ();
+		PokeCapacity pokeCapacity =new PokeCapacity();
+		TypesMultiplicators tm =new TypesMultiplicators();
+		CapacityDamage cut  = pokeCapacity.getCapacities().get("cut");
+		CapacityDamage pound  = pokeCapacity.getCapacities().get("pound");
+		CapacityDamage doubleSlap  = pokeCapacity.getCapacities().get("double-slap");
+		CapacityDamage[] capacityDamages = {cut,pound,doubleSlap};
+		PokemonFight poke1 = pokedex.getPokedex().get(1).createPokemon();
+		PokemonFight poke2 = pokedex.getPokedex().get(2).createPokemon();
+		PokemonFight poke3 = pokedex.getPokedex().get(3).createPokemon();
+		PokemonFight poke4 = pokedex.getPokedex().get(4).createPokemon();
+		poke1.setCapacities(capacityDamages);
+		poke2.setCapacities(capacityDamages);
+		poke3.setCapacities(capacityDamages);
+		poke4.setCapacities(capacityDamages);
+		Player p1 = new Player("Albert",poke1,poke2);
+		Player p2 = new Player("Jean",poke3,poke4);
+		return new Fight(p1, p2, pokedex, pokeCapacity,tm);
+	}
+	public void printMenu(Player opp) {
+		StringBuilder menu = new StringBuilder();
+		menu.append("Bienvenue dans le menu "+opp.getName()+":\n");
+		menu.append("Touche p ===> voir le pokedex\n");
+		menu.append("Touche c ===> voir les capacites\n");
+		menu.append("Touche t ===> pour voir votre equipe\n");
+		menu.append("Touche 1 ===> utiliser la capacite 1\n");
+		menu.append("Touche 2 ===> utiliser la capacite 2\n");
+		menu.append("Touche 3 ===> utiliser la capacite 3\n");
+		menu.append("Touche 4 ===> utiliser la capacite 4\n");
+		menu.append("Touche r ===> fuir\n");
+		menu.append("Touche s ===> changer de pokemon\n");
+		menu.append("Touche sauv ===> pour sauvegarder\n");
+		menu.append("Touche m ===> pour menu");
+		menu.append("Touche charg ===> pour charger\n");
+		System.out.println(menu.toString());
 	}
 }
