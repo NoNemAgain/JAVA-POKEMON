@@ -15,13 +15,12 @@ public class Types {
 		
 	}
 	public boolean sameType(PokemonFight pf) {
-		if (type1.equals(pf.getType())&&type2==null) {
+		if (type1!=null && type1.equals(pf.getType())&&type2==null) {
 			return true;
 		}
-		if (type1.equals(pf.getType())&&type2.equals(pf.getType2())){
+		if (type1!=null && type1.equals(pf.getType())&&type2.equals(pf.getType2())){
 			return true ;
 		}
-	
 		return false;
 	}
 	@Override

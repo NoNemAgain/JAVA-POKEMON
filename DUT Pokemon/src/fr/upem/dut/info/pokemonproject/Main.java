@@ -4,13 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
-import fr.upem.dut.info.pokemonproject.loader.PokeCapacity;
-import fr.upem.dut.info.pokemonproject.loader.Pokedex;
-import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
-import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
-
-
 public class Main {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
@@ -22,8 +15,6 @@ public class Main {
 			menu.append("Bienvenue dans le menu :\n");
 			menu.append("Touche charg ===> pour charger\n");
 			menu.append("Touche jouer ===> pour jouer\n");
-			menu.append("Touche init ===> pour initialiser des joueurs sans pokémon\n");
-			menu.append("Touche init1 ===> pour initialiser des joueurs avec pokémon\n");
 			System.out.println(menu.toString());
 		    while ((s!=null && s.equalsIgnoreCase("jouer")) == false ||  s.equalsIgnoreCase("jouer")==false ) {
 		    	s = bufferRead.readLine();
@@ -32,13 +23,30 @@ public class Main {
 		    		System.out.println("chargement avec succès !");
 		    		System.out.println("Veuillez entrer 'jouer'");
 		    	}
+		    }
+		}
+		catch(IOException e)
+		{
+		    e.printStackTrace();
+		}
+		try{
+		    BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+			StringBuilder menu = new StringBuilder();
+			menu.append("Bienvenue dans le menu :\n");
+			menu.append("Touche init ===> pour initialiser des joueurs sans pokémon\n");
+			menu.append("Touche init1 ===> pour initialiser des joueurs avec pokémon\n");
+			System.out.println(menu.toString());
+		    while (true) {
+		    	s = bufferRead.readLine();
 		    	if(s.equals("init")) {
 		    		f1=f1.initialise2Players();
 		    		System.out.println("Veuillez entrer 'jouer'");
+		    		break;
 		    	}
 		    	if(s.equals("init1")) {
 		    		 f1=f1.initialise2PlayersWithPokemons();
 		    		 System.out.println("Veuillez entrer 'jouer'");
+		    		 break;
 		    	}	
 		    }
 		}
