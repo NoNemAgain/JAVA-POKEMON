@@ -37,13 +37,7 @@ public abstract class AbstractCapacity implements Capacity,Serializable  {
 	}
 	//Verify if capacity is the same type as the pokemon
 	public boolean canChooseCapacity(PokemonFight p) {
-		if (type.equals(p.getType())){
-			return true;
-		}
-		if (type.equals(p.getType2())){
-			return true;
-		}
-		if (type.equals(Type.normal)){
+		if ((type.equals(p.getType2())||type.equals(Type.normal)||type.equals(p.getType()))&&(!(isStatut()))){
 			return true;
 		}
 		return false;
@@ -52,6 +46,10 @@ public abstract class AbstractCapacity implements Capacity,Serializable  {
 	return capacityType.equals("physical");
 			
 	}
+	public boolean isStatut() {
+		return capacityType.equals("statut");
+				
+		}
 	@Override
 	public String toString() {
 		return "Capacity ID : "+id+", Capcity name : "+name + ", CapacityType : "+capacityType+", Type : "+type;

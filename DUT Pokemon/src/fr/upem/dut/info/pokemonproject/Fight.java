@@ -134,6 +134,27 @@ public class Fight {
 		Player p2 = new Player("Jean",poke3,poke4);
 		return new Fight(p1, p2, pokedex, pokeCapacity,tm);
 	}
+	public Fight initiliaseLigue1() throws IOException {
+		Pokedex pokedex =new Pokedex ();
+		PokeCapacity pokeCapacity =new PokeCapacity();
+		TypesMultiplicators tm =new TypesMultiplicators();
+		CapacityDamage cut  = pokeCapacity.getCapacities().get("cut");
+		CapacityDamage pound  = pokeCapacity.getCapacities().get("pound");
+		CapacityDamage doubleSlap  = pokeCapacity.getCapacities().get("double-slap");
+		CapacityDamage[] capacityDamages = {cut,pound,doubleSlap};
+		PokemonFight poke1 = pokedex.getPokedex().get(1).createPokemon();
+		PokemonFight poke2 = pokedex.getPokedex().get(2).createPokemon();
+		PokemonFight poke3 = pokedex.getPokedex().get(3).createPokemon();
+		PokemonFight poke4 = pokedex.getPokedex().get(4).createPokemon();
+		poke1.setCapacities(capacityDamages);
+		poke2.setCapacities(capacityDamages);
+		poke3.setCapacities(capacityDamages);
+		poke4.setCapacities(capacityDamages);
+		Player p1 = new Player("Albert",poke1,poke2);
+		League l1=new League(6);
+		l1.teamString();
+		return new Fight(p1,l1.getActiveBp(), pokedex, pokeCapacity,tm);
+	}
 	public void printMenu(Player opp) {
 		StringBuilder menu = new StringBuilder();
 		menu.append("Bienvenue dans le menu "+opp.getName()+":\n");

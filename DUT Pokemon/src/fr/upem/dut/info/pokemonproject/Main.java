@@ -8,8 +8,7 @@ public class Main {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		Fight f1 = new Fight();
-		League l1=new League(6);
-		l1.teamString();
+		
 	    String s = "";
 		try{
 		    BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
@@ -37,6 +36,7 @@ public class Main {
 			menu.append("Bienvenue dans le menu :\n");
 			menu.append("Touche init ===> pour initialiser des joueurs sans pokémon\n");
 			menu.append("Touche init1 ===> pour initialiser des joueurs avec pokémon\n");
+			menu.append("Touche init2 ===> Battre contre la ligue 1\n");
 			System.out.println(menu.toString());
 		    while (true) {
 		    	s = bufferRead.readLine();
@@ -47,6 +47,11 @@ public class Main {
 		    	}
 		    	if(s.equals("init1")) {
 		    		 f1=f1.initialise2PlayersWithPokemons();
+		    		 System.out.println("Veuillez entrer 'jouer'");
+		    		 break;
+		    	}
+		    	if(s.equals("init12")) {
+		    		 f1=f1.initiliaseLigue1();
 		    		 System.out.println("Veuillez entrer 'jouer'");
 		    		 break;
 		    	}	
