@@ -1,26 +1,27 @@
-package fr.upem.dut.info.pokemonproject;
+package fr.upem.dut.info.pokemonproject.player;
 
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.Serializable;
 
+import fr.upem.dut.info.pokemonproject.Fight;
 import fr.upem.dut.info.pokemonproject.loader.PokeCapacity;
 import fr.upem.dut.info.pokemonproject.loader.Pokedex;
 import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
-public class BotPlayer extends Player  {
+public class BotPlayer extends AbstractPlayer implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4415794375927223422L;
-	private static int number =0 ;
+	private static final long serialVersionUID = 6504470861979063728L;
+
 	public BotPlayer(String name,PokemonFight... team) throws IOException {
 		super(name, team);
 	}
 	@Override
 	public int action(String event, Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,
-			Player oppenent, Fight f1,int round) throws IOException {
+			RealPlayer oppenent, Fight f1,int round) throws IOException {
 		
 		switch (randomGenerateAction()) {
 		case "1": //utiliser capacite 1
@@ -64,9 +65,4 @@ public class BotPlayer extends Player  {
 		}
 		
 	}
-	@Override
-	public void teamString() {
-		super.teamString();
-	}
-	
 }

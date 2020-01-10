@@ -6,6 +6,7 @@ import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.loader.PokeCapacity;
 import fr.upem.dut.info.pokemonproject.loader.Pokedex;
 import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
+import fr.upem.dut.info.pokemonproject.player.BotPlayer;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 

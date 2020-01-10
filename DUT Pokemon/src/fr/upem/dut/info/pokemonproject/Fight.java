@@ -14,6 +14,9 @@ import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.loader.PokeCapacity;
 import fr.upem.dut.info.pokemonproject.loader.Pokedex;
 import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
+import fr.upem.dut.info.pokemonproject.player.BotPlayer;
+import fr.upem.dut.info.pokemonproject.player.Player;
+import fr.upem.dut.info.pokemonproject.player.RealPlayer;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class Fight {
@@ -26,7 +29,7 @@ public class Fight {
 	private boolean mode =false;
 	Path path =Paths.get("src/fr/upem/dut/info/pokemonproject/source/backup");
 	private League league ;
-	public Fight (Player player1, Player player2,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm) {
+	public Fight (RealPlayer player1, RealPlayer player2,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm) {
 		this.player1=Objects.requireNonNull(player1);
 		this.player2=Objects.requireNonNull(player2);
 		this.tm = tm;
@@ -36,7 +39,7 @@ public class Fight {
 	public Fight() {
 		super();
 	}
-	public Fight (Player player1,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm,League league) {
+	public Fight (RealPlayer player1,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm,League league) {
 		super();
 		setPlayer2(league.getActiveBp());
 		
@@ -83,8 +86,8 @@ public class Fight {
 	public void charger() throws IOException, ClassNotFoundException {
 		try( InputStream back = Files.newInputStream(path);
 				ObjectInputStream in = new ObjectInputStream(back)){
-			player1 = (Player) in.readObject(); 
-			player2 = (Player) in.readObject();
+			player1 = (RealPlayer) in.readObject(); 
+			player2 = (RealPlayer) in.readObject();
 			round = (int) in.readObject(); // load}
 			/*if ((League)in.readObject() != null) {
 				league =(League) in.readObject() ;
@@ -110,8 +113,8 @@ public class Fight {
 		Pokedex pokedex =new Pokedex ();
 		PokeCapacity pokeCapacity =new PokeCapacity();
 		TypesMultiplicators tm =new TypesMultiplicators();
-		Player p1 = new Player("Albert");
-		Player p2 = new Player("Jean");
+		RealPlayer p1 = new RealPlayer("Albert");
+		RealPlayer p2 = new RealPlayer("Jean");
 		return new Fight(p1, p2, pokedex, pokeCapacity,tm);
 	}
 	public Fight initialise2PlayersWithPokemons () throws IOException {
@@ -130,8 +133,8 @@ public class Fight {
 		poke2.setCapacities(capacityDamages);
 		poke3.setCapacities(capacityDamages);
 		poke4.setCapacities(capacityDamages);
-		Player p1 = new Player("Albert",poke1,poke2);
-		Player p2 = new Player("Jean",poke3,poke4);
+		RealPlayer p1 = new RealPlayer("Albert",poke1,poke2);
+		RealPlayer p2 = new RealPlayer("Jean",poke3,poke4);
 		return new Fight(p1, p2, pokedex, pokeCapacity,tm);
 	}
 	public Fight initiliaseLigue1() throws IOException {
@@ -150,12 +153,12 @@ public class Fight {
 		poke2.setCapacities(capacityDamages);
 		poke3.setCapacities(capacityDamages);
 		poke4.setCapacities(capacityDamages);
-		Player p1 = new Player("Albert",poke1,poke2);
+		RealPlayer p1 = new RealPlayer("Albert",poke1,poke2);
 		League l1=new League(6);
 		l1.teamString();
 		return new Fight(p1,l1.getActiveBp(), pokedex, pokeCapacity,tm);
 	}
-	public void printMenu(Player opp) {
+	public void printMenu(RealPlayer opp) {
 		StringBuilder menu = new StringBuilder();
 		menu.append("Bienvenue dans le menu "+opp.getName()+":\n");
 		menu.append("Touche p ===> voir le pokedex\n");
