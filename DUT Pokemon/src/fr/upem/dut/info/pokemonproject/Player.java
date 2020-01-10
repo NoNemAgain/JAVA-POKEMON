@@ -144,7 +144,7 @@ public class Player implements Serializable{
 		}
 		oppenent.deletePokemon();
 		lose();
-		f1.printMenu(this);
+		f1.printMenu(oppenent);
 		return round+=1;
 		
 		
