@@ -82,7 +82,14 @@ public class RealPlayer extends AbstractPlayer implements Serializable{
 		}
 		oppenent.deletePokemon();
 		lose();
-		f1.printMenu(oppenent);
+		
+		if ((oppenent.isPlayer())) {
+			f1.printMenu(oppenent);
+		}
 		return round+=1;
+	}
+	@Override
+	public boolean isPlayer() {
+		return super.isPlayer() ;
 	}
 }

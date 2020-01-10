@@ -21,4 +21,6 @@ public interface Player {
 
 	void deletePokemon();
 
+	boolean isPlayer();
+
 }

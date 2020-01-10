@@ -175,4 +175,7 @@ public abstract class AbstractPlayer implements Player{
 			}
 			return capacities;
 		}
+		public boolean isPlayer() {
+			return true ;
+		}
 }

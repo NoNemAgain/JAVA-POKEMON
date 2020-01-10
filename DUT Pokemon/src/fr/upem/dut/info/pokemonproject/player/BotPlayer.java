@@ -64,5 +64,8 @@ public class BotPlayer extends AbstractPlayer implements Serializable{
 		}
 		
 	}
-	
+	@Override
+	public boolean isPlayer() {
+		return false ;
+	}
 }

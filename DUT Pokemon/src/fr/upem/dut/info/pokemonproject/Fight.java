@@ -47,18 +47,27 @@ public class Fight {
 	public Player getPlayer1() {
 		return player1;
 	}
+	public Player getPlayer2() {
+		return player2;
+	}
 	
-	
+	public boolean isBot() {
+		return (!(player2.isPlayer()));
+	}
 	public void tour(String event) throws IOException, ClassNotFoundException {
 		//User interact with the program
 		if (round %2==0&&(!(end()))) {
 			round = player1.action(event,pokedex,pokeCapacity,tm, player2,this,round);
 			return;
 		}
-		if(round %2!=0&& (!end())){
+		if(round %2!=0&& (!end())) {//&&(player2.isPlayer())){
 			round = player2.action(event,pokedex,pokeCapacity,tm, player1,this,round);
 			return;
 		}
+		/*if(round %2!=0&& (!end())&&(!(player2.isPlayer()))){
+			round = player2.action("",pokedex,pokeCapacity,tm, player1,this,round);
+			return;
+		}*/
 		
 		
 	}
@@ -86,8 +95,8 @@ public class Fight {
 	public void charger() throws IOException, ClassNotFoundException {
 		try( InputStream back = Files.newInputStream(path);
 				ObjectInputStream in = new ObjectInputStream(back)){
-			player1 = (RealPlayer) in.readObject(); 
-			player2 = (RealPlayer) in.readObject();
+			player1 = (Player) in.readObject(); 
+			player2 = (Player) in.readObject();
 			round = (int) in.readObject(); // load}
 			/*if ((League)in.readObject() != null) {
 				league =(League) in.readObject() ;
