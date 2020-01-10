@@ -67,13 +67,12 @@ public class Main {
            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
            f1.printMenu(f1.getPlayer1());
             while ((s!=null && s.equalsIgnoreCase("quit")) == false ||  s.equalsIgnoreCase("quit")==false) {
-            	if (f1.isBot()) {
-            		s=((BotPlayer)f1.getPlayer2()).randomGenerateAction();
-            	}
-            	else {
+            	
+            		//s=((BotPlayer)f1.getPlayer2()).randomGenerateAction();
+            	
 	            	s = bufferRead.readLine();
 	            	
-            	}
+            	
             	f1.tour(s);
             }
             System.out.println("Le jeu est termine !");

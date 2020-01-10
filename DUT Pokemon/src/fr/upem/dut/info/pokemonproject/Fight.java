@@ -27,6 +27,7 @@ public class Fight {
 	private TypesMultiplicators tm;
 	private int round =0; 
 	private boolean mode =false;
+	
 	Path path =Paths.get("src/fr/upem/dut/info/pokemonproject/source/backup");
 	private League league ;
 	public Fight (Player player1, Player player2,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm) {
@@ -53,6 +54,14 @@ public class Fight {
 	
 	public boolean isBot() {
 		return (!(player2.isPlayer()));
+	}
+	public Player actualPlayer2() {
+		if (!(league== null)&&round%2!=0) {
+			return (BotPlayer)player2;
+		}
+		else {
+			return 
+		}
 	}
 	public void tour(String event) throws IOException, ClassNotFoundException {
 		//User interact with the program
