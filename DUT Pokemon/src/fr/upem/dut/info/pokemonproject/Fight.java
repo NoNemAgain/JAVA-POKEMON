@@ -29,7 +29,7 @@ public class Fight {
 	private boolean mode =false;
 	Path path =Paths.get("src/fr/upem/dut/info/pokemonproject/source/backup");
 	private League league ;
-	public Fight (RealPlayer player1, RealPlayer player2,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm) {
+	public Fight (Player player1, Player player2,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm) {
 		this.player1=Objects.requireNonNull(player1);
 		this.player2=Objects.requireNonNull(player2);
 		this.tm = tm;
@@ -39,7 +39,7 @@ public class Fight {
 	public Fight() {
 		super();
 	}
-	public Fight (RealPlayer player1,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm,League league) {
+	public Fight (Player player1,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm,League league) {
 		super();
 		setPlayer2(league.getActiveBp());
 		
@@ -153,10 +153,10 @@ public class Fight {
 		poke2.setCapacities(capacityDamages);
 		poke3.setCapacities(capacityDamages);
 		poke4.setCapacities(capacityDamages);
-		RealPlayer p1 = new RealPlayer("Albert",poke1,poke2);
+		Player p1 = new RealPlayer("Albert",poke1,poke2);
 		League l1=new League(6);
 		l1.teamString();
-		return new Fight(p1,l1.getActiveBp(), pokedex, pokeCapacity,tm);
+		return new Fight(p1,(Player)l1.getActiveBp(), pokedex, pokeCapacity,tm);
 	}
 	public void printMenu(Player player) {
 		StringBuilder menu = new StringBuilder();

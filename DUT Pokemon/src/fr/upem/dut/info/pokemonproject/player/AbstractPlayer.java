@@ -77,7 +77,7 @@ public abstract class AbstractPlayer implements Player{
 				numberPokemon=numberPokemonIfWrong;
 			}
 		}
-		abstract int action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,RealPlayer oppenent,Fight f1,int round) throws IOException, ClassNotFoundException;
+		public abstract int action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1,int round) throws IOException, ClassNotFoundException;
 		
 		public boolean lose() {
 			if (compteurDeath ==team.length || activePokemon == null) {

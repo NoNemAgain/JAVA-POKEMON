@@ -20,8 +20,7 @@ public class BotPlayer extends AbstractPlayer implements Serializable{
 		super(name, team);
 	}
 	@Override
-	public int action(String event, Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,
-			Player oppenent, Fight f1,int round) throws IOException {
+	public int action(String event, Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent, Fight f1,int round) throws IOException {
 		
 		switch (randomGenerateAction()) {
 		case "1": //utiliser capacite 1
