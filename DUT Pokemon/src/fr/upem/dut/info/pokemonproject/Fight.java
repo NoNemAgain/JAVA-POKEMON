@@ -183,6 +183,7 @@ public class Fight {
 		menu.append("Touche p ===> voir le pokedex\n");
 		menu.append("Touche c ===> voir les capacites\n");
 		menu.append("Touche t ===> pour voir votre equipe\n");
+		menu.append("Touche t2 ===> pour voir l equipe adverse\n");
 		menu.append("Touche 1 ===> utiliser la capacite 1\n");
 		menu.append("Touche 2 ===> utiliser la capacite 2\n");
 		menu.append("Touche 3 ===> utiliser la capacite 3\n");

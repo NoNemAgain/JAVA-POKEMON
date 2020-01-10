@@ -23,4 +23,6 @@ public interface Player {
 
 	boolean isPlayer();
 
+	void teamString();
+
 }

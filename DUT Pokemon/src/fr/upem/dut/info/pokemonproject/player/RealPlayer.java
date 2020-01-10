@@ -39,6 +39,10 @@ public class RealPlayer extends AbstractPlayer implements Serializable{
 			teamString();
 			f1.printMenu(this);
 			return round;
+		case "t2":
+			oppenent.teamString();
+			f1.printMenu(this);
+			return round;
 		case "1": //use capacity 1
 			if(activePokemon.getCapacity(1)!=null) {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);}
