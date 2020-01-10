@@ -20,7 +20,7 @@ public class RealPlayer extends AbstractPlayer implements Serializable{
 	public RealPlayer(String name,PokemonFight... team) throws IOException {
 		super(name,team);
 	}
-	public int action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,RealPlayer oppenent,Fight f1,int round) throws IOException, ClassNotFoundException {
+	public int action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1,int round) throws IOException, ClassNotFoundException {
 		switch (event) {
 		case "p": //show pokedex
 			System.out.println("Voici le pokedex : \n");

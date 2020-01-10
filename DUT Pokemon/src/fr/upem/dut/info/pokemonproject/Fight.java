@@ -158,9 +158,9 @@ public class Fight {
 		l1.teamString();
 		return new Fight(p1,l1.getActiveBp(), pokedex, pokeCapacity,tm);
 	}
-	public void printMenu(RealPlayer opp) {
+	public void printMenu(Player player) {
 		StringBuilder menu = new StringBuilder();
-		menu.append("Bienvenue dans le menu "+opp.getName()+":\n");
+		menu.append("Bienvenue dans le menu "+player.getName()+":\n");
 		menu.append("Touche p ===> voir le pokedex\n");
 		menu.append("Touche c ===> voir les capacites\n");
 		menu.append("Touche t ===> pour voir votre equipe\n");
