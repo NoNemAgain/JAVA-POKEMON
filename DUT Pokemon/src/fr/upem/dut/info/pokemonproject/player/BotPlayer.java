@@ -44,6 +44,8 @@ public class BotPlayer extends AbstractPlayer implements Serializable{
 			System.out.println("Touche inconnue veuillez réessayer !\n");
 			break;
 		}
+		
+		f1.printMenu(oppenent);
 		oppenent.deletePokemon();
 		return round+=1;
 	}

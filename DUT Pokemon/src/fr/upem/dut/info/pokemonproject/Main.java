@@ -68,12 +68,18 @@ public class Main {
            f1.printMenu(f1.getPlayer1());
             while ((s!=null && s.equalsIgnoreCase("quit")) == false ||  s.equalsIgnoreCase("quit")==false) {
             	
-            		//s=((BotPlayer)f1.getPlayer2()).randomGenerateAction();
-            	
+            		//
+            	if (f1.actualPlayer().isPlayer()){
 	            	s = bufferRead.readLine();
-	            	
             	
+            	}
+            	else {
+            		s=((BotPlayer)f1.getPlayer2()).randomGenerateAction();
+            		System.out.println("ara");
+            	}
             	f1.tour(s);
+            	
+            	
             }
             System.out.println("Le jeu est termine !");
         }

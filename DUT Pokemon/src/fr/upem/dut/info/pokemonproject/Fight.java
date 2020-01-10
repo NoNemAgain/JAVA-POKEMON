@@ -55,28 +55,29 @@ public class Fight {
 	public boolean isBot() {
 		return (!(player2.isPlayer()));
 	}
-	public Player actualPlayer2() {
-		if (!(league== null)&&round%2!=0) {
-			return (BotPlayer)player2;
-		}
-		else {
-			return 
-		}
-	}
-	public void tour(String event) throws IOException, ClassNotFoundException {
-		//User interact with the program
+	public Player actualPlayer(){
 		if (round %2==0&&(!(end()))) {
-			round = player1.action(event,pokedex,pokeCapacity,tm, player2,this,round);
-			return;
+		return player1;
 		}
 		if(round %2!=0&& (!end())) {//&&(player2.isPlayer())){
-			round = player2.action(event,pokedex,pokeCapacity,tm, player1,this,round);
-			return;
+		return player2;
 		}
-		/*if(round %2!=0&& (!end())&&(!(player2.isPlayer()))){
-			round = player2.action("",pokedex,pokeCapacity,tm, player1,this,round);
-			return;
-		}*/
+		return null;
+		
+	}
+	public Player oppenent() {
+		if (round %2==0&&(!(end()))) {
+			return player2;
+			}
+			if(round %2!=0&& (!end())) {//&&(player2.isPlayer())){
+			return player1;
+		}
+			return null;	
+		}
+	
+	public void tour(String event) throws IOException, ClassNotFoundException {
+		//User interact with the program
+		round =actualPlayer().action(event, pokedex, pokeCapacity, tm,oppenent(), this, round);
 		
 		
 	}
