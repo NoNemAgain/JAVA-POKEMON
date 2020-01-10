@@ -82,45 +82,48 @@ public class Player implements Serializable{
 		}
 	}
 	public int action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1,int round) throws IOException, ClassNotFoundException {
-		
+	
 		switch (event) {
 		case "p": //show pokedex
 			System.out.println("Voici le pokedex : \n");
 			System.out.println(pokedex);
-			break;
+			f1.printMenu(this);
+			return round;
 		case "c": //show pokeCapacity
 			System.out.println("Voici l'ensemble des capacites : \n");
 			System.out.println(pokeCapacity);
-			break;
-		case "m": //show pokeCapacity
-			break;
+			f1.printMenu(this);
+			return round;
+		case "m": //show menu
+			f1.printMenu(this);
+			return round;
 		case "t":
 			teamString();
-			break;
+			f1.printMenu(this);
+			return round;
 		case "1": //use capacity 1
 			if(activePokemon.getCapacity(1)!=null) {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);}
-			return round +=1;
+			break;
 		case "2": //use capacity 2
 			if(activePokemon.getCapacity(2)!=null) {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(2), tm);}
-			return round +=1;
+			break;
 		case "3": //use capacity 3
 			if(activePokemon.getCapacity(3)!=null) {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(3), tm);}
-	
-			return round +=1;
+			break;
 		case "4": //use capacity 4
 			if(activePokemon.getCapacity(4)!=null) {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(4), tm);}
-			return round +=1;
+			break;
 		case "r": //flee
 			compteurDeath = team.length;
 			break;
 		case "charg" :
 	    		f1.charger();
 	    		System.out.println("chargement avec succès !");
-	    		return round ;
+	    		return round;
 		case "s": //change pokemon
 			System.out.println("===============================================================\n");
 			System.out.println("Entrez un nombre pour choisir le pokemon que vous souhaitez :\n");
@@ -132,10 +135,12 @@ public class Player implements Serializable{
 			break;
 		case "sauv":
 			sauvegarder(f1);
-			return round ;
+			f1.printMenu(this);
+			return round;
 		default:
 			System.out.println("Touche inconnue veuillez reessayer !\n");
-			return round ;
+			f1.printMenu(this);
+			return round;
 		}
 		oppenent.deletePokemon();
 		lose();
