@@ -49,10 +49,12 @@ public class Fight {
 	public void tour(String event) throws IOException, ClassNotFoundException {
 		//User interact with the program
 		if (round %2==0&&(!(end()))) {
-			round=player1.action(event,pokedex,pokeCapacity,tm, player2,this,round);
+			player1.action(event,pokedex,pokeCapacity,tm, player2,this,round);
+			return;
 		}
-		if (round %2!=0&& (!end())){
-			round=player2.action(event,pokedex,pokeCapacity,tm, player1,this,round);
+		if(round %2!=0&& (!end())){
+			player2.action(event,pokedex,pokeCapacity,tm, player1,this,round);
+			return;
 		}
 		
 		

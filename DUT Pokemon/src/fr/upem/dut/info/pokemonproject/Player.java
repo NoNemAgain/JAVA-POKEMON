@@ -87,52 +87,40 @@ public class Player implements Serializable{
 		case "p": //show pokedex
 			System.out.println("Voici le pokedex : \n");
 			System.out.println(pokedex);
-			return round ;
+			break;
 		case "c": //show pokeCapacity
 			System.out.println("Voici l'ensemble des capacites : \n");
 			System.out.println(pokeCapacity);
-			return round ;
+			break;
 		case "m": //show pokeCapacity
-			return round ;
+			break;
 		case "t":
 			teamString();
-			return round ;
+			break;
 		case "1": //use capacity 1
 			if(activePokemon.getCapacity(1)!=null) {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);}
-			oppenent.deletePokemon();
-			f1.printMenu(this);
-			lose();
 			return round +=1;
 		case "2": //use capacity 2
 			if(activePokemon.getCapacity(2)!=null) {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(2), tm);}
-			oppenent.deletePokemon();
-			f1.printMenu(this);
-			lose();
 			return round +=1;
 		case "3": //use capacity 3
 			if(activePokemon.getCapacity(3)!=null) {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(3), tm);}
-			oppenent.deletePokemon();
-			f1.printMenu(this);
-			lose();
+	
 			return round +=1;
 		case "4": //use capacity 4
 			if(activePokemon.getCapacity(4)!=null) {
 			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(4), tm);}
-			oppenent.deletePokemon();
-			f1.printMenu(this);
-			lose();
 			return round +=1;
 		case "r": //flee
 			compteurDeath = team.length;
-			
-			return round +=1;
+			break;
 		case "charg" :
 	    		f1.charger();
 	    		System.out.println("chargement avec succès !");
-	    		return round +=1;
+	    		return round ;
 		case "s": //change pokemon
 			System.out.println("===============================================================\n");
 			System.out.println("Entrez un nombre pour choisir le pokemon que vous souhaitez :\n");
@@ -141,7 +129,7 @@ public class Player implements Serializable{
 			Scanner scanIn = new Scanner(System.in);
 			input = scanIn.nextLine().charAt(0);
 			changePokemon(input);
-			return round +=1;
+			break;
 		case "sauv":
 			sauvegarder(f1);
 			return round ;
@@ -149,6 +137,10 @@ public class Player implements Serializable{
 			System.out.println("Touche inconnue veuillez reessayer !\n");
 			return round ;
 		}
+		oppenent.deletePokemon();
+		lose();
+		f1.printMenu(this);
+		return round+=1;
 		
 		
 	}
