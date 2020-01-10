@@ -22,7 +22,8 @@ public class Fight {
 	private Pokedex pokedex;
 	private PokeCapacity pokeCapacity;
 	private TypesMultiplicators tm;
-	public int round =0; 
+	private int round =0; 
+	private boolean mode =false;
 	Path path =Paths.get("src/fr/upem/dut/info/pokemonproject/source/backup");
 	private League league ;
 	public Fight (Player player1, Player player2,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm) {
@@ -48,11 +49,12 @@ public class Fight {
 	public void tour(String event) throws IOException, ClassNotFoundException {
 		//User interact with the program
 		if (round %2==0&&(!(end()))) {
-			round=player1.action(event,pokedex,pokeCapacity,tm,player1, player2,this,round);
+			round=player1.action(event,pokedex,pokeCapacity,tm, player2,this,round);
 		}
 		if (round %2!=0&& (!end())){
-			round=player2.action(event,pokedex,pokeCapacity,tm,player2, player1,this,round);
+			round=player2.action(event,pokedex,pokeCapacity,tm, player1,this,round);
 		}
+		
 		
 	}
 	public boolean end() {
@@ -60,6 +62,9 @@ public class Fight {
 			return true;
 		}
 		return false;
+	}
+	public boolean getMode() {
+		return getMode();
 	}
 	public void sauvegarder() throws IOException{
 		// Create a file

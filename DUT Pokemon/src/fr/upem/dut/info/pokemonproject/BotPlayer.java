@@ -20,7 +20,7 @@ public class BotPlayer extends Player  {
 	}
 	@Override
 	public int action(String event, Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,
-			Player actual,Player oppenent, Fight f1,int round) throws IOException {
+			Player oppenent, Fight f1,int round) throws IOException {
 		
 		switch (randomGenerateAction()) {
 		case "1": //utiliser capacite 1
