@@ -64,4 +64,9 @@ public class BotPlayer extends Player  {
 		}
 		
 	}
+	@Override
+	public void teamString() {
+		super.teamString();
+	}
+	
 }

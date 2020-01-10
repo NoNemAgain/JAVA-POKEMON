@@ -10,15 +10,15 @@ import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class League {
-	protected BotPlayer[] league;
+	private BotPlayer[] league;
 	private BotPlayer activeBp;
 	private int numberBot=0;
-	private int number =0;
-	private Pokedex pokedex;
-	private PokeCapacity pokeCapacity;
-	public League(Pokedex pokedex,PokeCapacity pokeCapacity) {
-		this.pokedex = pokedex;
-		this.pokeCapacity = pokeCapacity;
+	private int number=0;
+	private Pokedex pokedex = new Pokedex();
+	private PokeCapacity pokeCapacity= new PokeCapacity();
+	public League(int number) throws IOException {
+		
+		this.league=generateLeague(number);
 		this.activeBp=league[numberBot];
 	}
 	public BotPlayer switchActiveBp() {	
@@ -36,7 +36,7 @@ public class League {
 		PokemonFight pf= pokedex.getPokedex().get(random).createPokemon();
 		int numberCapacity =0;
 		CapacityDamage cd;
-		CapacityDamage[] capacities = null ;
+		CapacityDamage[] capacities = new CapacityDamage[4] ;
 		while (numberCapacity<4) {
 			cd=pokeCapacity.randomCapacityDamage();
 			if (cd.canChooseCapacity(pf)){
@@ -48,7 +48,7 @@ public class League {
 		return pf;
 	}
 	public PokemonFight[] generateTeam(int number) {
-		PokemonFight[] team = null;
+		PokemonFight[] team = new PokemonFight[6];
 		int compteur =0 ;
 		while (compteur<number) {
 			team[compteur]=generatePokemonFight();
@@ -56,9 +56,26 @@ public class League {
 		}
 		return team;
 	}
-	public BotPlayer generateBotPlayer(int number) throws IOException {
-		number+=1;;
+	public BotPlayer generateBotPlayer(int number,int num) throws IOException {
 		
-		return new BotPlayer("dresseur " + number, generateTeam(number) );
+		return new BotPlayer("dresseur " + num, generateTeam(number) );
+	}
+	public BotPlayer[] generateLeague(int number) throws IOException {
+		BotPlayer[] league = new BotPlayer[number];
+		int compteur =0 ;
+		while (compteur<number) {
+			league[compteur]=generateBotPlayer(number,compteur+1);
+			compteur+=1;
+		}
+		return league;
+	}
+	public void teamString() {
+		
+		for(int i=0;i<league.length;i++) {
+			if(league[i] != null) {
+				league[i].teamString();
+			}
+		}
+		System.out.println("\n");
 	}
 }

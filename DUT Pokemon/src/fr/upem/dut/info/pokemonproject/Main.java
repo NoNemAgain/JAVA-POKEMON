@@ -8,6 +8,8 @@ public class Main {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		Fight f1 = new Fight();
+		League l1=new League(6);
+		l1.teamString();
 	    String s = "";
 		try{
 		    BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
