@@ -3,6 +3,7 @@ package fr.upem.dut.info.pokemonproject.loader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.function.Predicate;
 
 import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.capacity.AbstractCapacity;
@@ -36,23 +37,16 @@ public TypesMultiplicators () throws IOException {
 	@Override
 	public String toString() {
 		StringBuilder str = new StringBuilder();
-		for (Types t:typesMultiplicators.keySet()) {
-			str.append(typesMultiplicators.get(t).toString());
-			str.append("\n");;
-		}
+		typesMultiplicators.keySet().stream().forEach(t-> str.append(typesMultiplicators.get(t).toString()+"\n"));
 		return str.toString();
 	}
 		
 	
 	public float weakness(PokemonFight pf, AbstractCapacity abstractCapacity) {
-		float multiplicator = 0.0F ;
-		for (Types t:typesMultiplicators.keySet()) {
-			if (t.sameType(pf)) {
-				multiplicator =typesMultiplicators.get(t).multiplicatorTypes(abstractCapacity.getType());
-				break;
-				
-			};
-		}
+		float  multiplicator = 0.0F ;
+		Predicate<Types> pre  = (t)-> t.sameType(pf);
+		Types t = typesMultiplicators.keySet().parallelStream().filter(pre).findFirst().get();
+		multiplicator = typesMultiplicators.get(t).multiplicatorTypes(abstractCapacity.getType()); 
 		return multiplicator;
 	}
 

@@ -19,7 +19,6 @@ public class League {
 	public League(Pokedex pokedex,PokeCapacity pokeCapacity) {
 		this.pokedex = pokedex;
 		this.pokeCapacity = pokeCapacity;
-		
 		this.activeBp=league[numberBot];
 	}
 	public BotPlayer switchActiveBp() {	
@@ -56,13 +55,10 @@ public class League {
 			compteur+=1;
 		}
 		return team;
-		
 	}
 	public BotPlayer generateBotPlayer(int number) throws IOException {
 		number+=1;;
 		
 		return new BotPlayer("dresseur " + number, generateTeam(number) );
 	}
-
- 
 }

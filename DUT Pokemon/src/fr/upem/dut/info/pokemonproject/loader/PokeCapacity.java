@@ -34,34 +34,23 @@ public class PokeCapacity extends AbstractLoad implements Serializable{
 	@Override
 	public String toString() {
 		StringBuilder str = new StringBuilder();
-		for(String capaName: capacities.keySet()) {	
+		capacities.keySet().stream().forEach((capaName) -> { 
 			str.append(capacities.get(capaName));
 			str.append("\n");
-		}
+		});
 		return str.toString();
 	}
 
 	public String toStringCanChoosePokemon(PokemonFight pf) {
 		StringBuilder str = new StringBuilder();
-		for(String capaName: capacities.keySet()) {	
-			if (capacities.get(capaName).canChooseCapacity(pf)) {
-				str.append(capacities.get(capaName));
-				str.append("\n");
-			}
-		}
+		capacities.keySet().parallelStream().filter(capaName -> capacities.get(capaName).canChooseCapacity(pf)).forEach((capaName) -> {
+			str.append(capacities.get(capaName));
+			str.append("\n");
+		});
 		return str.toString();
 	}
 	public CapacityDamage randomCapacityDamage() {
 		int random= Pokemon.random(1, 728);
-		CapacityDamage cd = null;
-		for(String capaName: capacities.keySet()) {
-			if (capacities.get(capaName).getId()==random) {
-				 cd = capacities.get(capaName);
-				break;
-				
-			}
-		}
-		return cd ;
-		
+		return capacities.get(capacities.keySet().parallelStream().filter(capaName -> capacities.get(capaName).getId()==random).findFirst().get());
 	}
 }
