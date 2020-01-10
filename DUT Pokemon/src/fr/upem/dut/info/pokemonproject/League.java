@@ -16,9 +16,9 @@ public class League {
 	private int number=0;
 	private Pokedex pokedex = new Pokedex();
 	private PokeCapacity pokeCapacity= new PokeCapacity();
-	public League(int number) throws IOException {
+	public League(int number,int numberDresseur) throws IOException {
 		
-		this.league=generateLeague(number);
+		this.league=generateLeague(number, numberDresseur);
 		this.activeBp=league[numberBot];
 	}
 	public BotPlayer switchActiveBp() {	
@@ -61,10 +61,10 @@ public class League {
 		
 		return new BotPlayer("dresseur " + num, generateTeam(number) );
 	}
-	public BotPlayer[] generateLeague(int number) throws IOException {
-		BotPlayer[] league = new BotPlayer[number];
+	public BotPlayer[] generateLeague(int number,int numberDresseur) throws IOException {
+		BotPlayer[] league = new BotPlayer[numberDresseur];
 		int compteur =0 ;
-		while (compteur<number) {
+		while (compteur<numberDresseur) {
 			league[compteur]=generateBotPlayer(number,compteur+1);
 			compteur+=1;
 		}

@@ -173,7 +173,7 @@ public class Fight {
 		poke3.setCapacities(capacityDamages);
 		poke4.setCapacities(capacityDamages);
 		Player p1 = new RealPlayer("Albert",poke1,poke2);
-		League l1=new League(6);
+		League l1=new League(1,2);
 		l1.teamString();
 		return new Fight(p1,(Player)l1.getActiveBp(), pokedex, pokeCapacity,tm);
 	}
