@@ -36,10 +36,11 @@ public class League {
 		PokemonFight pf= pokedex.getPokedex().get(random).createPokemon();
 		int numberCapacity = 0;
 		CapacityDamage cd;
-		CapacityDamage[] capacities = new CapacityDamage[3];
+		CapacityDamage[] capacities = new CapacityDamage[4];
 		while (numberCapacity<4) {
 			cd=pokeCapacity.randomCapacityDamage();
 			if (cd.canChooseCapacity(pf)){
+				System.out.println("é\n"+numberCapacity);
 				capacities[numberCapacity]=cd;
 				numberCapacity +=1;
 			}

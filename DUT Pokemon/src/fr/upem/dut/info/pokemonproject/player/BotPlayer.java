@@ -49,7 +49,7 @@ public class BotPlayer extends AbstractPlayer implements Serializable{
 	}
 	
 	public String randomGenerateAction() {
-		int random= Pokemon.random(0, 4);
+		int random= Pokemon.random(0, 3);
 		if (random ==0) {
 			return "1";
 		}
