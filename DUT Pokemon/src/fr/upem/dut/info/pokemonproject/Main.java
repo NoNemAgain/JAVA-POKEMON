@@ -14,12 +14,7 @@ import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 public class Main {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
-	
-		
-		
-		
 		Fight f1 = new Fight();
-		
 	    String s = "";
 		try{
 		    BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
@@ -35,13 +30,16 @@ public class Main {
 		    	if(s.equals("charg")) {
 		    		f1.charger();
 		    		System.out.println("chargement avec succès !");
+		    		System.out.println("Veuillez entrer 'jouer'");
 		    	}
 		    	if(s.equals("init")) {
 		    		f1=f1.initialise2Players();
+		    		System.out.println("Veuillez entrer 'jouer'");
 		    	}
 		    	if(s.equals("init1")) {
 		    		 f1=f1.initialise2PlayersWithPokemons();
-		    	}
+		    		 System.out.println("Veuillez entrer 'jouer'");
+		    	}	
 		    }
 		}
 		catch(IOException e)

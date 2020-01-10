@@ -48,10 +48,10 @@ public class Fight {
 	public void tour(String event) throws IOException, ClassNotFoundException {
 		//User interact with the program
 		if (round %2==0&&(!(end()))) {
-			round=player1.action(event,pokedex,pokeCapacity,tm, player2,this,round);
+			round=player1.action(event,pokedex,pokeCapacity,tm,player1, player2,this,round);
 		}
 		if (round %2!=0&& (!end())){
-			round=player2.action(event,pokedex,pokeCapacity,tm, player1,this,round);
+			round=player2.action(event,pokedex,pokeCapacity,tm,player2, player1,this,round);
 		}
 		
 	}
@@ -140,7 +140,7 @@ public class Fight {
 		menu.append("Touche r ===> fuir\n");
 		menu.append("Touche s ===> changer de pokemon\n");
 		menu.append("Touche sauv ===> pour sauvegarder\n");
-		menu.append("Touche m ===> pour menu");
+		menu.append("Touche m ===> pour menu\n");
 		menu.append("Touche charg ===> pour charger\n");
 		System.out.println(menu.toString());
 	}

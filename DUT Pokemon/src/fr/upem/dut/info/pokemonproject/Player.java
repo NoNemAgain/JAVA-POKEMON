@@ -81,8 +81,8 @@ public class Player implements Serializable{
 			numberPokemon=numberPokemonIfWrong;
 		}
 	}
-	public int action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1,int round) throws IOException, ClassNotFoundException {
-		f1.printMenu(oppenent);
+	public int action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player actual ,Player oppenent,Fight f1,int round) throws IOException, ClassNotFoundException {
+		f1.printMenu(actual);
 		switch (event) {
 		case "p": //show pokedex
 			System.out.println("Voici le pokedex : \n");
@@ -93,7 +93,6 @@ public class Player implements Serializable{
 			System.out.println(pokeCapacity);
 			return round ;
 		case "m": //show pokeCapacity
-			f1.printMenu(oppenent);
 			return round ;
 		case "t":
 			teamString();
