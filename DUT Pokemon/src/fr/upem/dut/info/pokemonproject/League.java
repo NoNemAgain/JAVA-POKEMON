@@ -74,6 +74,16 @@ public class League {
 			activeBp=null;
 		}
 	}
+	public BotPlayer switchActiveBp() {	
+		if((numberBot<=league.length-1) && league[numberBot] != null) {
+			System.out.println(activeBp+" arrive sur le terrain !");
+			return activeBp=league[numberBot%league.length];
+			
+		}
+		else {
+			return activeBp;
+		}
+	}
 	public BotPlayer getActiveBp() {
 		return activeBp;
 	}

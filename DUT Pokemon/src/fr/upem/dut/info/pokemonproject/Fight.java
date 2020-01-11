@@ -66,7 +66,7 @@ public class Fight {
 		
 	}
 	public Player oppenent() {
-		botPlayerIsDead();
+		
 		if (round %2==0&&(!(end()))) {
 			return player2;
 			}
@@ -85,9 +85,16 @@ public class Fight {
 	public boolean end() {
 		
 		if ((player1.lose()||player2.lose())&& league.isEmpty()) {
+			
 			return true;
 		}
 		return false;
+	}
+	public Fight newChallenger() {
+		if ((!(league.isEmpty())) &&(player2.lose())){
+			return new Fight(player1,league.switchActiveBp(), pokedex, pokeCapacity, tm);
+		}
+		return null;
 	}
 	public void botPlayerIsDead() { 
 		if( player2.lose()&& (!league.isEmpty())){
