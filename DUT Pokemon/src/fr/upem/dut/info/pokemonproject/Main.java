@@ -3,14 +3,12 @@ package fr.upem.dut.info.pokemonproject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 import fr.upem.dut.info.pokemonproject.player.BotPlayer;
 
 public class Main {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		Fight f1 = new Fight();
-		
 	    String s = "";
 		try{
 		    BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
@@ -91,8 +89,6 @@ public class Main {
            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
            f1.printMenu(f1.getPlayer1());
             while (((s!=null && s.equalsIgnoreCase("quit")) == false && f1.actualPlayer()!=null) ||  (s.equalsIgnoreCase("quit")==false && f1.actualPlayer()!=null)) {
-            	
-            		//
             	if (f1.actualPlayer().isPlayer()){
 	            	s = bufferRead.readLine();	
             	}
@@ -100,8 +96,6 @@ public class Main {
             		s=((BotPlayer)f1.getPlayer2()).randomGenerateAction();
             	}
             	f1.tour(s);
-            	
-            	
             }
             System.out.println("Le jeu est termine !");
         }
@@ -109,6 +103,5 @@ public class Main {
         {
             e.printStackTrace();
         }
-
 	}
 }
