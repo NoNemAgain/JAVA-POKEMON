@@ -28,8 +28,8 @@ public class Main {
 		    BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
 			StringBuilder menu = new StringBuilder();
 			menu.append("Bienvenue dans le menu :\n");
-			menu.append("Touche init ===> pour initialiser des joueurs sans pokémon\n");
-			menu.append("Touche init1 ===> pour initialiser des joueurs avec pokémon\n");
+			menu.append("Touche init ===> (Multi) pour initialiser des joueurs sans pokémon\n");
+			menu.append("Touche init1 ===> (Multi) pour initialiser des joueurs avec pokémon\n");
 			menu.append("Touche init2 ===> Battre contre la ligue DUT 1\n");
 			menu.append("Touche init3 ===> Battre contre la ligue Default 1\n");
 			System.out.println(menu.toString());

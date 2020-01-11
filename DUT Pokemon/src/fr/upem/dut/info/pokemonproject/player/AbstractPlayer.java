@@ -137,13 +137,12 @@ public abstract class AbstractPlayer implements Player, Serializable{
 		public PokemonFight[] pickPokemon(Pokedex pokedex,PokeCapacity pokeCapacity) {
 			int count = 0;
 			PokemonFight[] teams = new PokemonFight[6];
-			System.out.println("Si vous tapez des caracteres autres qu'un nombre vous passerez au pokemon suivant\n");
 			int numPoke;
 			Scanner input = null;
 			 //ask the user to pick pokemons
 			while(count<6) {
 				System.out.println("Veuillez choisir votre pokemon numero "+(count+1));
-				System.out.println("\nEcrivez le numero du pokemon\n");
+				System.out.println("\nEcrivez le numero du pokemon ( 'quit' pour arreter )\n");
 				input = new Scanner(System.in);
 				if(!input.hasNextInt() && input.next().equals("quit")) { break;}
 				if(input.hasNextInt()) {
@@ -168,12 +167,11 @@ public abstract class AbstractPlayer implements Player, Serializable{
 		public CapacityDamage[] pickCapacitiy(PokemonFight pokemon,PokeCapacity pokeCapacity) {
 			int count = 0;
 			CapacityDamage[] capacities = new CapacityDamage[4];
-			System.out.println("Si vous tapez des caracteres autres qu'un nombre vous passerez a la capacite suivante\n");
 			String nameCapa = null;
 			Scanner input = null;
 			while(count<4 || nameCapa.equals("quit")) {
 				System.out.println("Veuillez choisir votre capacite numero "+(count+1));
-				System.out.println("\nEcrivez le nom de la capacite\n");
+				System.out.println("\nEcrivez le nom de la capacite ( 'quit' pour arreter )\n");
 				input = new Scanner(System.in);
 				nameCapa = input.next();
 				if(nameCapa.equals("quit")) { break; }

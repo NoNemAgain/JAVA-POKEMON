@@ -9,7 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
-
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.loader.PokeCapacity;
 import fr.upem.dut.info.pokemonproject.loader.Pokedex;
@@ -44,7 +43,6 @@ public class Fight {
 	public Fight (Player player1,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm,League league) {
 		super();
 		setPlayer2(league.getActiveBp());
-		
 	}
 	public Player getPlayer1() {
 		return player1;
@@ -52,7 +50,6 @@ public class Fight {
 	public Player getPlayer2() {
 		return player2;
 	}
-	
 	public boolean isBot() {
 		return (!(player2.isPlayer()));
 	}
@@ -67,7 +64,6 @@ public class Fight {
 		
 	}
 	public Player oppenent() {
-		
 		if (round %2==0&&(!(end()))) {
 			return player2;
 			}
@@ -93,17 +89,12 @@ public class Fight {
 		}
 		return false;
 	}
-	public void newChallenger() {
-		
-	}
 	public void botPlayerIsDead() { 
 		if( player2.lose()&& (!league.isEmpty())){
 			league.deleteBot();
 			round= 0 ;
 			setPlayer2(league.getActiveBp());
-			
 		}
-		
 	}
 
 	public boolean getMode() {
@@ -133,15 +124,13 @@ public class Fight {
 	public void setPlayer2(BotPlayer bp) {
 		player2=bp;
 	}
-	
-	
 	public void dataBase() throws IOException {
-		Pokedex pokedex =new Pokedex ();
+		Pokedex pokedex =  new Pokedex ();
 		PokeCapacity pokeCapacity =new PokeCapacity();
 		TypesMultiplicators tm =new TypesMultiplicators();
 	}
 	public Fight initialise2Players () throws IOException {
-		Pokedex pokedex =new Pokedex ();
+		Pokedex pokedex = new Pokedex ();
 		PokeCapacity pokeCapacity =new PokeCapacity();
 		TypesMultiplicators tm =new TypesMultiplicators();
 		RealPlayer p1 = new RealPlayer("Albert");
