@@ -29,5 +29,5 @@ public class Types {
 	@Override
 	public String toString() {
 		return "Types [type1=" + type1 + ", type2=" + type2 + "]";
-	}
+	};
 }
