@@ -141,17 +141,4 @@ public class PokemonFight extends Pokemon {
 		return exp;
 	}
 
-	/*
-	 * public void getStat(int stat,Stat statName,int round) { if
-	 * (Stat.isAttack(statName)) { attack+= stat; } if (Stat.isDefense(statName)) {
-	 * defense+= stat; } if (Stat.isAttackSpe(statName)) { attackSpe+= stat; } if
-	 * (Stat.isDefenseSpe(statName)) { defenseSpe+= stat; } if
-	 * (Stat.isSpeed(statName)) { speed+= stat; }
-	 * 
-	 * }
-	 */
-	/*
-	 * public boolean dissapear(int round) { if (round==0) { return true; } return
-	 * false; }
-	 */
 }
