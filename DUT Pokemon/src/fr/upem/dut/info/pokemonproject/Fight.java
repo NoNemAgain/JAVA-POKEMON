@@ -26,9 +26,9 @@ public class Fight {
 	private TypesMultiplicators tm;
 	private int round =0; 
 	private boolean mode =false;
-	
-	Path path =Paths.get("src/fr/upem/dut/info/pokemonproject/source/backup");
 	private League league;
+	Path path =Paths.get("src/fr/upem/dut/info/pokemonproject/source/backup");
+	
 	public Fight (Player player1, Player player2,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm,League league) {
 		this.player1=Objects.requireNonNull(player1);
 		this.player2=Objects.requireNonNull(player2);
@@ -38,11 +38,7 @@ public class Fight {
 		this.league = league;
 	}
 	public Fight() {
-		super();
-	}
-	public Fight (Player player1,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm,League league) {
-		super();
-		setPlayer2(league.getActiveBp());
+		
 	}
 	public Player getPlayer1() {
 		return player1;
@@ -50,9 +46,7 @@ public class Fight {
 	public Player getPlayer2() {
 		return player2;
 	}
-	public boolean isBot() {
-		return (!(player2.isPlayer()));
-	}
+	
 	public Player actualPlayer(){
 		if (round %2==0&&(!(end()))) {
 		return player1;
@@ -89,16 +83,8 @@ public class Fight {
 		}
 		return false;
 	}
-	public void botPlayerIsDead() { 
-		if( player2.lose()&& (!league.isEmpty())){
-			league.deleteBot();
-			round= 0 ;
-			setPlayer2(league.getActiveBp());
-		}
-	}
-
-	public boolean getMode() {
-		return getMode();
+	public void setPlayer2(BotPlayer bp) {
+		player2=bp;
 	}
 	public void sauvegarder() throws IOException{
 		// Create a file
@@ -121,13 +107,8 @@ public class Fight {
 			league =(League) in.readObject() ;
 		}
 	}
-	public void setPlayer2(BotPlayer bp) {
-		player2=bp;
-	}
-	public void dataBase() throws IOException {
-		Pokedex pokedex =  new Pokedex ();
-		PokeCapacity pokeCapacity =new PokeCapacity();
-		TypesMultiplicators tm =new TypesMultiplicators();
+	public void setMode() {
+		this.mode = true;
 	}
 	public Fight initialise2Players () throws IOException {
 		Pokedex pokedex = new Pokedex ();
@@ -195,7 +176,5 @@ public class Fight {
 		menu.append("Touche charg ===> pour charger\n");
 		System.out.println(menu.toString());
 	}
-	public void setMode() {
-		this.mode = true;
-	}
+	
 }

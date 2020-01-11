@@ -18,7 +18,7 @@ public interface Player {
 	String getName();
 
 	PokemonFight getActivePokemon();
-	
+
 	public void changePokemon(char input);
 
 	void deletePokemon();

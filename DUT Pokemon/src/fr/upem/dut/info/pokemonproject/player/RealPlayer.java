@@ -17,23 +17,24 @@ public class RealPlayer extends AbstractPlayer implements Serializable {
 	 */
 	private static final long serialVersionUID = 7223569687102081698L;
 
-	
-	public RealPlayer(String name,PokemonFight... team) throws IOException {
-		super(name,team);
+	public RealPlayer(String name, PokemonFight... team) throws IOException {
+		super(name, team);
 	}
-	public int action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1,int round,boolean mode) throws IOException, ClassNotFoundException {
+
+	public int action(String event, Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm, Player oppenent,
+			Fight f1, int round, boolean mode) throws IOException, ClassNotFoundException {
 		switch (event) {
-		case "p": //show pokedex
+		case "p": // show pokedex
 			System.out.println("Voici le pokedex : \n");
 			System.out.println(pokedex);
 			f1.printMenu(this);
 			return round;
-		case "c": //show pokeCapacity
+		case "c": // show pokeCapacity
 			System.out.println("Voici l'ensemble des capacites : \n");
 			System.out.println(pokeCapacity);
 			f1.printMenu(this);
 			return round;
-		case "m": //show menu
+		case "m": // show menu
 			f1.printMenu(this);
 			return round;
 		case "t":
@@ -44,38 +45,38 @@ public class RealPlayer extends AbstractPlayer implements Serializable {
 			oppenent.teamString();
 			f1.printMenu(this);
 			return round;
-		case "1": //use capacity 1
-			if(activePokemon.getCapacity(1)!=null) {
+		case "1": // use capacity 1
+			if (activePokemon.getCapacity(1) != null) {
 				mode(mode, oppenent);
 				activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);
 			}
 			break;
-		case "2": //use capacity 2
-			if(activePokemon.getCapacity(2)!=null) {
+		case "2": // use capacity 2
+			if (activePokemon.getCapacity(2) != null) {
 				mode(mode, oppenent);
 				activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(2), tm);
 			}
 			break;
-		case "3": //use capacity 3
-			if(activePokemon.getCapacity(3)!=null) {
-				mode(mode, oppenent);			
+		case "3": // use capacity 3
+			if (activePokemon.getCapacity(3) != null) {
+				mode(mode, oppenent);
 				activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(3), tm);
 			}
 			break;
-		case "4": //use capacity 4
-			if(activePokemon.getCapacity(4)!=null) {
+		case "4": // use capacity 4
+			if (activePokemon.getCapacity(4) != null) {
 				mode(mode, oppenent);
 				activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(4), tm);
 			}
 			break;
-		case "r": //flee
+		case "r": // flee
 			compteurDeath = team.length;
 			break;
-		case "charg" :
-	    		f1.charger();
-	    		System.out.println("chargement avec succès !");
-	    		return round;
-		case "s": //change pokemon
+		case "charg":
+			f1.charger();
+			System.out.println("chargement avec succès !");
+			return round;
+		case "s": // change pokemon
 			System.out.println("===============================================================\n");
 			System.out.println("Entrez un nombre pour choisir le pokemon que vous souhaitez :\n");
 			teamString();
@@ -95,16 +96,18 @@ public class RealPlayer extends AbstractPlayer implements Serializable {
 		}
 		oppenent.deletePokemon();
 		lose();
-		
+
 		if ((oppenent.isPlayer())) {
 			f1.printMenu(oppenent);
 		}
-		return round+=1;
+		return round += 1;
 	}
+
 	@Override
 	public boolean isPlayer() {
-		return super.isPlayer() ;
+		return super.isPlayer();
 	}
+
 	@Override
 	public String toString() {
 		return super.toString();

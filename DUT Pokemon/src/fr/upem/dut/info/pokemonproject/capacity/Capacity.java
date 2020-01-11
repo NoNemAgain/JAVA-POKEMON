@@ -5,6 +5,8 @@ import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public interface Capacity {
 	Type getType();
+
 	boolean canChooseCapacity(PokemonFight p);
+
 	String getName();
 }

@@ -9,27 +9,27 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 abstract class AbstractLoad {
-	public AbstractLoad () throws IOException {
+	public AbstractLoad() throws IOException {
 	}
-	//load the file 
-	protected void create(String fileName) throws IOException{
+
+	// load the file
+	protected void create(String fileName) throws IOException {
 		Path file = Paths.get(fileName);
 		Charset charset = StandardCharsets.UTF_8;
 		int i = 0;
-		try (BufferedReader reader = Files.newBufferedReader(file, charset)){
+		try (BufferedReader reader = Files.newBufferedReader(file, charset)) {
 			String line1;
 			while ((line1 = reader.readLine()) != null) {
 				String[] line = line1.split(",");
-				if(i !=0) {
+				if (i != 0) {
 					add(line);
 				}
 				i++;
 			}
 		}
-	
-	}
-	abstract void add(String[] line);
-	
 
-	
+	}
+
+	abstract void add(String[] line);
+
 }
