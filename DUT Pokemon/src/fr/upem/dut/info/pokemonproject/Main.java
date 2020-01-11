@@ -7,7 +7,7 @@ import fr.upem.dut.info.pokemonproject.player.BotPlayer;
 
 public class Main {
 	/**
-	 * Main class it is were the game is supposed to start
+	 * Main class it's the place where the game is supposed to start
 	 */
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		Fight f1 = new Fight();

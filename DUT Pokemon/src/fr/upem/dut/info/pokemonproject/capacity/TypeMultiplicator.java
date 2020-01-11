@@ -3,6 +3,9 @@ package fr.upem.dut.info.pokemonproject.capacity;
 import fr.upem.dut.info.pokemonproject.Type;
 
 public class TypeMultiplicator {
+	/**
+	 *Use in {@link TypesMultiplicators} and permit to multiply damage in function of the type 
+	 */
 	private final Type Type1;
 	private final Type Type2;
 	private final float steel;

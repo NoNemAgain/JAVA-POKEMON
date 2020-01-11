@@ -4,6 +4,9 @@ import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class Types {
+	/**
+	 *Use in {@link TypesMultiplicators} and permit to store both types of the Pokemon to return the multiplicator correctly 
+	 */
 	private final Type type1;
 	private final Type type2;
 
