@@ -6,10 +6,11 @@ import java.util.HashMap;
 import java.util.Objects;
 import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
+import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class Pokedex extends AbstractLoad implements Serializable {
 	/**
-	 * 
+	 *  This class permit to load the Pokedex  compose of {@link Pokemon} to generate {@link PokemonFight}
 	 */
 	private static final long serialVersionUID = -4972182653140422867L;
 	HashMap<Integer, Pokemon> pokedex = new HashMap<Integer, Pokemon>();

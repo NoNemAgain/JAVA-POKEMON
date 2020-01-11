@@ -11,6 +11,9 @@ import fr.upem.dut.info.pokemonproject.capacity.Types;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class TypesMultiplicators extends AbstractLoad {
+	/**
+	 * This class permit to load the TM which is use in Fight
+	 */
 	HashMap<Types, TypeMultiplicator> typesMultiplicators = new HashMap<Types, TypeMultiplicator>();
 	private static final String fileName = "src/fr/upem/dut/info/pokemonproject/source/grid_types.csv";
 

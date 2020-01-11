@@ -13,7 +13,7 @@ import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class RealPlayer extends AbstractPlayer implements Serializable {
 	/**
-	 * 
+	 * Class use to represent the Player, he chooses the action compare to {@link BotPlayer}
 	 */
 	private static final long serialVersionUID = 7223569687102081698L;
 

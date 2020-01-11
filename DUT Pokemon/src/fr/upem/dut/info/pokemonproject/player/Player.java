@@ -9,6 +9,9 @@ import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public interface Player {
+	/**
+	 * Interface for {@link AbstractPlayer}, {@link Player}, {@link RealPlayer}
+	 */
 
 	int action(String event, Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm, Player player2,
 			Fight fight, int round, boolean mode) throws IOException, ClassNotFoundException;

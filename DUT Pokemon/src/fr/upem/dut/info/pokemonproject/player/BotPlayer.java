@@ -12,7 +12,7 @@ import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class BotPlayer extends AbstractPlayer implements Serializable {
 	/**
-	 * 
+	 * {@link Player} who use random capacity.
 	 */
 	private static final long serialVersionUID = 6504470861979063728L;
 

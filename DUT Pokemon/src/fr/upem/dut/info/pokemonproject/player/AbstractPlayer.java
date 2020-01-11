@@ -16,7 +16,7 @@ import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public abstract class AbstractPlayer implements Player, Serializable {
 	/**
-	* 
+	* Abstract Class of {@link Player}, this class possess functions heredity such as switchPokemon ,deadPokemon etc. 
 	*/
 	private static final long serialVersionUID = -5227016998938907053L;
 	private final String name;
