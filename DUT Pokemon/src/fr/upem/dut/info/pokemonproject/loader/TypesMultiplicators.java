@@ -3,7 +3,6 @@ package fr.upem.dut.info.pokemonproject.loader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Objects;
-import java.util.function.Predicate;
 
 import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.capacity.AbstractCapacity;
@@ -41,10 +40,20 @@ public TypesMultiplicators () throws IOException {
 		return str.toString();
 	}
 	public float weakness(PokemonFight pf, AbstractCapacity abstractCapacity) {
-		float  multiplicator = 0.0F ;
+        float multiplicator = 0.0F ;
+        for (Types t:typesMultiplicators.keySet()) {
+            if (t.sameType(pf)) {
+                multiplicator =typesMultiplicators.get(t).multiplicatorTypes(abstractCapacity.getType());
+                break;
+
+            }
+        }
+        return multiplicator;
+        //Tentative d'utiliation des streams mais bug avec NoSuchElementException par fois
+		/*float  multiplicator = 0.0F ;
 		Predicate<Types> pre  = (t)-> t.sameType(pf);
 		Types t = typesMultiplicators.keySet().parallelStream().filter(pre).findFirst().get();
 		multiplicator = typesMultiplicators.get(t).multiplicatorTypes(abstractCapacity.getType());
-		return multiplicator;
+		return multiplicator;*/
 	}
 }

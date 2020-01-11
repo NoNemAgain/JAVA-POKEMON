@@ -8,6 +8,7 @@ import fr.upem.dut.info.pokemonproject.Fight;
 import fr.upem.dut.info.pokemonproject.loader.PokeCapacity;
 import fr.upem.dut.info.pokemonproject.loader.Pokedex;
 import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
+import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class RealPlayer extends AbstractPlayer implements Serializable{
@@ -20,7 +21,7 @@ public class RealPlayer extends AbstractPlayer implements Serializable{
 	public RealPlayer(String name,PokemonFight... team) throws IOException {
 		super(name,team);
 	}
-	public int action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1,int round) throws IOException, ClassNotFoundException {
+	public int action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1,int round,boolean mode) throws IOException, ClassNotFoundException {
 		switch (event) {
 		case "p": //show pokedex
 			System.out.println("Voici le pokedex : \n");
@@ -45,19 +46,27 @@ public class RealPlayer extends AbstractPlayer implements Serializable{
 			return round;
 		case "1": //use capacity 1
 			if(activePokemon.getCapacity(1)!=null) {
-			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);}
+				mode(mode, oppenent);
+				activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);
+			}
 			break;
 		case "2": //use capacity 2
 			if(activePokemon.getCapacity(2)!=null) {
-			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(2), tm);}
+				mode(mode, oppenent);
+				activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(2), tm);
+			}
 			break;
 		case "3": //use capacity 3
 			if(activePokemon.getCapacity(3)!=null) {
-			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(3), tm);}
+				mode(mode, oppenent);			
+				activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(3), tm);
+			}
 			break;
 		case "4": //use capacity 4
 			if(activePokemon.getCapacity(4)!=null) {
-			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(4), tm);}
+				mode(mode, oppenent);
+				activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(4), tm);
+			}
 			break;
 		case "r": //flee
 			compteurDeath = team.length;

@@ -69,6 +69,30 @@ public class Main {
 		{
 		    e.printStackTrace();
 		}
+		try{
+		    BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+			StringBuilder menu = new StringBuilder();
+			menu.append("Bienvenue dans le menu :\n");
+			menu.append("Touche mode ===> pour jouer avec le mode homemade\n");
+			menu.append("Touche next ===> next sinon\n");
+			System.out.println(menu.toString());
+		    while (true) {
+		    	s = bufferRead.readLine();
+		    	if(s.equals("mode")) {
+		    		f1.setMode();
+		    		System.out.println("Veuillez entrer 'jouer'");
+		    		break;
+		    	}
+		    	if(s.equals("next")) {
+		    		System.out.println("Veuillez entrer 'jouer'");
+		    		break;
+		    	}
+		    }
+		}
+		catch(IOException e)
+		{
+		    e.printStackTrace();
+		}
         try{
            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
            f1.printMenu(f1.getPlayer1());

@@ -79,9 +79,7 @@ public class Fight {
 	
 	public void tour(String event) throws IOException, ClassNotFoundException {
 		//User interact with the program
-		round =actualPlayer().action(event, pokedex, pokeCapacity, tm,oppenent(), this, round);
-		
-		
+		round = actualPlayer().action(event, pokedex, pokeCapacity, tm,oppenent(), this, round,mode);
 	}
 	public boolean end() {
 		if(player2.lose() && league!=null &&!league.isEmpty()) {
@@ -233,5 +231,8 @@ public class Fight {
 		menu.append("Touche m ===> pour menu\n");
 		menu.append("Touche charg ===> pour charger\n");
 		System.out.println(menu.toString());
+	}
+	public void setMode() {
+		this.mode = true;
 	}
 }

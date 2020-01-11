@@ -11,13 +11,15 @@ import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 public interface Player {
 
 	int action(String event, Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm, Player player2,
-			Fight fight, int round) throws IOException, ClassNotFoundException;
+			Fight fight, int round, boolean mode) throws IOException, ClassNotFoundException;
 
 	boolean lose();
 
 	String getName();
 
 	PokemonFight getActivePokemon();
+	
+	public void changePokemon(char input);
 
 	void deletePokemon();
 

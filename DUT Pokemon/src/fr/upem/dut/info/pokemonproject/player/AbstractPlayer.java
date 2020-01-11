@@ -46,6 +46,12 @@ public abstract class AbstractPlayer implements Player{
 				activePokemon=null;
 			}
 		}
+		public void mode(boolean mode, Player oppenent) {
+			if(mode) {
+		        String s = ""+Pokemon.random(1, 6);
+				oppenent.changePokemon(s.charAt(0));
+			}
+		}
 		public void changePokemon(char input) {
 			int numberPokemonIfWrong= numberPokemon;
 			switch (input) {	
@@ -78,7 +84,7 @@ public abstract class AbstractPlayer implements Player{
 				numberPokemon=numberPokemonIfWrong;
 			}
 		}
-		public abstract int action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1,int round) throws IOException, ClassNotFoundException;
+		public abstract int action(String event,Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent,Fight f1,int round,boolean mode) throws IOException, ClassNotFoundException;
 		
 		public boolean lose() {
 			if (compteurDeath ==team.length || activePokemon == null) {

@@ -20,26 +20,33 @@ public class BotPlayer extends AbstractPlayer implements Serializable{
 		super(name, team);
 	}
 	@Override
-	public int action(String event, Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent, Fight f1,int round) throws IOException {
+	public int action(String event, Pokedex pokedex, PokeCapacity pokeCapacity, TypesMultiplicators tm,Player oppenent, Fight f1,int round,boolean mode) throws IOException {
 		
 		switch (randomGenerateAction()) {
-		case "1": //utiliser capacite 1
+		case "1": //use capacity 1
 			if(activePokemon.getCapacity(1)!=null) {
-			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);}
+				mode(mode, oppenent);
+				activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(1), tm);
+			}
 			break;
-		case "2": //utiliser capacite 2
+		case "2": //use capacity 2
 			if(activePokemon.getCapacity(2)!=null) {
-			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(2), tm);}
+				mode(mode, oppenent);
+				activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(2), tm);
+			}
 			break;
-		case "3": //utiliser capacite 3
+		case "3": //use capacity 3
 			if(activePokemon.getCapacity(3)!=null) {
-			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(3), tm);}
+				mode(mode, oppenent);			
+				activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(3), tm);
+			}
 			break;
-		case "4": //utiliser capacite 4
+		case "4": //use capacity 4
 			if(activePokemon.getCapacity(4)!=null) {
-			activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(4), tm);}
+				mode(mode, oppenent);
+				activePokemon.attack(oppenent.getActivePokemon(), activePokemon.getCapacity(4), tm);
+			}
 			break;
-	
 		default:
 			System.out.println("Touche inconnue veuillez réessayer !\n");
 			break;
