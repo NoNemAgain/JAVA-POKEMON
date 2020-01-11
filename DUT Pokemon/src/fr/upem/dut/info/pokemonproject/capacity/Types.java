@@ -2,7 +2,7 @@ package fr.upem.dut.info.pokemonproject.capacity;
 
 import fr.upem.dut.info.pokemonproject.Type;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
-
+d
 public class Types {
 	private final Type type1;
 	private final Type type2;
