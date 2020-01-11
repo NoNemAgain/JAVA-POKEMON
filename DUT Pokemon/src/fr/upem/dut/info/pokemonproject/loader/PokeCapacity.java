@@ -11,7 +11,7 @@ import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class PokeCapacity extends AbstractLoad implements Serializable {
 	/**
-	 *  This class permit to load the {@link PokeCapacity} to initalize {@link PokemonFight} capacities
+	 *  This class permit to load the {@link PokeCapacity} and to initalize {@link PokemonFight} capacities
 	 */
 	private static final long serialVersionUID = -3032856954583949261L;
 	HashMap<String, CapacityDamage> capacities = new HashMap<String, CapacityDamage>();
