@@ -72,7 +72,7 @@ public class Main {
         try{
            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
            f1.printMenu(f1.getPlayer1());
-            while ((s!=null && s.equalsIgnoreCase("quit")) == false ||  s.equalsIgnoreCase("quit")==false) {
+            while (((s!=null && s.equalsIgnoreCase("quit")) == false && f1.actualPlayer()!=null) ||  (s.equalsIgnoreCase("quit")==false && f1.actualPlayer()!=null)) {
             	
             		//
             	if (f1.actualPlayer().isPlayer()){

@@ -29,13 +29,14 @@ public class Fight {
 	private boolean mode =false;
 	
 	Path path =Paths.get("src/fr/upem/dut/info/pokemonproject/source/backup");
-	private League league ;
-	public Fight (Player player1, Player player2,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm) {
+	private League league;
+	public Fight (Player player1, Player player2,Pokedex pokedex,PokeCapacity pokeCapacity,TypesMultiplicators tm,League league) {
 		this.player1=Objects.requireNonNull(player1);
 		this.player2=Objects.requireNonNull(player2);
 		this.tm = tm;
 		this.pokedex = pokedex;
 		this.pokeCapacity = pokeCapacity;
+		this.league = league;
 	}
 	public Fight() {
 		super();
@@ -83,18 +84,19 @@ public class Fight {
 		
 	}
 	public boolean end() {
-		
-		if ((player1.lose()||player2.lose())&& league.isEmpty()) {
-			
+		if(player2.lose() && league!=null &&!league.isEmpty()) {
+			league.deleteBot();
+			round= 0;
+			setPlayer2(league.getActiveBp());
+			return false;
+		}
+		if ((player1.lose()||player2.lose())&& (league==null || league.isEmpty())) {
 			return true;
 		}
 		return false;
 	}
-	public Fight newChallenger() {
-		if ((!(league.isEmpty())) &&(player2.lose())){
-			return new Fight(player1,league.switchActiveBp(), pokedex, pokeCapacity, tm);
-		}
-		return null;
+	public void newChallenger() {
+		
 	}
 	public void botPlayerIsDead() { 
 		if( player2.lose()&& (!league.isEmpty())){
@@ -148,7 +150,7 @@ public class Fight {
 		TypesMultiplicators tm =new TypesMultiplicators();
 		RealPlayer p1 = new RealPlayer("Albert");
 		RealPlayer p2 = new RealPlayer("Jean");
-		return new Fight(p1, p2, pokedex, pokeCapacity,tm);
+		return new Fight(p1, p2, pokedex, pokeCapacity,tm,null);
 	}
 	public Fight initialise2PlayersWithPokemons () throws IOException {
 		Pokedex pokedex =new Pokedex ();
@@ -168,7 +170,7 @@ public class Fight {
 		poke4.setCapacities(capacityDamages);
 		RealPlayer p1 = new RealPlayer("Albert",poke1,poke2);
 		RealPlayer p2 = new RealPlayer("Jean",poke3,poke4);
-		return new Fight(p1, p2, pokedex, pokeCapacity,tm);
+		return new Fight(p1, p2, pokedex, pokeCapacity,tm,null);
 	}
 	public Fight initiliaseLigueDUT() throws IOException {
 		Pokedex pokedex =new Pokedex ();
@@ -188,10 +190,10 @@ public class Fight {
 		poke4.setCapacities(capacityDamages);
 		RealPlayer p1 = new RealPlayer("Albert",poke1,poke2);
 		int NumberPokemon = 1;
-		int numberDresseur =2 ;
-		League l1=new League(NumberPokemon,numberDresseur);
-		l1.teamString();
-		return new Fight(p1,(Player)l1.getActiveBp(), pokedex, pokeCapacity,tm);
+		int numberDresseur = 2;
+		League league = new League(NumberPokemon,numberDresseur);
+		league.teamString();
+		return new Fight(p1,(Player)league.getActiveBp(), pokedex, pokeCapacity,tm,league);
 	}
 	public Fight initiliaseLigueDefault() throws IOException {
 		Pokedex pokedex =new Pokedex ();
@@ -210,9 +212,9 @@ public class Fight {
 		poke3.setCapacities(capacityDamages);
 		poke4.setCapacities(capacityDamages);
 		RealPlayer p1 = new RealPlayer("Albert",poke1,poke2);
-		League l1=new League();
-		l1.teamString();
-		return new Fight(p1,(Player)l1.getActiveBp(), pokedex, pokeCapacity,tm);
+		League league =new League();
+		league.teamString();
+		return new Fight(p1,(Player)league.getActiveBp(), pokedex, pokeCapacity,tm,league);
 	}
 	public void printMenu(Player player) {
 		StringBuilder menu = new StringBuilder();
