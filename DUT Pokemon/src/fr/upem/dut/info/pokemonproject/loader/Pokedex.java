@@ -9,7 +9,7 @@ import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 
 public class Pokedex extends AbstractLoad implements Serializable {
 	/**
-	 * 
+	 *  This class permit to load the Pokedex to generate {@link Pokemon}
 	 */
 	private static final long serialVersionUID = -4972182653140422867L;
 	HashMap<Integer, Pokemon> pokedex = new HashMap<Integer, Pokemon>();

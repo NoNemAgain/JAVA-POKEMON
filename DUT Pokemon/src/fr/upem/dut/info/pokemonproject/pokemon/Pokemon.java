@@ -8,6 +8,7 @@ import fr.upem.dut.info.pokemonproject.Type;
 
 public class Pokemon implements Serializable {
 	/**
+	 * Pokemon create in the Pokedex, this class permit to generate PokemonFight 
 	 * 
 	 */
 	private static final long serialVersionUID = 3347003819739762398L;

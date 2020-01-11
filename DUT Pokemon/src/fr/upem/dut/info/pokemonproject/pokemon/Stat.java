@@ -1,6 +1,9 @@
 package fr.upem.dut.info.pokemonproject.pokemon;
 
 public enum Stat {
+	/**
+	 * Manage Pokemon Fight's stats and permit to recognize stats
+	 */
 	attack, defense, attackSpe, defenseSpe, speed;
 	public static boolean isAttack(Stat sn) {
 		if (attack == sn) {

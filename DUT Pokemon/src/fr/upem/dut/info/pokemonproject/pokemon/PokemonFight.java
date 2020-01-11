@@ -8,7 +8,8 @@ import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
 
 public class PokemonFight extends Pokemon {
 	/**
-	 * 
+	 * Pokemon who are fighting in Fight, they are generate by the Pokedex and Pokemon. 
+	 * Compare to Pokemon, this class has stats such as attack, defense, speed etc and capacities who are used to fight 
 	 */
 	private static final long serialVersionUID = 6129822248125061027L;
 	private static int id = 0;
