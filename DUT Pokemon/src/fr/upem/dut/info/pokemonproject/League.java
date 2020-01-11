@@ -1,6 +1,7 @@
 package fr.upem.dut.info.pokemonproject;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.loader.PokeCapacity;
@@ -9,7 +10,11 @@ import fr.upem.dut.info.pokemonproject.player.BotPlayer;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
-public class League {
+public class League implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3938419115936082958L;
 	private BotPlayer[] league;
 	private BotPlayer activeBp;
 	private int numberBot=0;

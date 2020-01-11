@@ -11,7 +11,7 @@ import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
-public class RealPlayer extends AbstractPlayer implements Serializable{
+public class RealPlayer extends AbstractPlayer implements Serializable {
 	/**
 	 * 
 	 */

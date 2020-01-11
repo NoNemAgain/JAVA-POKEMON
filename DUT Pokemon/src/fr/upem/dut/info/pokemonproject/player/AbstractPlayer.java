@@ -1,6 +1,7 @@
 package fr.upem.dut.info.pokemonproject.player;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -13,7 +14,11 @@ import fr.upem.dut.info.pokemonproject.loader.TypesMultiplicators;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
-public abstract class AbstractPlayer implements Player{
+public abstract class AbstractPlayer implements Player, Serializable{
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5227016998938907053L;
 		private final String name;
 		protected PokemonFight[] team;
 		protected PokemonFight activePokemon;
