@@ -13,7 +13,6 @@ public class Types {
 	}
 	public Types(Type type1) {
 		this(type1, null);
-
 	}
 	public boolean sameType(PokemonFight pf) {
 		if (type1 != null && type1.equals(pf.getType()) && type2 == null) {
