@@ -19,6 +19,9 @@ import fr.upem.dut.info.pokemonproject.player.RealPlayer;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class Fight {
+	/**
+	 * Class Fight is used to create a fight either between 2 players for multiplayer or against the {@link League}
+	 */
 	private Player player1;
 	private Player player2;
 	private Pokedex pokedex;

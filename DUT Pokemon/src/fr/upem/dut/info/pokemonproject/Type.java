@@ -1,6 +1,11 @@
 package fr.upem.dut.info.pokemonproject;
 
+import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
+
 public enum Type {
+	/**
+	 * Enumeration of the different types used in the {@link Pokemon} class
+	 */
 	normal, grass, poison, fire, flying, water, bug, electric, ground, fairy, psychic, rock, steel, ice, ghost, dragon,
 	dark, fighting;
 

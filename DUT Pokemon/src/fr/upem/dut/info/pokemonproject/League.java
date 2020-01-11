@@ -7,12 +7,14 @@ import fr.upem.dut.info.pokemonproject.capacity.CapacityDamage;
 import fr.upem.dut.info.pokemonproject.loader.PokeCapacity;
 import fr.upem.dut.info.pokemonproject.loader.Pokedex;
 import fr.upem.dut.info.pokemonproject.player.BotPlayer;
+import fr.upem.dut.info.pokemonproject.player.RealPlayer;
 import fr.upem.dut.info.pokemonproject.pokemon.Pokemon;
 import fr.upem.dut.info.pokemonproject.pokemon.PokemonFight;
 
 public class League implements Serializable {
 	/**
-	 * 
+	 * Class League allow to create league objects in order to let the {@link RealPlayer} fight {@link BotPlayer}
+	 * Used in the {@link Fight} class
 	 */
 	private static final long serialVersionUID = -3938419115936082958L;
 	private BotPlayer[] league;

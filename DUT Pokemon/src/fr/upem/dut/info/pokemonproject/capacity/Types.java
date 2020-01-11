@@ -11,12 +11,10 @@ public class Types {
 		this.type1 = type1;
 		this.type2 = type2;
 	}
-
 	public Types(Type type1) {
 		this(type1, null);
 
 	}
-
 	public boolean sameType(PokemonFight pf) {
 		if (type1 != null && type1.equals(pf.getType()) && type2 == null) {
 			return true;
@@ -26,10 +24,8 @@ public class Types {
 		}
 		return false;
 	}
-
 	@Override
 	public String toString() {
 		return "Types [type1=" + type1 + ", type2=" + type2 + "]";
 	}
-
 }

@@ -6,7 +6,9 @@ import java.io.InputStreamReader;
 import fr.upem.dut.info.pokemonproject.player.BotPlayer;
 
 public class Main {
-
+	/**
+	 * Main class it is were the game is supposed to start
+	 */
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		Fight f1 = new Fight();
 		String s = "";
