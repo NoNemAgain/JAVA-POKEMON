@@ -59,13 +59,14 @@ public class Fight {
 		if (round %2==0&&(!(end()))) {
 		return player1;
 		}
-		if(round %2!=0&& (!end())) {//&&(player2.isPlayer())){
+		if(round %2!=0&& (!end())) {
 		return player2;
 		}
 		return null;
 		
 	}
 	public Player oppenent() {
+		botPlayerIsDead();
 		if (round %2==0&&(!(end()))) {
 			return player2;
 			}
@@ -82,11 +83,22 @@ public class Fight {
 		
 	}
 	public boolean end() {
-		if (player1.lose()||player2.lose()) {
+		
+		if ((player1.lose()||player2.lose())&& league.isEmpty()) {
 			return true;
 		}
 		return false;
 	}
+	public void botPlayerIsDead() { 
+		if( player2.lose()&& (!league.isEmpty())){
+			league.deleteBot();
+			round= 0 ;
+			setPlayer2(league.getActiveBp());
+			
+		}
+		
+	}
+
 	public boolean getMode() {
 		return getMode();
 	}
@@ -117,12 +129,7 @@ public class Fight {
 		player2=bp;
 	}
 	
-	public void switchBot() {
-		if(player2.lose()) {
-			league.switchActiveBp();
-			round= 0 ;
-		}
-	}
+	
 	public void dataBase() throws IOException {
 		Pokedex pokedex =new Pokedex ();
 		PokeCapacity pokeCapacity =new PokeCapacity();
@@ -156,7 +163,7 @@ public class Fight {
 		RealPlayer p2 = new RealPlayer("Jean",poke3,poke4);
 		return new Fight(p1, p2, pokedex, pokeCapacity,tm);
 	}
-	public Fight initiliaseLigue1() throws IOException {
+	public Fight initiliaseLigueDUT() throws IOException {
 		Pokedex pokedex =new Pokedex ();
 		PokeCapacity pokeCapacity =new PokeCapacity();
 		TypesMultiplicators tm =new TypesMultiplicators();
@@ -172,8 +179,31 @@ public class Fight {
 		poke2.setCapacities(capacityDamages);
 		poke3.setCapacities(capacityDamages);
 		poke4.setCapacities(capacityDamages);
-		Player p1 = new RealPlayer("Albert",poke1,poke2);
-		League l1=new League(1,2);
+		RealPlayer p1 = new RealPlayer("Albert",poke1,poke2);
+		int NumberPokemon = 1;
+		int numberDresseur =2 ;
+		League l1=new League(NumberPokemon,numberDresseur);
+		l1.teamString();
+		return new Fight(p1,(Player)l1.getActiveBp(), pokedex, pokeCapacity,tm);
+	}
+	public Fight initiliaseLigueDefault() throws IOException {
+		Pokedex pokedex =new Pokedex ();
+		PokeCapacity pokeCapacity =new PokeCapacity();
+		TypesMultiplicators tm =new TypesMultiplicators();
+		CapacityDamage cut  = pokeCapacity.getCapacities().get("cut");
+		CapacityDamage pound  = pokeCapacity.getCapacities().get("pound");
+		CapacityDamage doubleSlap  = pokeCapacity.getCapacities().get("double-slap");
+		CapacityDamage[] capacityDamages = {cut,pound,doubleSlap};
+		PokemonFight poke1 = pokedex.getPokedex().get(1).createPokemon();
+		PokemonFight poke2 = pokedex.getPokedex().get(2).createPokemon();
+		PokemonFight poke3 = pokedex.getPokedex().get(3).createPokemon();
+		PokemonFight poke4 = pokedex.getPokedex().get(4).createPokemon();
+		poke1.setCapacities(capacityDamages);
+		poke2.setCapacities(capacityDamages);
+		poke3.setCapacities(capacityDamages);
+		poke4.setCapacities(capacityDamages);
+		RealPlayer p1 = new RealPlayer("Albert",poke1,poke2);
+		League l1=new League();
 		l1.teamString();
 		return new Fight(p1,(Player)l1.getActiveBp(), pokedex, pokeCapacity,tm);
 	}

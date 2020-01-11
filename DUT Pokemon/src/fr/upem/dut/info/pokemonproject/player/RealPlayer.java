@@ -96,4 +96,8 @@ public class RealPlayer extends AbstractPlayer implements Serializable{
 	public boolean isPlayer() {
 		return super.isPlayer() ;
 	}
+	@Override
+	public String toString() {
+		return super.toString();
+	}
 }

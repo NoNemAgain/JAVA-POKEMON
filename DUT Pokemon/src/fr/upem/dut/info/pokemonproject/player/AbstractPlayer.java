@@ -1,6 +1,7 @@
 package fr.upem.dut.info.pokemonproject.player;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import fr.upem.dut.info.pokemonproject.Fight;
@@ -178,4 +179,10 @@ public abstract class AbstractPlayer implements Player{
 		public boolean isPlayer() {
 			return true ;
 		}
+		@Override
+		public String toString() {
+			return "AbstractPlayer [name=" + name + ", team=" + Arrays.toString(team) + ", activePokemon="
+					+ activePokemon+"]";
+		}
+		
 }

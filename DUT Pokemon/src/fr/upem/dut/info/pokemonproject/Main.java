@@ -38,7 +38,8 @@ public class Main {
 			menu.append("Bienvenue dans le menu :\n");
 			menu.append("Touche init ===> pour initialiser des joueurs sans pokémon\n");
 			menu.append("Touche init1 ===> pour initialiser des joueurs avec pokémon\n");
-			menu.append("Touche init2 ===> Battre contre la ligue 1\n");
+			menu.append("Touche init2 ===> Battre contre la ligue DUT 1\n");
+			menu.append("Touche init3 ===> Battre contre la ligue Default 1\n");
 			System.out.println(menu.toString());
 		    while (true) {
 		    	s = bufferRead.readLine();
@@ -53,7 +54,12 @@ public class Main {
 		    		 break;
 		    	}
 		    	if(s.equals("init2")) {
-		    		 f1=f1.initiliaseLigue1();
+		    		 f1=f1.initiliaseLigueDUT();
+		    		 System.out.println("Veuillez entrer 'jouer'");
+		    		 break;
+		    	}
+		    	if(s.equals("init3")) {
+		    		 f1=f1.initiliaseLigueDefault();
 		    		 System.out.println("Veuillez entrer 'jouer'");
 		    		 break;
 		    	}	
@@ -70,12 +76,10 @@ public class Main {
             	
             		//
             	if (f1.actualPlayer().isPlayer()){
-	            	s = bufferRead.readLine();
-            	
+	            	s = bufferRead.readLine();	
             	}
             	else {
             		s=((BotPlayer)f1.getPlayer2()).randomGenerateAction();
-            		System.out.println("ara");
             	}
             	f1.tour(s);
             	
