@@ -1,0 +1,12 @@
+DUONG Thomas
+SAUCET Nathan
+ 
+CHANGELOG 
+
+Modifications réalisées :
+-Implémentation et gestion de la Ligue DUT et défaut
+-Création d'une abstract Class AbstractPlayer et une interface Player 
+-Non saut de tours lors de l'utilisation d'actions non impactante sur les pokémons ( Regarder Pokedex, sauvegarder, regarder TypesMultiplicators etc...)
+-Création du mode HomeMade
+-Fonction initialise
+-Utilisation des streams 
