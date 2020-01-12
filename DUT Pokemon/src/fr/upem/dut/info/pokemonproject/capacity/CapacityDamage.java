@@ -23,6 +23,9 @@ public class CapacityDamage extends AbstractCapacity implements Serializable {
 			float d = mul * power + 2 * tm.weakness(pf, this);
 			pf.getDamaged(d, physic);
 		}
+		else {
+			System.out.println("votre attaque " + name +" a échoué ");
+		}
 	}
 	public Type getType() {
 		return super.getType();
